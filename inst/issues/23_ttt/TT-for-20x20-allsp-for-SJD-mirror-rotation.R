@@ -208,7 +208,7 @@ torusonesp.all=function(species="GIROPA", hab.index20=hab.index20, allabund20=al
 
       if (GrLsEq[1,(6*i)-4]/(4*(plotdimqx*plotdimqy)) <= 0.025) GrLsEq[1,(6*i)-1] = -1	# if rel.dens. of sp in true map is greater than rel. dens. in torus map less than 2.5% of the time, then repelled
       if (GrLsEq[1,(6*i)-4]/(4*(plotdimqx*plotdimqy)) >= 0.975) GrLsEq[1,(6*i)-1] = 1	# if rel.dens. of sp in true map is greater than rel. dens. in torus map more than 97.5% of the time, then aggregated
-      if (GrLsEq[1,(6*i)-4]/(4*(plotdimqx*plotdimqy)) < 0.975 & GrLsEq[1,(6*i)-4]/(plotdimqx*plotdimqy) > 0.025) GrLsEq[1,(6*i)-1] = 0		# otherwise it's neutral (not different from random dist)
+      if ( (GrLsEq[1,(6*i)-4]/(4*(plotdimqx*plotdimqy)) < 0.975) & (GrLsEq[1,(6*i)- 4]/(4*(plotdimqx*plotdimqy)) > 0.025) ) GrLsEq[1,(6*i)-1] = 0   # otherwise it's neutral (not different from random dist)
 
       GrLsEq[1,(6*i)] = GrLsEq[1,(6*i)-4]/(4*(plotdimqx*plotdimqy))				# quantile in the TT distribtution of relative densities of the true relative density 
      } 
