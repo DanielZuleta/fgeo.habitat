@@ -114,6 +114,1606 @@ tail(tt_df)
 
 ``` r
 result <- krig(soil_fake, var = c("c", "p"), quiet = TRUE)
+#> Warning in duplicated.matrix(res$coords, MAR = 1): partial argument match
+#> of 'MAR' to 'MARGIN'
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+#> Warning in duplicated.matrix(res$coords, MAR = 1): partial argument match
+#> of 'MAR' to 'MARGIN'
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
+
+#> Warning: partial match of 'weight' to 'weights'
 head(to_df(result))
 #>   var   x  y        z
 #> 1   c  10 10 2.134696
