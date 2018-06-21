@@ -39,7 +39,7 @@ to_df.krig_lst <- function(.x, name = "var", item = "df", ...) {
   stopifnot(length(item) == 1, item == "df" || item == "df.poly")
 
   dfs <- lapply(.x, "[[", item)
-  out <- Reduce(rbind, fgeo.base::name_df_lst(dfs, name = name))
+  out <- Reduce(rbind, fgeo.base::name_dfs(dfs, name = name))
   out[c(name, setdiff(names(out), name))]
 }
 
@@ -63,5 +63,5 @@ to_df.krig_lst <- function(.x, name = "var", item = "df", ...) {
 #' tail(tt_df)
 to_df.tt_lst <- function(.x, ...) {
   flip <- t(Reduce(rbind, .x))
-  fgeo.base::gather_matrix(flip, "metric", "sp", "value")
+  fgeo.base::gather_mat(flip, "metric", "sp", "value")
 }
