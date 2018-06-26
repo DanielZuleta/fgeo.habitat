@@ -16,7 +16,8 @@ Imports:
     MASS,
     rlang,
     stats,
-    fgeo.base
+    fgeo.base,
+    fgeo.tool
 Suggests: 
     covr,
     dplyr,
@@ -30,5 +31,6 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1.9000
-Remotes: 
-    forestgeo/fgeo.base
+Remotes:  
+    forestgeo/fgeo.base,
+    forestgeo/fgeo.tool
