@@ -21,9 +21,11 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
@@ -32,6 +34,7 @@
 
 <meta property="og:description" content="Datasets from fgeo.data." />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -151,17 +154,17 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>str</span>(<span class='no'>luquillo_habitat</span>, <span class='kw'>give.attr</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	400 obs. of  3 variables:
+    <pre class="examples"><div class='input'><span class='fu'>str</span>(<span class='no'>luquillo_habitat</span>, <span class='kw'>give.attr</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':	400 obs. of  3 variables:
 #&gt;  $ x       : num  0 0 0 0 0 0 0 0 0 0 ...
 #&gt;  $ y       : num  0 20 40 60 80 100 120 140 160 180 ...
 #&gt;  $ habitats: int  2 1 2 2 2 1 1 1 1 1 ...</div><div class='input'><span class='fu'>str</span>(<span class='no'>luquillo_elevation</span>, <span class='kw'>give.attr</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; List of 4
-#&gt;  $ col :Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	6565 obs. of  3 variables:
+#&gt;  $ col :Classes 'tbl_df', 'tbl' and 'data.frame':	6565 obs. of  3 variables:
 #&gt;   ..$ x   : int [1:6565] 0 0 0 0 0 0 0 0 0 0 ...
 #&gt;   ..$ y   : int [1:6565] 0 5 10 15 20 25 30 35 40 45 ...
 #&gt;   ..$ elev: num [1:6565] 364 364 363 363 363 ...
 #&gt;  $ mat : num [1:101, 1:65] 364 364 363 363 363 ...
 #&gt;  $ xdim: int 320
-#&gt;  $ ydim: int 500</div><div class='input'><span class='fu'>str</span>(<span class='no'>luquillo_tree6_random</span>, <span class='kw'>give.attr</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	1004 obs. of  19 variables:
+#&gt;  $ ydim: int 500</div><div class='input'><span class='fu'>str</span>(<span class='no'>luquillo_tree6_random</span>, <span class='kw'>give.attr</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':	1004 obs. of  19 variables:
 #&gt;  $ treeID   : int  104 119 180 602 631 647 1086 1144 1168 1380 ...
 #&gt;  $ stemID   : int  143 158 225 736 775 793 1339 1410 1438 1702 ...
 #&gt;  $ tag      : chr  "10009" "100104" "100171" "100649" ...
@@ -180,7 +183,7 @@
 #&gt;  $ codes    : chr  "MAIN;A" "MAIN;A" "SPROUT;A" "MAIN;A" ...
 #&gt;  $ nostems  : num  1 1 2 1 1 1 1 1 1 1 ...
 #&gt;  $ status   : chr  "A" "A" "A" "A" ...
-#&gt;  $ date     : num  NA NA NA NA NA NA NA NA NA NA ...</div><div class='input'><span class='fu'>str</span>(<span class='no'>luquillo_stem6_random</span>, <span class='kw'>give.attr</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	1324 obs. of  19 variables:
+#&gt;  $ date     : num  NA NA NA NA NA NA NA NA NA NA ...</div><div class='input'><span class='fu'>str</span>(<span class='no'>luquillo_stem6_random</span>, <span class='kw'>give.attr</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':	1324 obs. of  19 variables:
 #&gt;  $ treeID   : int  104 119 180 180 180 180 602 631 647 1086 ...
 #&gt;  $ stemID   : int  143 158 222 223 224 225 736 775 793 1339 ...
 #&gt;  $ tag      : chr  "10009" "100104" "100171" "100171" ...

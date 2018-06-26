@@ -27,7 +27,7 @@ test_that("fails with wrong names", {
   )
   expect_error(
     extract_plotdim(data.frame(wrong_name = 1)),
-    "Ensure your data set has these variables"
+    "Data must have"
   )
 })
 

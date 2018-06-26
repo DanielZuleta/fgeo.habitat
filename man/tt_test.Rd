@@ -11,7 +11,9 @@ tt_test(census, sp, habitat, plotdim = extract_plotdim(habitat),
 torusonesp.all(species, hab.index20, allabund20, plotdim, gridsize)
 }
 \arguments{
-\item{census}{A dataframe; a ForestGEO census.}
+\item{census}{A dataframe; a ForestGEO census. The original example uses
+a 'tree' (or 'full') ForestGEO-table -- which contains one row per tree
+(not one row per stem).}
 
 \item{sp, species}{Character sting giving species names. \code{torusonesp.all()}can
 take only one species; \code{tt_test()} can take any number of species.}

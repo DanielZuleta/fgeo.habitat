@@ -17,7 +17,9 @@
 #'
 #' @param sp,species Character sting giving species names. `torusonesp.all()`can
 #'   take only one species; `tt_test()` can take any number of species.
-#' @param census A dataframe; a ForestGEO census.
+#' @param census A dataframe; a ForestGEO census. The original example uses
+#'   a 'tree' (or 'full') ForestGEO-table -- which contains one row per tree
+#'   (not one row per stem).
 #' @param habitat,hab.index20 Object giving the habitat designation for each
 #'   plot partition defined by `gridsize`.
 #' @param plotdim Plot dimensions.
@@ -88,6 +90,13 @@ tt_test <- function(census,
                     habitat,
                     plotdim = extract_plotdim(habitat),
                     gridsize = extract_gridsize(habitat)) {
+  
+  stopifnot(is.data.frame(habitat))
+  # Sanitize habitat if necessary
+  habitat <- tryCatch(
+    fgeo.base::check_crucial_names(habitat, c("x", "y")), 
+    error = function(e) rename_to_xy(habitat)
+  )
   check_tt(
     census = census, sp = sp, habitat = habitat, plotdim = plotdim,
     gridsize = gridsize
@@ -237,7 +246,6 @@ torusonesp.all <- function(species, hab.index20, allabund20, plotdim, gridsize) 
 check_tt <- function(census, sp, habitat, plotdim, gridsize) {
   stopifnot(
     is.data.frame(census),
-    is.data.frame(habitat),
     is.numeric(plotdim),
     length(plotdim) == 2,
     is.numeric(gridsize),

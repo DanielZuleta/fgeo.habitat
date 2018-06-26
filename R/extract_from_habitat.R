@@ -28,8 +28,11 @@ extract_gridsize <- function(habitats) {
 #' @rdname extract_from_habitat
 #' @export
 extract_plotdim <- function(habitats) {
-  fgeo.base::check_crucial_names(habitats, c("x", "y"))
-
+  habitats <- tryCatch(
+    fgeo.base::check_crucial_names(habitats, c("x", "y")), 
+    error = function(e) rename_to_xy(habitats)
+  )
+  
   gridsize <- extract_gridsize(habitats)
   plotdim <- unlist(
     lapply(habitats[c("x", "y")], function(.x) {
@@ -38,6 +41,15 @@ extract_plotdim <- function(habitats) {
   )
   as.integer(unname(plotdim))
 }
+
+rename_to_xy <- function(x) {
+  .x <- x
+  .x <- fgeo.tool::nms_try_rename(.x, want = "x", try = "gx")
+  .x <- fgeo.tool::nms_try_rename(.x, want = "y", try = "gy")
+  .x
+}
+
+
 
 #' From x and y columns of habitat data, get difference between grid steps.
 #'
