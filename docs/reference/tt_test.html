@@ -151,9 +151,7 @@ preserve the original code.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>census</th>
-      <td><p>A dataframe; a ForestGEO census. The original example uses
-a 'tree' (or 'full') ForestGEO-table -- which contains one row per tree
-(not one row per stem).</p></td>
+      <td><p>A dataframe; a ForestGEO <em>tree</em> table (see details).</p></td>
     </tr>
     <tr>
       <th>sp, species</th>
@@ -200,6 +198,11 @@ slow. You may calculate abundance per quadrat independently, feed it to the
 argument <code>allabund20</code> of <code>torusonesp.all()</code>, and reformat the output with
 <code><a href='to_df.html'>to_df()</a></code>. You can iterate over multiple species with a for loop or a
 functional such as <code>lapply()</code>.</p>
+<p>This test should use individual trees not the (potentially multiple) stems of
+individual trees. This test only makes sense at the population level. We are
+interested in knowing whether or not individuals of a species are aggregated
+on a habitat. Multiple stems of an individual do not represent population
+level processes but individual level processes.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
