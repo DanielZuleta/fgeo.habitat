@@ -22,6 +22,8 @@ knitr::opts_chunk$set(
 
 ## Installation
 
+[Install all __fgeo__ packages in one step](https://forestgeo.github.io/fgeo/index.html#installation)
+
 ```R
 # install.packages("remotes")
 remotes::install_github("forestgeo/fgeo.habitat")
@@ -33,50 +35,15 @@ For details on how to install packages from GitHub, see [this article](https://g
 
 ```{r}
 library(fgeo.habitat)
-# For easier data wranging
-library(dplyr)
-```
 
-### Habitat-species associations.
-
-```{r}
-# Example data
-habitat <- luquillo_habitat
-census <- luquillo_top3_sp
-
-# Pick alive trees, of 10 mm or more
-pick <- filter(census, status == "A", dbh >= 10)
-# Pick sufficiently abundant trees
-pick <- add_count(pick, sp)
-pick <- filter(pick, n > 50)
-
-species <- unique(pick$sp)
-
-tt <- tt_test(census, species, habitat)
-tt
-```
-
-```{r}
-tt_df <- to_df(tt)
-# Try also: View(tt_df)
-head(tt_df)
-
-tail(tt_df)
-```
-
-### Krige soil data.
-
-```{r}
+# Krige soil data
 result <- krig(soil_fake, var = c("c", "p"), quiet = TRUE)
 head(to_df(result))
 
 tail(to_df(result))
 ```
 
-```{r}
-summary(result)
-```
-
+[Get started with __fgeo__](https://forestgeo.github.io/fgeo/articles/fgeo.html)
 
 ## Information
 
