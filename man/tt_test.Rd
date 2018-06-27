@@ -11,9 +11,7 @@ tt_test(census, sp, habitat, plotdim = extract_plotdim(habitat),
 torusonesp.all(species, hab.index20, allabund20, plotdim, gridsize)
 }
 \arguments{
-\item{census}{A dataframe; a ForestGEO census. The original example uses
-a 'tree' (or 'full') ForestGEO-table -- which contains one row per tree
-(not one row per stem).}
+\item{census}{A dataframe; a ForestGEO \emph{tree} table (see details).}
 
 \item{sp, species}{Character sting giving species names. \code{torusonesp.all()}can
 take only one species; \code{tt_test()} can take any number of species.}
@@ -51,6 +49,12 @@ slow. You may calculate abundance per quadrat independently, feed it to the
 argument \code{allabund20} of \code{torusonesp.all()}, and reformat the output with
 \code{to_df()}. You can iterate over multiple species with a for loop or a
 functional such as \code{lapply()}.
+
+This test should use individual trees not the (potentially multiple) stems of
+individual trees. This test only makes sense at the population level. We are
+interested in knowing whether or not individuals of a species are aggregated
+on a habitat. Multiple stems of an individual do not represent population
+level processes but individual level processes.
 }
 \examples{
 # For easier data wranging

@@ -4,7 +4,7 @@
 #' only `tt_test()`. `torusonesp.all` produces the same result but work only
 #' for a single species;  it is softly deprecated -- it is included only to
 #' preserve the original code.
-#'
+#' 
 #' You should only try to determine the habitat association for sufficiently
 #' abundant species - in a 50-ha plot, a minimum abundance of 50 trees/species
 #' has been used.
@@ -14,12 +14,16 @@
 #' argument `allabund20` of `torusonesp.all()`, and reformat the output with
 #' `to_df()`. You can iterate over multiple species with a for loop or a
 #' functional such as `lapply()`.
+#' 
+#' This test should use individual trees not the (potentially multiple) stems of
+#' individual trees. This test only makes sense at the population level. We are
+#' interested in knowing whether or not individuals of a species are aggregated
+#' on a habitat. Multiple stems of an individual do not represent population
+#' level processes but individual level processes.
 #'
 #' @param sp,species Character sting giving species names. `torusonesp.all()`can
 #'   take only one species; `tt_test()` can take any number of species.
-#' @param census A dataframe; a ForestGEO census. The original example uses
-#'   a 'tree' (or 'full') ForestGEO-table -- which contains one row per tree
-#'   (not one row per stem).
+#' @param census A dataframe; a ForestGEO _tree_ table (see details). 
 #' @param habitat,hab.index20 Object giving the habitat designation for each
 #'   plot partition defined by `gridsize`.
 #' @param plotdim Plot dimensions.
