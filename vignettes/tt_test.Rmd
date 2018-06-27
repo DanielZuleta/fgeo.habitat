@@ -65,14 +65,10 @@ str(census)
 ```
 
 ```{r}
-habitat <- luquillo_habitat
-
-# Must have
-names(habitat)
-
+# Creating habitat data from elevation data
+habitat <- fgeo.tool::fgeo_habitat(luquillo_elevation, gridsize = 20, n = 4)
 str(habitat)
 ```
-
 
 To load your own data, you may run something like this:
 
@@ -115,8 +111,8 @@ offset <- 20 / 2
 habitat2 <- mutate(
   habitat, 
   # Center species and habitat data
-  x = x + offset, 
-  y = y + offset,
+  x = gx + offset, 
+  y = gy + offset,
   # From continuous to categorical
   habitats = as.factor(habitats)
 )

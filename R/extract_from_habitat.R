@@ -16,6 +16,11 @@ NULL
 #' @rdname extract_from_habitat
 #' @export
 extract_gridsize <- function(habitats) {
+  stopifnot(is.data.frame(habitats))
+  habitats <- tryCatch(
+    fgeo.base::check_crucial_names(habitats, c("x", "y")), 
+    error = function(e) rename_to_xy(habitats)
+  )
   fgeo.base::warn_na(habitats)
   fgeo.base::check_crucial_names(habitats, c("x", "y"))
 
