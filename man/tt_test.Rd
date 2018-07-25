@@ -109,7 +109,13 @@ str(tt_lst, give.attr = FALSE)
 tt_lst[[1]]
 
 # Try also: View((to_df(tt_lst)))
-head(to_df(tt_lst))
+tt_dataframe <- to_df(tt_lst)
+head(tt_dataframe)
+
+# You can spread columns to restructure the data from long to wide format
+if (requireNamespace("tidyr")) {
+  tidyr::spread(tt_dataframe, metric, value)
+}
 
 # Test one species with original function (outputs a matrix)
 

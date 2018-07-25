@@ -70,33 +70,39 @@
 #' @examples
 #' # For easier data wranging
 #' library(dplyr)
-#'
+#' 
 #' habitat <- luquillo_habitat
 #' census <- luquillo_top3_sp
-#'
+#' 
 #' # Pick alive trees, of 10 mm or more
 #' pick <- filter(census, status == "A", dbh >= 10)
 #' # Pick sufficiently abundant trees
 #' pick <- add_count(pick, sp)
 #' pick <- filter(pick, n > 50)
-#'
+#' 
 #' species <- unique(pick$sp)
-#'
+#' 
 #' # Test any number of species (output a list of matrices)
 #' tt_lst <- tt_test(census, species, habitat)
 #' str(tt_lst, give.attr = FALSE)
-#'
+#' 
 #' tt_lst[[1]]
-#'
+#' 
 #' # Try also: View((to_df(tt_lst)))
-#' head(to_df(tt_lst))
-#'
+#' tt_dataframe <- to_df(tt_lst)
+#' head(tt_dataframe)
+#' 
+#' # You can spread columns to restructure the data from long to wide format
+#' if (requireNamespace("tidyr")) {
+#'   tidyr::spread(tt_dataframe, metric, value)
+#' }
+#' 
 #' # Test one species with original function (outputs a matrix)
-#'
+#' 
 #' plotdim <- c(320, 500)
 #' gridsize <- 20
 #' abundance <- abund_index(pick, plotdim, gridsize)
-#'
+#' 
 #' tt_mat <- torusonesp.all(species[[1]],
 #'   hab.index20 = habitat,
 #'   allabund20 = abundance,
@@ -104,7 +110,7 @@
 #'   gridsize = gridsize
 #' )
 #' tt_mat
-#'
+#' 
 #' # Test multiple species with original function (outputs a matrix)
 #' tt_mat_lst <- lapply(
 #'   species,
