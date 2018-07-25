@@ -201,6 +201,37 @@ interested in knowing whether or not individuals of a species are aggregated
 on a habitat. Multiple stems of an individual do not represent population
 level processes but individual level processes.</p>
     
+    <h2 class="hasAnchor" id="acknowledgments"><a class="anchor" href="#acknowledgments"></a>Acknowledgments</h2>
+
+    
+    <p>Nestor Engone Obiang, David Kenfack, Jennifer Baltzer, and Rutuja
+Chitra-Tarak provided feedback. Daniel Zuleta provided guidance.</p>
+    
+    <h2 class="hasAnchor" id="interpretation-of-output"><a class="anchor" href="#interpretation-of-output"></a>Interpretation of Output</h2>
+
+    
+    <ul>
+<li><p><code>N.Hab.1</code>: Count of stems of the focal species in habitat 1.</p></li>
+<li><p><code>Gr.Hab.1</code>: Count of instances the observed relative density of the focal
+species on habitat 1 was greater than the relative density based on the TT
+habitat map.</p></li>
+<li><p><code>Ls.Hab.1</code>: Count of instances the observed relative density of the focal
+species on habitat 1 was less than the relative density based on the TT
+habitat map.</p></li>
+<li><p><code>Eq.Hab.1</code>: Count of instances the observed relative density of the focal
+species on habitat 1 was equal to the relative density based on the TT
+habitat map.
+The sum of the <code>Gr.Hab.x</code>, <code>Ls.Hab.x</code>, and <code>Eq.Hab.x</code> columns for one habitat
+equals the number of 20 x20 quads in the plot.
+The <code>Rep.Agg.Neut</code> columns for each habitat indicate whether the species is
+significantly repelled (-1), aggregated (1), or neutrally distributed (0) on
+the habitat in question.
+The probabilities associated with the test for whether these patterns are
+statistically significant are in the <code>Obs.Quantile</code> columns for each habitat.
+Note that to calculate the probability for repelled, it is the value given,
+but to calculate the probability for aggregated, it is 1- the value given.</p></li>
+</ul>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='to_df.html'>to_df()</a></code>.</p></div>
@@ -240,13 +271,33 @@ level processes but individual level processes.</p>
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
 #&gt; CASARB      934      661        5              0        0.58375</div><div class='input'>
 <span class='co'># Try also: View((to_df(tt_lst)))</span>
-<span class='fu'>head</span>(<span class='fu'><a href='to_df.html'>to_df</a></span>(<span class='no'>tt_lst</span>))</div><div class='output co'>#&gt;           metric     sp       value
+<span class='no'>tt_dataframe</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='to_df.html'>to_df</a></span>(<span class='no'>tt_lst</span>)
+<span class='fu'>head</span>(<span class='no'>tt_dataframe</span>)</div><div class='output co'>#&gt;           metric     sp       value
 #&gt; 1        N.Hab.1 CASARB   25.000000
 #&gt; 2       Gr.Hab.1 CASARB 1489.000000
 #&gt; 3       Ls.Hab.1 CASARB  109.000000
 #&gt; 4       Eq.Hab.1 CASARB    2.000000
 #&gt; 5 Rep.Agg.Neut.1 CASARB    0.000000
 #&gt; 6 Obs.Quantile.1 CASARB    0.930625</div><div class='input'>
+<span class='co'># You can spread columns to restructure the data from long to wide format</span>
+<span class='kw'>if</span> (<span class='fu'>requireNamespace</span>(<span class='st'>"tidyr"</span>)) {
+  <span class='kw pkg'>tidyr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/tidyr/topics/spread'>spread</a></span>(<span class='no'>tt_dataframe</span>, <span class='no'>metric</span>, <span class='no'>value</span>)
+}</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: tidyr</span></div><div class='output co'>#&gt;       sp Eq.Hab.1 Eq.Hab.2 Eq.Hab.3 Eq.Hab.4 Gr.Hab.1 Gr.Hab.2 Gr.Hab.3
+#&gt; 1 CASARB        2        1        4        5     1489      168      567
+#&gt; 2 PREMON        3        1        5        3      389     1562      632
+#&gt; 3 SLOBER       16        2        4        9      492      473     1181
+#&gt;   Gr.Hab.4 Ls.Hab.1 Ls.Hab.2 Ls.Hab.3 Ls.Hab.4 N.Hab.1 N.Hab.2 N.Hab.3 N.Hab.4
+#&gt; 1      934      109     1431     1029      661      25      12      14      15
+#&gt; 2      222     1208       37      963     1375      59      75      56      44
+#&gt; 3     1151     1092     1125      415      440      14      16      19      17
+#&gt;   Obs.Quantile.1 Obs.Quantile.2 Obs.Quantile.3 Obs.Quantile.4 Rep.Agg.Neut.1
+#&gt; 1       0.930625       0.105000       0.354375       0.583750              0
+#&gt; 2       0.243125       0.976250       0.395000       0.138750              0
+#&gt; 3       0.307500       0.295625       0.738125       0.719375              0
+#&gt;   Rep.Agg.Neut.2 Rep.Agg.Neut.3 Rep.Agg.Neut.4
+#&gt; 1              0              0              0
+#&gt; 2              1              0              0
+#&gt; 3              0              0              0</div><div class='input'>
 <span class='co'># Test one species with original function (outputs a matrix)</span>
 
 <span class='no'>plotdim</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fl'>320</span>, <span class='fl'>500</span>)
@@ -315,6 +366,10 @@ level processes but individual level processes.</p>
       <li><a href="#value">Value</a></li>
 
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#acknowledgments">Acknowledgments</a></li>
+
+      <li><a href="#interpretation-of-output">Interpretation of Output</a></li>
 
       <li><a href="#see-also">See also</a></li>
       
