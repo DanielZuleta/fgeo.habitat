@@ -29,8 +29,16 @@ This article shows how to krig soil data based on code by Graham Zemunik. Here y
 
 ```{r}
 library(fgeo.habitat)
+```
+
+```R
 # For easier data manipulation and visualization
 library(tidyverse)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(purrr)
 ```
 
 ```{r}

@@ -92,8 +92,6 @@ abundance <- function(censdata, type = "abund", alivecode = c("A"), mindbh = NUL
 
 # Tests -------------------------------------------------------------------
 
-library(tidyverse)
-
 cns <- luquillo_tree6_random
 pdm <- c(1000, 500)
 gsz <- 20

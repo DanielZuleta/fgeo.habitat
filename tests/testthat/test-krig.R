@@ -1,4 +1,4 @@
-library(tidyverse)
+library(dplyr)
 
 # Small dataset that still preserves plot dimensions via guess_plotdim()
 df0 <- fgeo.habitat::soil_random
