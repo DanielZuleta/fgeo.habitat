@@ -5,30 +5,37 @@ Daniel Zuleta
 ``` r
 # Implementation ----------------------------------------------------------
 
-# Create a data frame to interprete the output of `tt_test()`.
+# Function to creaate a data frame to interpretate the tt main output
+# use: tt_interpretation(x), where x = main tt_test forestgeo function
+# Daniel Zuleta, July 27, 2018
+# load("tt_lst.rdata")
+
+
 tt_interpretation <- function(ttOutput) {
-  habs <- dim(ttOutput)[2] / 6 # number of habitats
+  ttdf <- as.data.frame(do.call(rbind, ttOutput))
+
+  habs <- dim(ttdf)[2] / 6 # number of habitats
   tt_interp <- data.frame() # interpretation output
   tt_interp_names <- NULL
   # j is the species loop
   # i is the habitat loop
-  
-  for (j in 1:dim(ttOutput)[1]) {
+
+  for (j in 1:dim(ttdf)[1]) {
     #
     for (i in 1:habs) {
       tt_interp[j, i] <- ifelse(
-        ttOutput[j, i * 5] == 1 & (1 - (ttOutput[j, i * 6])) < 0.05,
+        ttdf[j, (i * 6) - 1] == 1 & (1 - (ttdf[j, i * 6])) < 0.05,
         "aggregated",
         ifelse(
-          ttOutput[j, i * 5] == 1 &
-            (1 - (ttOutput[j, i * 6])) >= 0.05,
+          ttdf[j, (i * 6) - 1] == 1 &
+            (1 - (ttdf[j, i * 6])) >= 0.05,
           "agg_nonsignificant",
           ifelse(
-            ttOutput[j, i * 5] == -1 & (ttOutput[j, i * 6]) < 0.05,
+            ttdf[j, (i * 6) - 1] == -1 & (ttdf[j, i * 6]) < 0.05,
             "repelled",
             ifelse(
-              ttOutput[j, i * 5] == -1 &
-                (ttOutput[j, i * 6]) >= 0.05,
+              ttdf[j, (i * 6) - 1] == -1 &
+                (ttdf[j, i * 6]) >= 0.05,
               "rep_nonsignificant",
               "neutral"
             )
@@ -37,12 +44,12 @@ tt_interpretation <- function(ttOutput) {
       )
     }
   }
-  
+
   for (h in 1:habs) {
     tt_interp_names[h] <- paste("Habitat_", h, sep = "")
   }
-  
-  tt_interp <- data.frame(cbind(Species = row.names(ttOutput), tt_interp))
+
+  tt_interp <- data.frame(cbind(Species = row.names(ttdf), tt_interp))
   names(tt_interp) <- c("Species", tt_interp_names)
   return(tt_interp)
 }
@@ -115,5 +122,20 @@ tt_lst
 # Using tt_interpretation -------------------------------------------------
 
 tt_interpretation(tt_lst)
-## Error in 1:dim(ttOutput)[1]: argument of length 0
+##   Species Habitat_1  Habitat_2 Habitat_3 Habitat_4
+## 1  CASARB   neutral    neutral   neutral   neutral
+## 2  PREMON   neutral aggregated   neutral   neutral
+## 3  SLOBER   neutral    neutral   neutral   neutral
+
+# summary -----------------------------------------------------------------
+
+summary.tt_lst <- function(x) {
+  tt_interpretation(x)
+}
+
+summary(tt_lst)
+##   Species Habitat_1  Habitat_2 Habitat_3 Habitat_4
+## 1  CASARB   neutral    neutral   neutral   neutral
+## 2  PREMON   neutral aggregated   neutral   neutral
+## 3  SLOBER   neutral    neutral   neutral   neutral
 ```
