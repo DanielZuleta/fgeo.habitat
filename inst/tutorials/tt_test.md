@@ -54,20 +54,15 @@ tt_interpretation <- function(ttOutput) {
 
 library(fgeo.habitat)
 library(dplyr)
-```
+## 
+## Attaching package: 'dplyr'
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 # For easier data wranging
 habitat <- luquillo_habitat
 census <- luquillo_top3_sp
@@ -84,45 +79,41 @@ species <- unique(pick$sp)
 tt_lst <- tt_test(census, species, habitat)
 
 tt_lst
-```
+## [[1]]
+##        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1
+## CASARB      25     1489      109        2              0       0.930625
+##        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2
+## CASARB      12      168     1431        1              0          0.105
+##        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3
+## CASARB      14      567     1029        4              0       0.354375
+##        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
+## CASARB      15      934      661        5              0        0.58375
+## 
+## [[2]]
+##        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1
+## PREMON      59      389     1208        3              0       0.243125
+##        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2
+## PREMON      75     1562       37        1              1        0.97625
+##        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3
+## PREMON      56      632      963        5              0          0.395
+##        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
+## PREMON      44      222     1375        3              0        0.13875
+## 
+## [[3]]
+##        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1
+## SLOBER      14      492     1092       16              0         0.3075
+##        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2
+## SLOBER      16      473     1125        2              0       0.295625
+##        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3
+## SLOBER      19     1181      415        4              0       0.738125
+##        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
+## SLOBER      17     1151      440        9              0       0.719375
+## 
+## attr(,"class")
+## [1] "tt_lst" "list"
 
-    ## [[1]]
-    ##        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1
-    ## CASARB      25     1489      109        2              0       0.930625
-    ##        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2
-    ## CASARB      12      168     1431        1              0          0.105
-    ##        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3
-    ## CASARB      14      567     1029        4              0       0.354375
-    ##        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-    ## CASARB      15      934      661        5              0        0.58375
-    ## 
-    ## [[2]]
-    ##        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1
-    ## PREMON      59      389     1208        3              0       0.243125
-    ##        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2
-    ## PREMON      75     1562       37        1              1        0.97625
-    ##        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3
-    ## PREMON      56      632      963        5              0          0.395
-    ##        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-    ## PREMON      44      222     1375        3              0        0.13875
-    ## 
-    ## [[3]]
-    ##        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1
-    ## SLOBER      14      492     1092       16              0         0.3075
-    ##        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2
-    ## SLOBER      16      473     1125        2              0       0.295625
-    ##        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3
-    ## SLOBER      19     1181      415        4              0       0.738125
-    ##        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-    ## SLOBER      17     1151      440        9              0       0.719375
-    ## 
-    ## attr(,"class")
-    ## [1] "tt_lst" "list"
-
-``` r
 # Using tt_interpretation -------------------------------------------------
 
 tt_interpretation(tt_lst)
+## Error in 1:dim(ttOutput)[1]: argument of length 0
 ```
-
-    ## Error in 1:dim(ttOutput)[1]: argument of length 0
