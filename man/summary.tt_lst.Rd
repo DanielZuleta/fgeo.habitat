@@ -4,10 +4,10 @@
 \alias{summary.tt_lst}
 \title{Interpret the output of \code{tt_test()}.}
 \usage{
-\method{summary}{tt_lst}(x, ...)
+\method{summary}{tt_lst}(object, ...)
 }
 \arguments{
-\item{x}{The output of \code{\link[=tt_test]{tt_test()}}, i.e. an S3 object of class tt_lst.}
+\item{object}{The output of \code{\link[=tt_test]{tt_test()}}, i.e. an S3 object of class tt_lst.}
 
 \item{...}{Other arguments passed to methods.}
 }
@@ -16,6 +16,9 @@ A dataframe.
 }
 \description{
 Interpret the output of \code{tt_test()}.
+}
+\seealso{
+\code{\link[=tt_test]{tt_test()}}.
 }
 \author{
 Daniel Zuleta.

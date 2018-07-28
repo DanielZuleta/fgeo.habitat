@@ -52,15 +52,15 @@ tt_interpret <- function(tt_lst) {
 
 #' Interpret the output of `tt_test()`.
 #'
-#' @param x The output of [tt_test()], i.e. an S3 object of class tt_lst.
+#' @param object The output of [tt_test()], i.e. an S3 object of class tt_lst.
 #' @param ... Other arguments passed to methods.
 #' 
-#' @sealso [tt_test()].
+#' @seealso [tt_test()].
 #' 
 #' @author Daniel Zuleta.
 #'
 #' @return A dataframe.
 #' @export
-summary.tt_lst <- function(x, ...) {
-  tt_interpret(x)
+summary.tt_lst <- function(object, ...) {
+  tt_interpret(object)
 }

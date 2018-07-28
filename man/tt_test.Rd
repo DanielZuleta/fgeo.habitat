@@ -35,7 +35,7 @@ calculated.}
 }
 \description{
 Use these functions to determine habitat associations. You most likely need
-only \code{tt_test()}. \code{torusonesp.all} produces the same result but work only
+only \code{tt_test()}. \code{torusonesp.all()} produces the same result but work only
 for a single species;  it is softly deprecated -- it is included only to
 preserve the original code.
 }
@@ -64,6 +64,7 @@ Chitra-Tarak provided feedback. Daniel Zuleta provided guidance.
 
 \section{Interpretation of Output}{
 
+To get help in interpreting the results of tt_test()\code{see}?summary.tt_lst()`.
 \itemize{
 \item \code{N.Hab.1}: Count of stems of the focal species in habitat 1.
 \item \code{Gr.Hab.1}: Count of instances the observed relative density of the focal
@@ -113,11 +114,12 @@ tt_lst[[1]]
 summary(tt_lst)
 
 # Try also: View() instead of head().
-head(to_df(tt_lst))
+tt_df <- to_df(tt_lst)
+head(tt_df)
 
 # You can spread columns to restructure the data from long to wide format
 if (requireNamespace("tidyr")) {
-  tidyr::spread(tt_dataframe, metric, value)
+  tidyr::spread(tt_df, metric, value)
 }
 
 # Test one species with original function (outputs a matrix)
@@ -146,7 +148,7 @@ tt_mat_lst <- lapply(
 tt_mat_lst
 }
 \seealso{
-\code{\link[=to_df]{to_df()}}.
+\code{\link[=to_df]{to_df()}}, \code{\link[=summary.tt_lst]{summary.tt_lst()}}.
 }
 \author{
 Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms.

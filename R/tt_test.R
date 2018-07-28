@@ -1,7 +1,7 @@
 #' Torus Translation Test to determine habitat associations of tree species.
 #'
 #' Use these functions to determine habitat associations. You most likely need
-#' only `tt_test()`. `torusonesp.all` produces the same result but work only
+#' only `tt_test()`. `torusonesp.all()` produces the same result but work only
 #' for a single species;  it is softly deprecated -- it is included only to
 #' preserve the original code.
 #' 
@@ -32,7 +32,7 @@
 #'   calculated.
 #' @param allabund20 The output of `abund_index()`.
 #'
-#' @seealso [to_df()].
+#' @seealso [to_df()], [summary.tt_lst()].
 #' 
 #' @author Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms.
 #' 
@@ -45,6 +45,8 @@
 #' * `torusonesp.all()`: A numeric matrix.
 #' 
 #' @section Interpretation of Output:
+#' To get help in interpreting the results of tt_test()` see
+#' `?summary.tt_lst()`.
 #' * `N.Hab.1`: Count of stems of the focal species in habitat 1.
 #' * `Gr.Hab.1`: Count of instances the observed relative density of the focal
 #' species on habitat 1 was greater than the relative density based on the TT
@@ -93,11 +95,12 @@
 #' summary(tt_lst)
 #' 
 #' # Try also: View() instead of head().
-#' head(to_df(tt_lst))
+#' tt_df <- to_df(tt_lst)
+#' head(tt_df)
 #' 
 #' # You can spread columns to restructure the data from long to wide format
 #' if (requireNamespace("tidyr")) {
-#'   tidyr::spread(tt_dataframe, metric, value)
+#'   tidyr::spread(tt_df, metric, value)
 #' }
 #' 
 #' # Test one species with original function (outputs a matrix)

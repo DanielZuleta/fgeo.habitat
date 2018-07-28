@@ -54,6 +54,7 @@ reference:
   - title: "Generics"
     contents:
       - summary.krig_lst
+      - summary.tt_lst
       - starts_with("to_df")
 
   - title: "Datasets"
