@@ -44,7 +44,17 @@ remotes::install_github("forestgeo/fgeo.habitat")
 ```{r}
 library(fgeo.habitat)
 # For data wranging and visualization
+```
 
+```{r, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(purrr)
+library(stringr)
+library(tidyr)
+```
+
+```R
 # Install the tidyverse package from CRAN with: install.packages("tidyverse")
 library(tidyverse)
 ```

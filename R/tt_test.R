@@ -80,17 +80,20 @@
 #' pick <- add_count(pick, sp)
 #' pick <- filter(pick, n > 50)
 #' 
+#' 
+#' # Test any number of species
 #' species <- unique(pick$sp)
-#' 
-#' # Test any number of species (output a list of matrices)
 #' tt_lst <- tt_test(census, species, habitat)
-#' str(tt_lst, give.attr = FALSE)
 #' 
+#' # Output a list of matrices
+#' str(tt_lst, give.attr = FALSE)
 #' tt_lst[[1]]
 #' 
-#' # Try also: View((to_df(tt_lst)))
-#' tt_dataframe <- to_df(tt_lst)
-#' head(tt_dataframe)
+#' # `summary()` to helps you interpret the output of `tt_test()`
+#' summary(tt_lst)
+#' 
+#' # Try also: View() instead of head().
+#' head(to_df(tt_lst))
 #' 
 #' # You can spread columns to restructure the data from long to wide format
 #' if (requireNamespace("tidyr")) {

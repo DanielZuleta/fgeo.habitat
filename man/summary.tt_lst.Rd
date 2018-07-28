@@ -4,10 +4,12 @@
 \alias{summary.tt_lst}
 \title{Interpret the output of \code{tt_test()}.}
 \usage{
-\method{summary}{tt_lst}(x)
+\method{summary}{tt_lst}(x, ...)
 }
 \arguments{
 \item{x}{The output of \code{\link[=tt_test]{tt_test()}}, i.e. an S3 object of class tt_lst.}
+
+\item{...}{Other arguments passed to methods.}
 }
 \value{
 A dataframe.
@@ -15,22 +17,6 @@ A dataframe.
 \description{
 Interpret the output of \code{tt_test()}.
 }
-\examples{
-library(dplyr)
-
-# For easier data wranging
-habitat <- luquillo_habitat
-census <- luquillo_top3_sp
-
-# Pick alive trees, of 10 mm or more
-pick <- filter(census, status == "A", dbh >= 10)
-# Pick sufficiently abundant trees
-pick <- add_count(pick, sp)
-pick <- filter(pick, n > 50)
-
-species <- unique(pick$sp)
-
-# Test any number of species (output a list of matrices)
-tt_lst <- tt_test(census, species, habitat)
-summary(tt_lst)
+\author{
+Daniel Zuleta.
 }

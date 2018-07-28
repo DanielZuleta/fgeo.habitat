@@ -53,29 +53,14 @@ tt_interpret <- function(tt_lst) {
 #' Interpret the output of `tt_test()`.
 #'
 #' @param x The output of [tt_test()], i.e. an S3 object of class tt_lst.
+#' @param ... Other arguments passed to methods.
+#' 
+#' @sealso [tt_test()].
+#' 
+#' @author Daniel Zuleta.
 #'
 #' @return A dataframe.
 #' @export
-#'
-#' @examples
-#' library(dplyr)
-#' 
-#' # For easier data wranging
-#' habitat <- luquillo_habitat
-#' census <- luquillo_top3_sp
-#' 
-#' # Pick alive trees, of 10 mm or more
-#' pick <- filter(census, status == "A", dbh >= 10)
-#' # Pick sufficiently abundant trees
-#' pick <- add_count(pick, sp)
-#' pick <- filter(pick, n > 50)
-#' 
-#' species <- unique(pick$sp)
-#' 
-#' # Test any number of species (output a list of matrices)
-#' tt_lst <- tt_test(census, species, habitat)
-#' summary(tt_lst)
-summary.tt_lst <- function(x) {
+summary.tt_lst <- function(x, ...) {
   tt_interpret(x)
 }
-
