@@ -110,7 +110,7 @@ tt_lst <- tt_test(census, species, habitat)
 str(tt_lst, give.attr = FALSE)
 tt_lst[[1]]
 
-# `summary()` to helps you interpret the output of `tt_test()`
+# `summary()` helps you interpret the output of `tt_test()`
 summary(tt_lst)
 
 # Try also: View() instead of head().
