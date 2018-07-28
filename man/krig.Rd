@@ -71,8 +71,6 @@ result is the same as \code{krig()[[1]]} when run for one soil variable.
 \item Has a method for \code{to_df()} (see examples).
 }
 }
-
-[[1]: R:[1
 }
 \section{Breaks default}{
 

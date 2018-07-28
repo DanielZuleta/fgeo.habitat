@@ -4,7 +4,8 @@
 \alias{krig_auto_params}
 \title{Find "best" variogram parameters.}
 \usage{
-krig_auto_params(geodata, trend = "cte", breaks = krig_breaks(2, 320, 30))
+krig_auto_params(geodata, trend = "cte", breaks = krig_breaks(2, 320,
+  30))
 }
 \arguments{
 \item{geodata}{a list containing element \code{coords}
