@@ -1,0 +1,52 @@
+---
+title: "Can tt_test() handle empty quadrats?"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, collapse = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(fgeo)
+```
+
+Jennifer Baltzer reported that `tt_test()` fails if the census data contains quadrats with no species. Here I run `tt_test()` with the census data that Jennifer sent me, and with a synthetic habitat dataset. I get no error, suggesting that the problem was not in the census data but in the habitat data. I'll need the habitat data to explore what the problem might be.
+
+```{r}
+path <- here::here("inst/issues/43/private/scotty.tree1.rdata")
+load(path)
+scotty <- scotty.tree1
+as_tibble(scotty)
+```
+
+Show gaps in the census dataset.
+
+```{r, cache=TRUE}
+ggplot(scotty, aes(gx, gy)) + 
+  geom_point()
+```
+
+Create habitat data.
+
+```{r}
+# Create elevation data
+xy <- expand.grid(x = seq(0, 125, by = 20), y = seq(0, 800, by = 20))
+elev <- sample.int(500, nrow(xy), replace = TRUE)
+elevation <- bind_cols(tibble::as.tibble(xy), elev = elev)
+
+# Create habitat data from elevation data
+hab <- fgeo_habitat(elevation, xdim = 800, ydim = 125, gridsize = 20, n = 4)
+hab
+```
+
+Run `tt_test()` with all species.
+
+```{r}
+all_species <- unique(scotty$sp)
+tt_list <- tt_test(scotty,all_species, habitat = hab)
+tt_list[1:3]
+```
+
+I get no error.
