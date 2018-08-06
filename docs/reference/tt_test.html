@@ -210,7 +210,7 @@ Chitra-Tarak provided feedback. Daniel Zuleta provided guidance.</p>
     <h2 class="hasAnchor" id="interpretation-of-output"><a class="anchor" href="#interpretation-of-output"></a>Interpretation of Output</h2>
 
     
-    <p>To get help in interpreting the results of tt_test()<code>see</code>?summary.tt_lst()`.</p><ul>
+    <ul>
 <li><p><code>N.Hab.1</code>: Count of stems of the focal species in habitat 1.</p></li>
 <li><p><code>Gr.Hab.1</code>: Count of instances the observed relative density of the focal
 species on habitat 1 was greater than the relative density based on the TT
@@ -234,7 +234,7 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='to_df.html'>to_df()</a></code>, <code><a href='summary.tt_lst.html'>summary.tt_lst()</a></code>.</p></div>
+    <div class='dont-index'><p><code><a href='to_df.html'>to_df()</a></code>.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -254,7 +254,6 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
 <span class='no'>pick</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://dplyr.tidyverse.org/reference/tally.html'>add_count</a></span>(<span class='no'>pick</span>, <span class='no'>sp</span>)
 <span class='no'>pick</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>pick</span>, <span class='no'>n</span> <span class='kw'>&gt;</span> <span class='fl'>50</span>)
 
-
 <span class='co'># Test any number of species</span>
 <span class='no'>species</span> <span class='kw'>&lt;-</span> <span class='fu'>unique</span>(<span class='no'>pick</span>$<span class='no'>sp</span>)
 <span class='no'>tt_lst</span> <span class='kw'>&lt;-</span> <span class='fu'>tt_test</span>(<span class='no'>census</span>, <span class='no'>species</span>, <span class='no'>habitat</span>)
@@ -271,13 +270,8 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
 #&gt; CASARB      567     1029        4              0       0.354375      15
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
 #&gt; CASARB      934      661        5              0        0.58375</div><div class='input'>
-<span class='co'># `summary()` helps you interpret the output of `tt_test()`</span>
-<span class='fu'>summary</span>(<span class='no'>tt_lst</span>)</div><div class='output co'>#&gt;   Species Habitat_1  Habitat_2 Habitat_3 Habitat_4
-#&gt; 1  CASARB   neutral    neutral   neutral   neutral
-#&gt; 2  PREMON   neutral aggregated   neutral   neutral
-#&gt; 3  SLOBER   neutral    neutral   neutral   neutral</div><div class='input'>
-<span class='co'># Try also: View() instead of head().</span>
 <span class='no'>tt_df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='to_df.html'>to_df</a></span>(<span class='no'>tt_lst</span>)
+<span class='co'># Also try View()</span>
 <span class='fu'>head</span>(<span class='no'>tt_df</span>)</div><div class='output co'>#&gt;           metric     sp       value
 #&gt; 1        N.Hab.1 CASARB   25.000000
 #&gt; 2       Gr.Hab.1 CASARB 1489.000000

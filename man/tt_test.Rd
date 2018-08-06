@@ -64,7 +64,6 @@ Chitra-Tarak provided feedback. Daniel Zuleta provided guidance.
 
 \section{Interpretation of Output}{
 
-To get help in interpreting the results of tt_test()\code{see}?summary.tt_lst()`.
 \itemize{
 \item \code{N.Hab.1}: Count of stems of the focal species in habitat 1.
 \item \code{Gr.Hab.1}: Count of instances the observed relative density of the focal
@@ -101,7 +100,6 @@ pick <- filter(census, status == "A", dbh >= 10)
 pick <- add_count(pick, sp)
 pick <- filter(pick, n > 50)
 
-
 # Test any number of species
 species <- unique(pick$sp)
 tt_lst <- tt_test(census, species, habitat)
@@ -110,11 +108,8 @@ tt_lst <- tt_test(census, species, habitat)
 str(tt_lst, give.attr = FALSE)
 tt_lst[[1]]
 
-# `summary()` helps you interpret the output of `tt_test()`
-summary(tt_lst)
-
-# Try also: View() instead of head().
 tt_df <- to_df(tt_lst)
+# Also try View()
 head(tt_df)
 
 # You can spread columns to restructure the data from long to wide format
@@ -148,7 +143,7 @@ tt_mat_lst <- lapply(
 tt_mat_lst
 }
 \seealso{
-\code{\link[=to_df]{to_df()}}, \code{\link[=summary.tt_lst]{summary.tt_lst()}}.
+\code{\link[=to_df]{to_df()}}.
 }
 \author{
 Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms.

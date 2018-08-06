@@ -32,7 +32,7 @@
 #'   calculated.
 #' @param allabund20 The output of `abund_index()`.
 #'
-#' @seealso [to_df()], [summary.tt_lst()].
+#' @seealso [to_df()].
 #' 
 #' @author Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms.
 #' 
@@ -45,8 +45,6 @@
 #' * `torusonesp.all()`: A numeric matrix.
 #' 
 #' @section Interpretation of Output:
-#' To get help in interpreting the results of tt_test()` see
-#' `?summary.tt_lst()`.
 #' * `N.Hab.1`: Count of stems of the focal species in habitat 1.
 #' * `Gr.Hab.1`: Count of instances the observed relative density of the focal
 #' species on habitat 1 was greater than the relative density based on the TT
@@ -82,7 +80,6 @@
 #' pick <- add_count(pick, sp)
 #' pick <- filter(pick, n > 50)
 #' 
-#' 
 #' # Test any number of species
 #' species <- unique(pick$sp)
 #' tt_lst <- tt_test(census, species, habitat)
@@ -91,11 +88,8 @@
 #' str(tt_lst, give.attr = FALSE)
 #' tt_lst[[1]]
 #' 
-#' # `summary()` helps you interpret the output of `tt_test()`
-#' summary(tt_lst)
-#' 
-#' # Try also: View() instead of head().
 #' tt_df <- to_df(tt_lst)
+#' # Also try View()
 #' head(tt_df)
 #' 
 #' # You can spread columns to restructure the data from long to wide format
