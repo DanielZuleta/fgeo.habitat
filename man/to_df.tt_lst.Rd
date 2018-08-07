@@ -25,6 +25,4 @@ hab <- luquillo_habitat
 tt_lst <- tt_test(cns, spp, hab)
 tt_df <- to_df(tt_lst)
 head(tt_df)
-
-tail(tt_df)
 }

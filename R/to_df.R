@@ -59,9 +59,63 @@ to_df.krig_lst <- function(.x, name = "var", item = "df", ...) {
 #' tt_lst <- tt_test(cns, spp, hab)
 #' tt_df <- to_df(tt_lst)
 #' head(tt_df)
-#'
-#' tail(tt_df)
 to_df.tt_lst <- function(.x, ...) {
   flip <- t(Reduce(rbind, .x))
-  fgeo.base::gather_mat(flip, "metric", "sp", "value")
+  long_df <- tibble::as.tibble(
+    fgeo.base::gather_mat(flip, "metric", "sp", "value")
+  )
+  with_habitat <- separate_habitat_metric(long_df)
+  wide_df <- tidyr::spread(with_habitat, "metric", "value")
+  wide_df <- dplyr::rename(
+    wide_df, distribution = .data$Rep.Agg.Neut, stem_count = .data$N.Hab
+  )
+  with_probability <- calculate_probability(wide_df)
+  explained <- explain_distribution(with_probability)
+  tibble::as.tibble(reorganize_columns(explained))
+}
+
+separate_habitat_metric <- function(x) {
+  dplyr::mutate(
+    x,
+    habitat = stringr::str_replace(.data$metric, "^.*\\.([0-9]+$)", "\\1"),
+    metric = stringr::str_replace(.data$metric, "(^.*)\\.[0-9]+$", "\\1")
+  )
+}
+
+calculate_probability <- function(x) {
+  # The Rep.Agg.Neut columns for each habitat indicate whether the sp is
+  # significantly repelled (-1), aggregated (1), or neutraly distributed (0) on
+  # the habitat in question. The probabilities associated with the test for
+  # whether these patterns are statistically significant are in the Obs.Quantile
+  # columns for each habitat.
+  # Note that to calculate the probability for repelled, it is the value given,
+  # but to calculate the probability for aggregated, it is 1- the value given.
+  dplyr::mutate(
+    x, 
+    probability = dplyr::case_when(
+      .data$distribution == 1 ~ (1 - Obs.Quantile),
+      .data$distribution == -1 ~ (Obs.Quantile),
+      .data$distribution == 0 ~ (Obs.Quantile),
+      TRUE ~ NA_real_
+    )
+  )
+}
+  
+explain_distribution <- function(x) {
+  dplyr::mutate(x, 
+    distribution = dplyr::case_when(
+      .data$distribution == 1 ~ "aggregated",
+      .data$distribution == -1 ~ "repelled",
+      .data$distribution == 0 ~ "neutral",
+      TRUE ~ NA_character_
+    )
+  )
+}
+
+reorganize_columns <- function(x) {
+  dplyr::select(
+    x, 
+    .data$habitat, .data$sp, .data$probability, .data$distribution,
+    .data$stem_count, dplyr::everything()
+  )
 }

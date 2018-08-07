@@ -1,20 +1,23 @@
-Visualize tt\_test() resut
+Restructure tt\_test() output
 ================
+
+This document explores a new structure for the output of `tt_test()` for
+easier manipulation and visualization.
 
 Setup.
 
 ``` r
 library(tidyverse)
-## -- Attaching packages ---------------------------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages --------------------------------------------- tidyverse 1.2.1 --
 ## v ggplot2 3.0.0     v purrr   0.2.5
 ## v tibble  1.4.2     v dplyr   0.7.6
 ## v tidyr   0.8.1     v stringr 1.3.1
 ## v readr   1.1.1     v forcats 0.3.0
-## -- Conflicts ------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 library(fgeo)
-## -- Attaching packages ---------------------------------------------------------- fgeo 0.0.0.9000 --
+## -- Attaching packages --------------------------------------------- fgeo 0.0.0.9000 --
 ## v fgeo.abundance  0.0.0.9004     v fgeo.demography 0.0.0.9000
 ## v fgeo.base       0.0.0.9001     v fgeo.habitat    0.0.0.9006
 ## v fgeo.data       0.0.0.9002     v fgeo.map        0.0.0.9204

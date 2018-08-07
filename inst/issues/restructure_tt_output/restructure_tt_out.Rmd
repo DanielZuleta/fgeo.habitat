@@ -1,11 +1,13 @@
 ---
-title: "Visualize tt_test() resut"
+title: "Restructure tt_test() output"
 output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, collapse = TRUE)
 ```
+
+This document explores a new structure for the output of `tt_test()` for easier manipulation and visualization.
 
 Setup.
 
@@ -15,7 +17,7 @@ library(fgeo)
 ```
 
 Original output.
-
+ 
 ```{r}
 habitat <- luquillo_habitat
 census <- luquillo_top3_sp

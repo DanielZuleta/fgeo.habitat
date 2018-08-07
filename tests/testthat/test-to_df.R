@@ -36,5 +36,7 @@ test_that("outputs the expected dataframe", {
   expect_equal(class(tt_lst), c("tt_lst", "list"))
 
   out <- expect_silent(to_df(tt_lst))
-  expect_equal(class(out), "data.frame")
+  expect_is(out, c("data.frame", "tbl_df"))
+  vars <- c("habitat", "sp", "probability", "distribution", "stem_count")
+  expect_true(all(vars %in% names(out)))
 })
