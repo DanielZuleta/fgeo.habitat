@@ -1,5 +1,5 @@
 ---
-title: "Restructure tt_test() output"
+title: "Restructure tt_test() output for easier manipulation"
 output: github_document
 ---
 
@@ -12,47 +12,69 @@ This document explores a new structure for the output of `tt_test()` for easier 
 Setup.
 
 ```{r}
-library(tidyverse)
 library(fgeo)
 ```
 
 Original output.
  
 ```{r}
+census <- filter(luquillo_top3_sp, status == "A", dbh >= 10)
 habitat <- luquillo_habitat
-census <- luquillo_top3_sp
+species <- c("CASARB", "PREMON", "SLOBER")
 
-# Pick alive trees, of 10 mm or more
-pick <- filter(census, status == "A", dbh >= 10)
-# Pick sufficiently abundant trees
-pick <- add_count(pick, sp)
-pick <- filter(pick, n > 50)
-
-# Test any number of sp
-sp <- unique(pick$sp)
-tt_lst <- tt_test(census, sp, habitat)
-tt_df <- to_df(tt_lst)
+tt_df <- to_df(tt_test(census, species, habitat))
+tt_df
 ```
 
-The restructured output is easier to manipulate.
+This output is easy to visualize:
 
-```{r}
-filter(tt_df, distribution == "aggregated")
+```{r plot-method, echo=FALSE}
+library(ggplot2)
 
-filter(tt_df, distribution == "neutral")
+tt_df <- structure(tt_df, class = c("tt_df", class(tt_df)))
+
+plot.tt_df <- function(x, ...) {
+  ggplot(x, aes(sp, probability)) + 
+    geom_col(aes(fill = distribution), position = "dodge") +
+    geom_label(aes(label = stem_count)) +
+    facet_wrap(vars(habitat)) +
+    labs(
+      title = "Probability of species distribution by habitat",
+      x = "species", 
+      caption = "The number on each bar indicates the count of stems."
+    ) +
+    coord_flip()
+}
 ```
-
-The restructured output is easier to visualize.
 
 ```{r plot}
-ggplot(tt_df, aes(sp, probability)) + 
-  geom_col(aes(fill = distribution), position = "dodge") +
-  geom_label(aes(label = stem_count)) +
-  facet_wrap(vars(habitat)) +
-  labs(
-    title = "Probability of species distribution by habitat",
-    x = "species", 
-    caption = "The number on each bar indicates the count of stems."
-  ) +
-  coord_flip()
+plot(tt_df)
+```
+
+This output is also easy to manipulate, for example, to count the number of species in each `distribution`-category by `habitat`:
+
+```{r}
+count(tt_df, habitat, distribution)
+```
+
+This does the same thing. It is more verbose but it may be eaiser to see what's going on.
+
+```{r}
+tt_df %>% 
+  group_by(habitat, distribution) %>% 
+  summarise(n = n_distinct(sp))
+```
+
+### Check
+
+Confirm with Daniel that I'm calculating the probabilities correctly. The comments in the next chunk of code come from the interpretation section of `?tt_test()`.
+
+```{r}
+probability <- select(tt_df, Obs.Quantile, distribution, probability)
+
+# Note that to calculate the probability for repelled, it is the value given
+filter(probability, distribution != "aggregated")
+
+# ... but to calculate the probability for aggregated, it is 1- the value given
+filter(probability, distribution == "aggregated")
 ```
