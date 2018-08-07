@@ -80,8 +80,7 @@ filter(tt_df, distribution == "neutral")
 The restructured output is easier to visualize.
 
 ```{r}
-tt_df %>% 
-  ggplot(aes(sp, probability)) + 
+ggplot(tt_df, aes(sp, probability)) + 
   geom_col(aes(fill = distribution), position = "dodge") +
   geom_label(aes(label = stem_count)) +
   facet_wrap(vars(habitat)) +
@@ -89,5 +88,6 @@ tt_df %>%
     title = "Probability of species distribution by habitat",
     y = "species", 
     caption = "The number on each bar indicates the count of stems."
-  )
+  ) +
+  coord_flip()
 ```
