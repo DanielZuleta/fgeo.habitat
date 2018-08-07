@@ -1,0 +1,93 @@
+---
+title: "Visualize tt_test() resut"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, collapse = TRUE)
+```
+
+Setup.
+
+```{r}
+library(tidyverse)
+library(fgeo)
+```
+
+Original output.
+
+```{r}
+habitat <- luquillo_habitat
+census <- luquillo_top3_sp
+
+# Pick alive trees, of 10 mm or more
+pick <- filter(census, status == "A", dbh >= 10)
+# Pick sufficiently abundant trees
+pick <- add_count(pick, sp)
+pick <- filter(pick, n > 50)
+
+# Test any number of sp
+sp <- unique(pick$sp)
+tt_lst <- tt_test(census, sp, habitat)
+tt_lst
+```
+
+```{r, echo=FALSE}
+tt_df <-  to_df(tt_lst) %>% 
+  mutate(
+    habitat = stringr::str_replace(metric, "^.*\\.([0-9]+$)", "\\1"),
+    metric = stringr::str_replace(metric, "(^.*)\\.[0-9]+$", "\\1")
+  ) %>% 
+  # Info that tt_df:
+  # filter(grepl("Rep.Agg|Obs.Quantile", metric)) %>% 
+  # select(sp, habitat, metric, value) %>% 
+  spread("metric", "value") %>% 
+  rename(distribution = Rep.Agg.Neut, stem_count = N.Hab) %>% 
+  as.tibble()
+
+# The Rep.Agg.Neut columns for each habitat indicate whether the sp is significantly repelled (-1), aggregated (1), or neutraly distributed (0) on the habitat in question. The probabilities associated with the test for whether these patterns are statistically significant are in the Obs.Quantile columns for each habitat. 
+
+# TODO: Mutate `tt_df` to account for this:
+# Note that to calculate the probability for repelled, it is the value given, but to calculate the probability for aggregated, it is 1- the value given.
+tt_df <- tt_df %>% 
+  mutate(
+    probability = case_when(
+      distribution == 1 ~ (1 - Obs.Quantile),
+      distribution == -1 ~ (Obs.Quantile),
+      distribution == 0 ~ (Obs.Quantile),
+      TRUE ~ NA_real_
+    ),
+    distribution = case_when(
+      distribution == 1 ~ "aggregated",
+      distribution == -1 ~ "repelled",
+      distribution == 0 ~ "neutral",
+      TRUE ~ NA_character_
+    )
+  ) %>% 
+  select(habitat, sp, probability, distribution, stem_count, everything())
+
+tt_df
+```
+
+The restructured output is easier to manipulate.
+
+```{r}
+filter(tt_df, distribution == "aggregated")
+
+filter(tt_df, distribution == "neutral")
+```
+
+The restructured output is easier to visualize.
+
+```{r}
+tt_df %>% 
+  ggplot(aes(sp, probability)) + 
+  geom_col(aes(fill = distribution), position = "dodge") +
+  geom_label(aes(label = stem_count)) +
+  facet_wrap(vars(habitat)) +
+  labs(
+    title = "Probability of species distribution by habitat",
+    y = "species", 
+    caption = "The number on each bar indicates the count of stems."
+  )
+```
