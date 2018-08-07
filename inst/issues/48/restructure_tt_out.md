@@ -2,11 +2,20 @@ Restructure tt\_test() output for easier manipulation
 ================
 
 This document explores a new structure for the output of `tt_test()` for
-easier manipulation and visualization.
-
-Setup.
+easier manipulation and visualization. For now, the new structure is
+achieved via `to_df()` but it may become the default output of
+`tt_test()`.
 
 ``` r
+library(dplyr)
+## 
+## Attaching package: 'dplyr'
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
 library(fgeo)
 ## -- Attaching packages ------------------------------------------- fgeo 0.0.0.9000 --
 ## v fgeo.abundance  0.0.0.9004     v fgeo.demography 0.0.0.9000
@@ -15,8 +24,6 @@ library(fgeo)
 ## v fgeo.abundance  0.0.0.9004     v fgeo.tool       0.0.0.9003
 ## 
 ```
-
-Original output.
 
 ``` r
 census <- filter(luquillo_top3_sp, status == "A", dbh >= 10)
@@ -27,7 +34,7 @@ tt_df <- to_df(tt_test(census, species, habitat))
 tt_df
 ## # A tibble: 12 x 9
 ##    habitat sp    probability distribution stem_count Eq.Hab Gr.Hab Ls.Hab
-##    <chr>   <chr>       <dbl> <chr>             <dbl>  <dbl>  <dbl>  <dbl>
+##  * <chr>   <chr>       <dbl> <chr>             <dbl>  <dbl>  <dbl>  <dbl>
 ##  1 1       CASA~      0.931  neutral              25      2   1489    109
 ##  2 1       PREM~      0.243  neutral              59      3    389   1208
 ##  3 1       SLOB~      0.308  neutral              14     16    492   1092
@@ -73,9 +80,6 @@ what’s going on.
 tt_df %>% 
   group_by(habitat, distribution) %>% 
   summarise(n = n_distinct(sp))
-## Warning in summarise_impl(.data, dots): hybrid evaluation forced for
-## `n_distinct`. Please use dplyr::n_distinct() or library(dplyr) to remove
-## this warning.
 ## # A tibble: 5 x 3
 ## # Groups:   habitat [?]
 ##   habitat distribution     n

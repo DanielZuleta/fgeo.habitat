@@ -7,16 +7,13 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE, collapse = TRUE)
 ```
 
-This document explores a new structure for the output of `tt_test()` for easier manipulation and visualization.
-
-Setup.
+This document explores a new structure for the output of `tt_test()` for easier manipulation and visualization. For now, the new structure is achieved via `to_df()` but it may become the default output of `tt_test()`.
 
 ```{r}
+library(dplyr)
 library(fgeo)
 ```
 
-Original output.
- 
 ```{r}
 census <- filter(luquillo_top3_sp, status == "A", dbh >= 10)
 habitat <- luquillo_habitat
@@ -27,25 +24,6 @@ tt_df
 ```
 
 This output is easy to visualize:
-
-```{r plot-method, echo=FALSE}
-library(ggplot2)
-
-tt_df <- structure(tt_df, class = c("tt_df", class(tt_df)))
-
-plot.tt_df <- function(x, ...) {
-  ggplot(x, aes(sp, probability)) + 
-    geom_col(aes(fill = distribution), position = "dodge") +
-    geom_label(aes(label = stem_count)) +
-    facet_wrap(vars(habitat)) +
-    labs(
-      title = "Probability of species distribution by habitat",
-      x = "species", 
-      caption = "The number on each bar indicates the count of stems."
-    ) +
-    coord_flip()
-}
-```
 
 ```{r plot}
 plot(tt_df)
