@@ -70,22 +70,25 @@
 #' @examples
 #' library(dplyr)
 #' library(fgeo.tool)
-#' 
-#' habitat <- luquillo_habitat
-#' census <- luquillo_top3_sp
+#' library(fgeo.map)
 #' 
 #' # Pick alive trees, of 10 mm or more
-#' pick <- filter(census, status == "A", dbh >= 10)
-#' # Pick sufficiently abundant trees
-#' pick <- add_count(pick, sp)
-#' pick <- filter(pick, n > 50)
+#' census <- luquillo_top3_sp
+#' census <- filter(census, status == "A", dbh >= 10)
 #' 
-#' # Test any number of species
+#' # Pick sufficiently abundant species
+#' pick <- filter(add_count(census, sp), n > 50)
 #' species <- unique(pick$sp)
-#' tt_lst <- tt_test(census, species, habitat)
 #' 
-#' # Output a list of matrices
+#' # Use your habitat data or create if from elevation data
+#' habitat <- fgeo_habitat(luquillo_elevation, gridsize = 20, n = 4)
+#' plot(habitat)
+#' 
+#' tt_lst <- tt_test(census, species, habitat)
 #' str(tt_lst, give.attr = FALSE)
+#' # Combine output in a single matrix
+#' Reduce(rbind, tt_lst)
+#' # Output a list of matrices
 #' 
 #' # A list
 #' tt_lst
@@ -276,6 +279,13 @@ torusonesp.all <- function(species, hab.index20, allabund20, plotdim, gridsize) 
   }
 
   return(GrLsEq)
+}
+
+rename_to_xy <- function(x) {
+  .x <- x
+  .x <- fgeo.tool::nms_try_rename(.x, want = "x", try = "gx")
+  .x <- fgeo.tool::nms_try_rename(.x, want = "y", try = "gy")
+  .x
 }
 
 check_tt <- function(census, sp, habitat, plotdim, gridsize) {

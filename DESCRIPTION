@@ -27,7 +27,8 @@ Suggests:
     rmarkdown,
     stringr,
     testthat,
-    tidyr
+    tidyr,
+    fgeo.map
 VignetteBuilder: knitr
 Remotes: 
     forestgeo/fgeo.base,
