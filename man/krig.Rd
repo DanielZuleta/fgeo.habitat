@@ -80,6 +80,8 @@ fitting is not overly biased by points beyond the effective maximum range.
 }
 
 \examples{
+library(fgeo.tool)
+
 # Original funciton
 # Using automated parameters
 auto <- GetKrigedSoil(soil_fake, var = "c")
@@ -106,7 +108,7 @@ tail(result)
 \code{\link[geoR:variofit]{geoR::variofit()}}, \code{\link[geoR:variog]{geoR::variog()}}, \code{\link[geoR:as.geodata]{geoR::as.geodata()}},
 \code{\link[geoR:ksline]{geoR::ksline()}}, \code{\link[geoR:krige.conv]{geoR::krige.conv()}}, \code{\link[geoR:krige.control]{geoR::krige.control()}}.
 
-\code{\link[=to_df.krig_lst]{to_df.krig_lst()}}, \code{\link[=summary.krig_lst]{summary.krig_lst()}}.
+\code{\link[fgeo.tool:to_df.krig_lst]{fgeo.tool::to_df.krig_lst()}}.
 }
 \author{
 Graham Zemunik (grah.zem@gmail.com).

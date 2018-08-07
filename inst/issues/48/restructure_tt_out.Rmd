@@ -1,0 +1,58 @@
+---
+title: "Restructure tt_test() output"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, collapse = TRUE)
+```
+
+This document explores a new structure for the output of `tt_test()` for easier manipulation and visualization.
+
+Setup.
+
+```{r}
+library(tidyverse)
+library(fgeo)
+```
+
+Original output.
+ 
+```{r}
+habitat <- luquillo_habitat
+census <- luquillo_top3_sp
+
+# Pick alive trees, of 10 mm or more
+pick <- filter(census, status == "A", dbh >= 10)
+# Pick sufficiently abundant trees
+pick <- add_count(pick, sp)
+pick <- filter(pick, n > 50)
+
+# Test any number of sp
+sp <- unique(pick$sp)
+tt_lst <- tt_test(census, sp, habitat)
+tt_df <- to_df(tt_lst)
+```
+
+The restructured output is easier to manipulate.
+
+```{r}
+filter(tt_df, distribution == "aggregated")
+
+filter(tt_df, distribution == "neutral")
+```
+
+The restructured output is easier to visualize.
+
+```{r plot}
+ggplot(tt_df, aes(sp, probability)) + 
+  geom_col(aes(fill = distribution), position = "dodge") +
+  geom_label(aes(label = stem_count)) +
+  facet_wrap(vars(habitat)) +
+  labs(
+    title = "Probability of species distribution by habitat",
+    x = "species", 
+    caption = "The number on each bar indicates the count of stems."
+  ) +
+  coord_flip()
+```

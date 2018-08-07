@@ -32,7 +32,7 @@
 #'   calculated.
 #' @param allabund20 The output of `abund_index()`.
 #'
-#' @seealso [to_df()].
+#' @seealso [fgeo.tool::to_df()].
 #' 
 #' @author Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms.
 #' 
@@ -68,8 +68,8 @@
 #' @export
 #' 
 #' @examples
-#' # For easier data wranging
 #' library(dplyr)
+#' library(fgeo.tool)
 #' 
 #' habitat <- luquillo_habitat
 #' census <- luquillo_top3_sp
@@ -86,16 +86,16 @@
 #' 
 #' # Output a list of matrices
 #' str(tt_lst, give.attr = FALSE)
-#' tt_lst[[1]]
 #' 
-#' tt_df <- to_df(tt_lst)
-#' # Also try View()
-#' head(tt_df)
+#' # A list
+#' tt_lst
 #' 
-#' # You can spread columns to restructure the data from long to wide format
-#' if (requireNamespace("tidyr")) {
-#'   tidyr::spread(tt_df, metric, value)
-#' }
+#' # A combined matrix
+#' tt_matrix <- Reduce(rbind, tt_lst)
+#' head(tt_matrix)
+#' 
+#' # A combined dataframe with some tweaks for easier interpretation
+#' to_df(tt_lst)
 #' 
 #' # Test one species with original function (outputs a matrix)
 #' 
@@ -126,7 +126,6 @@ tt_test <- function(census,
                     habitat,
                     plotdim = extract_plotdim(habitat),
                     gridsize = extract_gridsize(habitat)) {
-  
   stopifnot(is.data.frame(habitat))
   # Sanitize habitat if necessary
   habitat <- tryCatch(

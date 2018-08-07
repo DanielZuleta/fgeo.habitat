@@ -88,8 +88,8 @@ but to calculate the probability for aggregated, it is 1- the value given.
 }
 
 \examples{
-# For easier data wranging
 library(dplyr)
+library(fgeo.tool)
 
 habitat <- luquillo_habitat
 census <- luquillo_top3_sp
@@ -106,16 +106,16 @@ tt_lst <- tt_test(census, species, habitat)
 
 # Output a list of matrices
 str(tt_lst, give.attr = FALSE)
-tt_lst[[1]]
 
-tt_df <- to_df(tt_lst)
-# Also try View()
-head(tt_df)
+# A list
+tt_lst
 
-# You can spread columns to restructure the data from long to wide format
-if (requireNamespace("tidyr")) {
-  tidyr::spread(tt_df, metric, value)
-}
+# A combined matrix
+tt_matrix <- Reduce(rbind, tt_lst)
+head(tt_matrix)
+
+# A combined dataframe with some tweaks for easier interpretation
+to_df(tt_lst)
 
 # Test one species with original function (outputs a matrix)
 
@@ -143,7 +143,7 @@ tt_mat_lst <- lapply(
 tt_mat_lst
 }
 \seealso{
-\code{\link[=to_df]{to_df()}}.
+\code{\link[fgeo.tool:to_df]{fgeo.tool::to_df()}}.
 }
 \author{
 Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms.

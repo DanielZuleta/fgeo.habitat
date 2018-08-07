@@ -48,9 +48,11 @@
 #' @author Graham Zemunik (grah.zem@@gmail.com).
 #'
 #' @export
-#' @seealso [to_df.krig_lst()], [summary.krig_lst()].
+#' @seealso [fgeo.tool::to_df.krig_lst()].
 #'
 #' @examples
+#' library(fgeo.tool)
+#' 
 #' # Original funciton
 #' # Using automated parameters
 #' auto <- GetKrigedSoil(soil_fake, var = "c")

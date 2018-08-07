@@ -42,21 +42,10 @@ remotes::install_github("forestgeo/fgeo.habitat")
 ```
 
 ```{r}
-library(fgeo.habitat)
-# For data wranging and visualization
-```
-
-```{r, include=FALSE}
 library(dplyr)
 library(ggplot2)
-library(purrr)
-library(stringr)
-library(tidyr)
-```
-
-```R
-# Install the tidyverse package from CRAN with: install.packages("tidyverse")
-library(tidyverse)
+library(fgeo.habitat)
+library(fgeo.tool)
 ```
 
 ```{r}
@@ -145,7 +134,7 @@ out <- tt_test(census, all_sp, habitat)
 head(out)
 ```
 
-You can gather all results into a single dataframe -- which lets you use a wide range of tools (from the tidyverse and other packages) for data manipulation and visualization.
+You can gather all results into a single dataframe -- which lets you use a wide range of tools for data manipulation and visualization.
 
 ```{r}
 tt_df <- to_df(out)
@@ -156,7 +145,7 @@ tail(tt_df)
 
 ## Data science workflows
 
-This final section shows some examples of how you can benefit from storing your results in a dataframe. Compared to a matrix, a dataframe fits better in common workflows for data manipulation and visualization. The dataframe is the most important data structure used in __dplyr__, __ggplot2__, and all other packages in the __tidyverse__. Here are some examples of what you can do with our dataframe output.
+This final section shows some examples of how you can benefit from storing your results in a dataframe. Compared to a matrix, a dataframe fits better in common workflows for data manipulation and visualization. The dataframe is the most important data structure used in __dplyr__, __ggplot2__, and many other packages. Here are some examples of what you can do with our dataframe output.
 
 (The next few code chunks use [the pipe operator (`%>%`)](http://style.tidyverse.org/pipes.html) to avoid saving intermediary results and to make our code more expressive -- where each line is an imperative statement that communicates our intention.)
 
@@ -205,7 +194,7 @@ See `?torusonesp.all()`; you'll find out that this function needs the name of on
 We should find and store the plot dimensions and gridsize because we'll need them in more than one function and they must be consistent. To understand which values to choose we may inspect the structure of the habitat ([plot details](https://forestgeo.si.edu/sites/north-america/luquillo)).
 
 ```{r}
-map(habitat, range)
+lapply(habitat, range)
 ```
 
 You can find information about each ForestGEO site at https://forestgeo.si.edu/sites-all. Also, consider these functions:
@@ -242,9 +231,9 @@ out_one
 
 ## `torusonesp.all()` and any number of species
 
-To iterate over multiple species you may write a for loop, or use a functional such as `lapply()` or `map()`.
+To iterate over multiple species you may write a for loop, or use a functional such as `lapply()`.
 
 ```{r}
 all_species <- unique(pick$sp)
-map(all_species, torusonesp.all, habitat, abundance, plot_dimensions, grid_size)
+lapply(all_species, torusonesp.all, habitat, abundance, plot_dimensions, grid_size)
 ```

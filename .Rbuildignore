@@ -13,3 +13,4 @@
 ^codecov\.yml$
 ^\.github$
 ^tmp2\.R$
+^inst/issues/43/43_empty-quadrats_cache$

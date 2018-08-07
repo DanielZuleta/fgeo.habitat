@@ -51,11 +51,6 @@ reference:
       
       - dist_in_torus
 
-  - title: "Generics"
-    contents:
-      - summary.krig_lst
-      - starts_with("to_df")
-
   - title: "Datasets"
     contents:
       - starts_with("luquillo_")
