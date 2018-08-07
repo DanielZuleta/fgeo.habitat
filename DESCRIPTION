@@ -21,17 +21,18 @@ Imports:
 Suggests: 
     covr,
     dplyr,
+    fgeo.map,
     ggplot2,
     knitr,
     purrr,
     rmarkdown,
     stringr,
     testthat,
-    tidyr,
-    fgeo.map
+    tidyr
 VignetteBuilder: knitr
 Remotes: 
     forestgeo/fgeo.base,
+    forestgeo/fgeo.map,
     forestgeo/fgeo.tool
 Encoding: UTF-8
 LazyData: true
