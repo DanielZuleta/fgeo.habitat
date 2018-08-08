@@ -133,20 +133,10 @@ tt_test <- function(census,
 
   plotdim <- plotdim %||% extract_plotdim(habitat)
   gridsize <- gridsize %||% extract_gridsize(habitat)
-  inform(glue("
-    Guessing `plotdim = c({commas(plotdim)})` and `gridsize = {gridsize}`.
-    If guess is wrong, please pass the correct values to `tt_test().
-    "))
+  inform_gridsize_plotdim(gridsize, plotdim)
 
-  # Sanitize habitat if necessary
-  habitat <- tryCatch(
-    fgeo.base::check_crucial_names(habitat, c("x", "y")),
-    error = function(e) rename_to_xy(habitat)
-  )
-  check_tt(
-    census = census, sp = sp, habitat = habitat, plotdim = plotdim,
-    gridsize = gridsize
-  )
+  habitat <- sanitize_habitat_if_necessary(habitat)
+  check_tt_test(census, sp, habitat, plotdim, gridsize)
 
   abundance <- abund_index(census, plotdim, gridsize)
   out <- lapply(
@@ -299,6 +289,19 @@ torusonesp.all <- function(species, hab.index20, allabund20, plotdim, gridsize) 
   return(GrLsEq)
 }
 
+sanitize_habitat_if_necessary <- function(habitat) {
+  tryCatch(
+    fgeo.base::check_crucial_names(habitat, c("x", "y")),
+    error = function(e) rename_to_xy(habitat)
+  )
+}
+
+inform_gridsize_plotdim <- function(gridsize, plotdim) {
+  hint <- "Change this value with the corresponding argument to `tt_test()."
+  inform(glue("Using `plotdim = c({commas(plotdim)})`. {hint}"))
+  inform(glue("Using `gridsize = {gridsize}`. {hint}"))
+}
+
 rename_to_xy <- function(x) {
   .x <- x
   .x <- fgeo.tool::nms_try_rename(.x, want = "x", try = "gx")
@@ -306,7 +309,7 @@ rename_to_xy <- function(x) {
   .x
 }
 
-check_tt <- function(census, sp, habitat, plotdim, gridsize) {
+check_tt_test <- function(census, sp, habitat, plotdim, gridsize) {
   stopifnot(
     is.data.frame(census),
     is.numeric(plotdim),
