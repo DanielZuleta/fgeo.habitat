@@ -6,7 +6,8 @@
 #' @importFrom stats nls.control
 #' @importFrom stats predict
 #' @importFrom stats resid
-#' @importFrom rlang abort warn inform expr eval_tidy expr_label
+#' @importFrom glue glue
+#' @importFrom rlang abort warn inform expr eval_tidy expr_label %||%
 #' @importFrom fgeo.base guess_plotdim
 #' @importFrom fgeo.tool to_df extract_plotdim extract_gridsize
 NULL

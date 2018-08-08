@@ -127,9 +127,17 @@
 tt_test <- function(census,
                     sp,
                     habitat,
-                    plotdim = extract_plotdim(habitat),
-                    gridsize = extract_gridsize(habitat)) {
+                    plotdim = NULL,
+                    gridsize = NULL) {
   stopifnot(is.data.frame(habitat))
+  
+  plotdim <- plotdim %||% extract_plotdim(habitat)
+  gridsize <- gridsize %||% extract_gridsize(habitat)
+  inform(glue("
+    Guessing `plotdim = c({commas(plotdim)})` and `gridsize = {gridsize}`.
+    If guess is wrong, please pass the correct values to `tt_test().
+    "))
+  
   # Sanitize habitat if necessary
   habitat <- tryCatch(
     fgeo.base::check_crucial_names(habitat, c("x", "y")), 

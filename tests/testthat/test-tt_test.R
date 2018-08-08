@@ -12,7 +12,7 @@ hab_luq <- luquillo_habitat
 sp_top1_luq <- first(sp_top3_luq)
 
 test_that("outputs the expected list", {
-  out <- expect_silent(tt_test(cns_luq, sp_top1_luq, hab_luq))
+  out <- expect_message(tt_test(cns_luq, sp_top1_luq, hab_luq), "Guessing")
   expect_equal(class(out), c("tt_lst", "list"))
   expect_equal(dim(out[[1]]), c(1, 24))
   expect_equal(sp_top1_luq, rownames(out[[1]]))

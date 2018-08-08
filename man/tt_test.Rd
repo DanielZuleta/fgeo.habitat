@@ -5,8 +5,7 @@
 \alias{torusonesp.all}
 \title{Torus Translation Test to determine habitat associations of tree species.}
 \usage{
-tt_test(census, sp, habitat, plotdim = extract_plotdim(habitat),
-  gridsize = extract_gridsize(habitat))
+tt_test(census, sp, habitat, plotdim = NULL, gridsize = NULL)
 
 torusonesp.all(species, hab.index20, allabund20, plotdim, gridsize)
 }
