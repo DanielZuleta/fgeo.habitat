@@ -4,7 +4,7 @@
 #' only `tt_test()`. `torusonesp.all()` produces the same result but work only
 #' for a single species;  it is softly deprecated -- it is included only to
 #' preserve the original code.
-#' 
+#'
 #' You should only try to determine the habitat association for sufficiently
 #' abundant species - in a 50-ha plot, a minimum abundance of 50 trees/species
 #' has been used.
@@ -14,7 +14,7 @@
 #' argument `allabund20` of `torusonesp.all()`, and reformat the output with
 #' `to_df()`. You can iterate over multiple species with a for loop or a
 #' functional such as `lapply()`.
-#' 
+#'
 #' This test should use individual trees not the (potentially multiple) stems of
 #' individual trees. This test only makes sense at the population level. We are
 #' interested in knowing whether or not individuals of a species are aggregated
@@ -23,7 +23,7 @@
 #'
 #' @param sp,species Character sting giving species names. `torusonesp.all()`can
 #'   take only one species; `tt_test()` can take any number of species.
-#' @param census A dataframe; a ForestGEO _tree_ table (see details). 
+#' @param census A dataframe; a ForestGEO _tree_ table (see details).
 #' @param habitat,hab.index20 Object giving the habitat designation for each
 #'   plot partition defined by `gridsize`.
 #' @param plotdim Plot dimensions.
@@ -33,17 +33,17 @@
 #' @param allabund20 The output of `abund_index()`.
 #'
 #' @seealso [fgeo.tool::to_df()].
-#' 
+#'
 #' @author Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms.
-#' 
+#'
 #' @section Acknowledgments:
 #' Nestor Engone Obiang, David Kenfack, Jennifer Baltzer, and Rutuja
 #' Chitra-Tarak provided feedback. Daniel Zuleta provided guidance.
-#' 
+#'
 #' @return
 #' * `tt_test()`: A dataframe.
 #' * `torusonesp.all()`: A numeric matrix.
-#' 
+#'
 #' @section Interpretation of Output:
 #' * `N.Hab.1`: Count of stems of the focal species in habitat 1.
 #' * `Gr.Hab.1`: Count of instances the observed relative density of the focal
@@ -66,46 +66,46 @@
 #' but to calculate the probability for aggregated, it is 1- the value given.
 #'
 #' @export
-#' 
+#'
 #' @examples
 #' library(dplyr)
 #' library(fgeo.tool)
 #' library(fgeo.map)
-#' 
+#'
 #' # Pick alive trees, of 10 mm or more
 #' census <- luquillo_top3_sp
 #' census <- filter(census, status == "A", dbh >= 10)
-#' 
+#'
 #' # Pick sufficiently abundant species
 #' pick <- filter(add_count(census, sp), n > 50)
 #' species <- unique(pick$sp)
-#' 
+#'
 #' # Use your habitat data or create if from elevation data
 #' habitat <- fgeo_habitat(luquillo_elevation, gridsize = 20, n = 4)
 #' plot(habitat)
-#' 
+#'
 #' tt_lst <- tt_test(census, species, habitat)
 #' str(tt_lst, give.attr = FALSE)
 #' # Combine output in a single matrix
 #' Reduce(rbind, tt_lst)
 #' # Output a list of matrices
-#' 
+#'
 #' # A list
 #' tt_lst
-#' 
+#'
 #' # A combined matrix
 #' tt_matrix <- Reduce(rbind, tt_lst)
 #' head(tt_matrix)
-#' 
+#'
 #' # A combined dataframe with some tweaks for easier interpretation
 #' to_df(tt_lst)
-#' 
+#'
 #' # Test one species with original function (outputs a matrix)
-#' 
+#'
 #' plotdim <- c(320, 500)
 #' gridsize <- 20
 #' abundance <- abund_index(pick, plotdim, gridsize)
-#' 
+#'
 #' tt_mat <- torusonesp.all(species[[1]],
 #'   hab.index20 = habitat,
 #'   allabund20 = abundance,
@@ -113,7 +113,7 @@
 #'   gridsize = gridsize
 #' )
 #' tt_mat
-#' 
+#'
 #' # Test multiple species with original function (outputs a matrix)
 #' tt_mat_lst <- lapply(
 #'   species,
@@ -130,17 +130,17 @@ tt_test <- function(census,
                     plotdim = NULL,
                     gridsize = NULL) {
   stopifnot(is.data.frame(habitat))
-  
+
   plotdim <- plotdim %||% extract_plotdim(habitat)
   gridsize <- gridsize %||% extract_gridsize(habitat)
   inform(glue("
     Guessing `plotdim = c({commas(plotdim)})` and `gridsize = {gridsize}`.
     If guess is wrong, please pass the correct values to `tt_test().
     "))
-  
+
   # Sanitize habitat if necessary
   habitat <- tryCatch(
-    fgeo.base::check_crucial_names(habitat, c("x", "y")), 
+    fgeo.base::check_crucial_names(habitat, c("x", "y")),
     error = function(e) rename_to_xy(habitat)
   )
   check_tt(
@@ -163,9 +163,13 @@ tt_test <- function(census,
 #' @rdname tt_test
 #' @export
 torusonesp.all <- function(species, hab.index20, allabund20, plotdim, gridsize) {
-  plotdimqx <- plotdim[1] / gridsize # Calculates no. of x-axis quadrats of plot. (x is the long axis of plot in the case of Pasoh)
-  plotdimqy <- plotdim[2] / gridsize # Calculates no. of y-axis quadrats of plot.
-  num.habs <- length(unique(hab.index20$habitats)) # Determines tot. no. of habitat types.
+  # Calculates no. of x-axis quadrats of plot. (x is the long axis of plot in
+  # the case of Pasoh)
+  plotdimqx <- plotdim[1] / gridsize
+  # Calculates no. of y-axis quadrats of plot.
+  plotdimqy <- plotdim[2] / gridsize
+  # Determines tot. no. of habitat types.
+  num.habs <- length(unique(hab.index20$habitats))
 
   GrLsEq <- matrix(0, 1, num.habs * 6) # Creates empty matrix for output.
   rownames(GrLsEq) <- species # Names single row of output matrix.
@@ -185,11 +189,17 @@ torusonesp.all <- function(species, hab.index20, allabund20, plotdim, gridsize) 
 
   # CALCULATIONS FOR OBSERVED RELATIVE DENSITIES ON THE TRUE HABITAT MAP
 
-  allabund20.sp <- allabund20[which(rownames(allabund20) == species), ] # pulls out the abundance by quad data for the focal species
-  spmat <- matrix(as.numeric(allabund20.sp), nrow = plotdimqy, plotdimqx, byrow = F) # Fills a matrix, with no. rows = plotdimqy (dim 2) and no. columns = plotdimqx (dim 1), with the indiv. counts per quadrat of one species.
-  totmat <- matrix(apply(allabund20, MARGIN = 2, FUN = "sum"), plotdimqy, plotdimqx, byrow = F) # calculates total number of stems in each quad for all species and puts in matrix
-
-  habmat <- matrix(hab.index20$habitats, nrow = plotdimqy, ncol = plotdimqx, byrow = F) # fills matrix with habitat types, oriented in the same way as the species and total matrices above
+  # pulls out the abundance by quad data for the focal species
+  allabund20.sp <- allabund20[which(rownames(allabund20) == species), ] 
+  # Fills a matrix, with no. rows = plotdimqy (dim 2) and no. columns =
+  # plotdimqx (dim 1), with the indiv. counts per quadrat of one species.
+  spmat <- matrix(as.numeric(allabund20.sp), nrow = plotdimqy, plotdimqx, byrow = F) 
+  # calculates total number of stems in each quad for all species and puts in matrix
+  totmat <- matrix(apply(allabund20, MARGIN = 2, FUN = "sum"), plotdimqy, plotdimqx, byrow = F) 
+  
+  # fills matrix with habitat types, oriented in the same way as the species and
+  # total matrices above
+  habmat <- matrix(hab.index20$habitats, nrow = plotdimqy, ncol = plotdimqx, byrow = F) 
 
   spstcnthab <- numeric() # Creates empty vector for stem counts per sp. per habitat.
   totstcnthab <- numeric() # Creates empty vector for tot. stem counts per habitat.
@@ -281,7 +291,7 @@ torusonesp.all <- function(species, hab.index20, allabund20, plotdim, gridsize) 
 
     if (GrLsEq[1, (6 * i) - 4] / (4 * (plotdimqx * plotdimqy)) <= 0.025) GrLsEq[1, (6 * i) - 1] <- -1 # if rel.dens. of sp in true map is greater than rel. dens. in torus map less than 2.5% of the time, then repelled
     if (GrLsEq[1, (6 * i) - 4] / (4 * (plotdimqx * plotdimqy)) >= 0.975) GrLsEq[1, (6 * i) - 1] <- 1 # if rel.dens. of sp in true map is greater than rel. dens. in torus map more than 97.5% of the time, then aggregated
-    if ( (GrLsEq[1,(6*i)-4]/(4*(plotdimqx*plotdimqy)) < 0.975) & (GrLsEq[1,(6*i)- 4]/(4*(plotdimqx*plotdimqy)) > 0.025) ) GrLsEq[1,(6*i)-1] = 0          # otherwise it's neutral (not different from random dist)
+    if ((GrLsEq[1, (6 * i) - 4] / (4 * (plotdimqx * plotdimqy)) < 0.975) & (GrLsEq[1, (6 * i) - 4] / (4 * (plotdimqx * plotdimqy)) > 0.025)) GrLsEq[1, (6 * i) - 1] <- 0 # otherwise it's neutral (not different from random dist)
 
     GrLsEq[1, (6 * i)] <- GrLsEq[1, (6 * i) - 4] / (4 * (plotdimqx * plotdimqy)) # quantile in the TT distribtution of relative densities of the true relative density
   }
