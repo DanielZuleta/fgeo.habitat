@@ -144,9 +144,10 @@ gxgy.to.index <- function(gx, gy, gridsize = 20, plotdim = c(1000, 500)) {
 #' @keywords internal
 #' @noRd
 fill.dimension <- function(dataarray, class1, class2, fill = 0) {
-  result <- data.frame(matrix(fill, nrow = length(class1), ncol = length(class2)))
+  result <- matrix(fill, nrow = length(class1), ncol = length(class2))
   rownames(result) <- class1
-  colnames(result) <- class2
+  result <- data.frame(result, stringsAsFactors = FALSE)
+  names(result) <- class2
   result[rownames(dataarray), colnames(dataarray)] <- dataarray
   result[is.na(result)] <- fill
   return(result)
