@@ -1,3 +1,4 @@
+library(fgeo.habitat)
 library(dplyr)
 
 # Small dataset that still preserves plot dimensions via guess_plotdim()
@@ -41,8 +42,8 @@ test_that("keeps quiet if asked to", {
 })
 
 test_that("passes regression test", {
-  expect_equal_to_reference(result, "ref-krig.rds")
-  expect_known_output(result, "ref-krig", print = TRUE, update = TRUE)
+  result_head <- lapply(result, head, 50)
+  expect_known_output(result_head, "ref-krig", print = TRUE, update = TRUE)
 })
 
 test_that("returns the expected value.", {
@@ -109,3 +110,4 @@ test_that("check_GetKrigSoil() fails with wrong input", {
   bad_not_logical <- "a"
   expect_error(krig(df, var = "m3al", useKsLine = bad_not_logical))
 })
+
