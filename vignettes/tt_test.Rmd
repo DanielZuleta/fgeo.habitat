@@ -55,7 +55,7 @@ set.seed(1014)
 
 ## Load census and habitat data
 
-we'll use example datasets that come with __fgeo.habitat__.
+we will use example datasets that come with __fgeo.habitat__.
 
 ```{r}
 census <- luquillo_tree6_random
@@ -81,7 +81,7 @@ habitat <- HABITAT-DATA
 
 ## Pick data
 
-We'll pick alive trees, of 10 mm or more, and of sufficiently abundant species.
+We will pick alive trees, of 10 mm or more, and of sufficiently abundant species.
 
 ```{r}
 pick <- filter(
@@ -189,9 +189,9 @@ ggplot(tt_df, aes(sp, probability)) +
 
 Before we used `tt_test()`, a wrapper of `torusonesp.all()`. This section shows how you may use `torusonesp.all()` directly to test a single species. The following section shows how to extend the test to any number of species.
 
-See `?torusonesp.all()`; you'll find out that this function needs the name of one species, a census, and habitat data. All of these we already have (above). But this function also needs plot dimensions, grid size and the abundance (count) of each species per quadrat-index.
+See `?torusonesp.all()`; you will find out that this function needs the name of one species, a census, and habitat data. All of these we already have (above). But this function also needs plot dimensions, grid size and the abundance (count) of each species per quadrat-index.
 
-We should find and store the plot dimensions and gridsize because we'll need them in more than one function and they must be consistent. To understand which values to choose we may inspect the structure of the habitat ([plot details](https://forestgeo.si.edu/sites/north-america/luquillo)).
+We should find and store the plot dimensions and gridsize because we will need them in more than one function and they must be consistent. To understand which values to choose we may inspect the structure of the habitat ([plot details](https://forestgeo.si.edu/sites/north-america/luquillo)).
 
 ```{r}
 lapply(habitat, range)

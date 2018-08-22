@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This article shows how to krig soil data based on code by Graham Zemunik. Here you'll learn about `krig()`, which wrap the original function `GetKrigedSoil()` and provides the same results with several convenient features. To learn more about these functions see `?krig()`.
+This article shows how to krig soil data based on code by Graham Zemunik. Here you will learn about `krig()`, which wrap the original function `GetKrigedSoil()` and provides the same results with several convenient features. To learn more about these functions see `?krig()`.
 
 ```{r}
 library(ggplot2)

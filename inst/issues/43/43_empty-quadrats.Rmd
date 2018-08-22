@@ -12,7 +12,7 @@ library(tidyverse)
 library(fgeo)
 ```
 
-Jennifer Baltzer reported that `tt_test()` fails if the census data contains quadrats with no species. Here I run `tt_test()` with the census data that Jennifer sent me, and with a synthetic habitat dataset. I get no error, suggesting that the problem was not in the census data but in the habitat data. I'll need the habitat data to explore what the problem might be.
+Jennifer Baltzer reported that `tt_test()` fails if the census data contains quadrats with no species. Here I run `tt_test()` with the census data that Jennifer sent me, and with a synthetic habitat dataset. I get no error, suggesting that the problem was not in the census data but in the habitat data. I will need the habitat data to explore what the problem might be.
 
 ```{r}
 path <- here::here("inst/issues/43/private/scotty.tree1.rdata")
