@@ -4,9 +4,6 @@
     <loc>https://forestgeo.github.io/fgeo.habitat//index.html</loc>
   </url>
   <url>
-    <loc>https://forestgeo.github.io/fgeo.habitat//reference/abund_index.html</loc>
-  </url>
-  <url>
     <loc>https://forestgeo.github.io/fgeo.habitat//reference/dist_in_torus.html</loc>
   </url>
   <url>
@@ -38,6 +35,9 @@
   </url>
   <url>
     <loc>https://forestgeo.github.io/fgeo.habitat//reference/summary.krig_lst.html</loc>
+  </url>
+  <url>
+    <loc>https://forestgeo.github.io/fgeo.habitat//reference/summary.tt_lst.html</loc>
   </url>
   <url>
     <loc>https://forestgeo.github.io/fgeo.habitat//reference/tt_test.html</loc>

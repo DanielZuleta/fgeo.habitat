@@ -38,17 +38,10 @@ reference:
     contents:
       - GetKrigedSoil
       - starts_with("krig")
-      
-      - guess_plotdim
 
   - title: "Torus translation"
     contents:
       - tt_test
-      - torusonesp.all
-      
-      - abund_index
-      - starts_with("extract")
-      
       - dist_in_torus
 
   - title: "Datasets"
