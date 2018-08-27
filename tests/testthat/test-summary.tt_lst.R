@@ -1,4 +1,4 @@
-context("test-tt_interpret")
+context("summary.tt_test()")
 
 describe("summary.tt_test()", {
   census <- luquillo_top3_sp
@@ -23,3 +23,4 @@ describe("summary.tt_test()", {
     expect_known_output(out, "ref-summary-tt_lst", print = TRUE)
   })
 })
+
