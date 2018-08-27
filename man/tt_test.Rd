@@ -105,16 +105,15 @@ plot(habitat)
 
 tt_lst <- tt_test(census, species, habitat)
 str(tt_lst, give.attr = FALSE)
-# Combine output in a single matrix
-Reduce(rbind, tt_lst)
-# Output a list of matrices
 
-# A list
+# Simple summary
+summary(tt_lst)
+
+# A list or matrices
 tt_lst
 
 # A combined matrix
-tt_matrix <- Reduce(rbind, tt_lst)
-head(tt_matrix)
+Reduce(rbind, tt_lst)
 
 # A combined dataframe with some tweaks for easier interpretation
 to_df(tt_lst)
