@@ -17,7 +17,8 @@
 #'
 #' @return A dataframe where each quadrat-index is a column and each species
 #' is a rowname.
-#' @export
+#' 
+#' @keywords internal
 #'
 #' @seealso `fgeo.tool::add_index()`.
 #'
@@ -26,6 +27,7 @@
 #' pdm <- c(1000, 500)
 #' gsz <- 20
 #' abund_index(cns, pdm, gsz)
+#' @noRd
 abund_index <- function(censdata, plotdim, gridsize) {
   stopifnot(!missing(censdata), !missing(plotdim), !missing(gridsize))
   abundanceperquad2(
