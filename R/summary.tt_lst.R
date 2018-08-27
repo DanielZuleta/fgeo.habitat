@@ -12,14 +12,11 @@
 #' @export
 summary.tt_lst <- function(object, ...) {
   ttdf <- as.data.frame(do.call(rbind, object))
-
   habitats_n <- dim(ttdf)[2] / 6
   out <- data.frame()
-  out_names <- NULL
-
+  
   for (species in 1:dim(ttdf)[1]) {
     for (habitat in 1:habitats_n) {
-      
       lhs <- ttdf[species, (habitat * 6) - 1]
       rhs <- ttdf[species,  habitat * 6]
       limit <- 0.05
@@ -40,8 +37,6 @@ summary.tt_lst <- function(object, ...) {
   out <- data.frame(cbind(Species = row.names(ttdf), out))
   out[] <- lapply(out, as.character)
 
-  out_names <- paste0("Habitat_", seq_len(habitats_n))
-  names(out) <- c("Species", out_names)
-
+  names(out) <- c("Species", paste0("Habitat_", seq_len(habitats_n)))
   out
 }
