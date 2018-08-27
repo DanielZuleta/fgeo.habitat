@@ -1,19 +1,11 @@
 #' Torus Translation Test to determine habitat associations of tree species.
 #'
-#' Use these functions to determine habitat associations. You most likely need
-#' only `tt_test()`. `torusonesp.all()` produces the same result but work only
-#' for a single species;  it is softly deprecated -- it is included only to
-#' preserve the original code.
-#'
+#' Determine habitat-species associations with code developed by Sabrina Russo,
+#' Daniel Zuleta, Matteo Detto, and Kyle Harms.
+#' 
 #' You should only try to determine the habitat association for sufficiently
 #' abundant species - in a 50-ha plot, a minimum abundance of 50 trees/species
 #' has been used.
-#'
-#' `tt_test()` uses `abundanceperquad()` -- via `abund_index()` -- which is
-#' slow. You may calculate abundance per quadrat independently, feed it to the
-#' argument `allabund20` of `torusonesp.all()`, and reformat the output with
-#' `to_df()`. You can iterate over multiple species with a for loop or a
-#' functional such as `lapply()`.
 #'
 #' This test should use individual trees not the (potentially multiple) stems of
 #' individual trees. This test only makes sense at the population level. We are
@@ -21,18 +13,14 @@
 #' on a habitat. Multiple stems of an individual do not represent population
 #' level processes but individual level processes.
 #'
-#' @param sp,species Character sting giving species names. `torusonesp.all()`can
-#'   take only one species; `tt_test()` can take any number of species.
 #' @param census A dataframe; a ForestGEO _tree_ table (see details).
-#' @param habitat,hab.index20 Object giving the habitat designation for each
-#'   plot partition defined by `gridsize`.
+#' @param sp Character sting giving any number of species-names.
+#' @param habitat Object giving the habitat designation for each
+#'   plot partition defined by `gridsize`. See [fgeo.tool::`fgeo_habitat()`].
 #' @param plotdim Plot dimensions.
-#' @param gridsize Grid size. If using `torusonesp.all()`, ensure it matches the
-#'   gridsize on which the habitats are defined and the abundances were
-#'   calculated.
-#' @param allabund20 The output of `abund_index()`.
+#' @param gridsize Grid size.
 #'
-#' @seealso [fgeo.tool::to_df()].
+#' @seealso [fgeo.tool::to_df()], [fgeo.tool::`fgeo_habitat()`].
 #'
 #' @author Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms.
 #'
@@ -40,9 +28,8 @@
 #' Nestor Engone Obiang, David Kenfack, Jennifer Baltzer, and Rutuja
 #' Chitra-Tarak provided feedback. Daniel Zuleta provided guidance.
 #'
-#' @return
-#' * `tt_test()`: A dataframe.
-#' * `torusonesp.all()`: A numeric matrix.
+#' @return A list of matrices. You can summarize the output with [summary()] and
+#'   convert it to a dataframe with [fgeo.tool::to_df()]. See examples.
 #'
 #' @section Interpretation of Output:
 #' * `N.Hab.1`: Count of stems of the focal species in habitat 1.
@@ -84,45 +71,18 @@
 #' habitat <- fgeo_habitat(luquillo_elevation, gridsize = 20, n = 4)
 #' plot(habitat)
 #'
-#' tt_lst <- tt_test(census, species, habitat)
-#' str(tt_lst, give.attr = FALSE)
-#'
-#' # Simple summary
-#' summary(tt_lst)
-#' 
 #' # A list or matrices
+#' tt_lst <- tt_test(census, species, habitat)
 #' tt_lst
+#' 
+#' # A simple summary to help you interpret the results
+#' summary(tt_lst)
 #'
 #' # A combined matrix
 #' Reduce(rbind, tt_lst)
 #'
-#' # A combined dataframe with some tweaks for easier interpretation
+#' # A dataframe
 #' to_df(tt_lst)
-#'
-#' # Test one species with original function (outputs a matrix)
-#'
-#' plotdim <- c(320, 500)
-#' gridsize <- 20
-#' abundance <- abund_index(pick, plotdim, gridsize)
-#'
-#' tt_mat <- torusonesp.all(species[[1]],
-#'   hab.index20 = habitat,
-#'   allabund20 = abundance,
-#'   plotdim = plotdim,
-#'   gridsize = gridsize
-#' )
-#' tt_mat
-#'
-#' # Test multiple species with original function (outputs a matrix)
-#' tt_mat_lst <- lapply(
-#'   species,
-#'   torusonesp.all,
-#'   hab.index20 = habitat,
-#'   allabund20 = abundance,
-#'   plotdim = plotdim,
-#'   gridsize = gridsize
-#' )
-#' tt_mat_lst
 tt_test <- function(census,
                     sp,
                     habitat,
@@ -149,8 +109,6 @@ tt_test <- function(census,
   new_tt_lst(out)
 }
 
-#' @rdname tt_test
-#' @export
 torusonesp.all <- function(species, hab.index20, allabund20, plotdim, gridsize) {
   # Calculates no. of x-axis quadrats of plot. (x is the long axis of plot in
   # the case of Pasoh)

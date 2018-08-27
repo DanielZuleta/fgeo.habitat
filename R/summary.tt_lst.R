@@ -1,4 +1,3 @@
-
 #' Interpret the output of `tt_test()`.
 #'
 #' @param object The output of [tt_test()], i.e. an S3 object of class tt_lst.

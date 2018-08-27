@@ -56,3 +56,7 @@ reference:
       - starts_with("luquillo_")
       - starts_with("soil_")
 
+  - title: "Generics"
+    contents:
+    - starts_with("summary")
+
