@@ -13,30 +13,25 @@
 summary.tt_lst <- function(object, ...) {
   ttdf <- as.data.frame(do.call(rbind, object))
   
-  # number of habitats
-  habs <- dim(ttdf)[2] / 6 
-  # interpretation output
-  tt_interp <- data.frame() 
-  tt_interp_names <- NULL
+  habitats_n <- dim(ttdf)[2] / 6 
+  out <- data.frame() 
+  out_names <- NULL
   
-  # j is the species loop
-  # i is the habitat loop
-  for (j in 1:dim(ttdf)[1]) {
-    #
-    for (i in 1:habs) {
-      tt_interp[j, i] <- ifelse(
-        ttdf[j, (i * 6) - 1] == 1 & (1 - (ttdf[j, i * 6])) < 0.05,
+  for (species in 1:dim(ttdf)[1]) {
+    for (habitat in 1:habitats_n) {
+      out[species, habitat] <- ifelse(
+        ttdf[species, (habitat * 6) - 1] == 1 & (1 - (ttdf[species, habitat * 6])) < 0.05,
         "aggregated",
         ifelse(
-          ttdf[j, (i * 6) - 1] == 1 &
-            (1 - (ttdf[j, i * 6])) >= 0.05,
+          ttdf[species, (habitat * 6) - 1] == 1 &
+            (1 - (ttdf[species, habitat * 6])) >= 0.05,
           "agg_nonsignificant",
           ifelse(
-            ttdf[j, (i * 6) - 1] == -1 & (ttdf[j, i * 6]) < 0.05,
+            ttdf[species, (habitat * 6) - 1] == -1 & (ttdf[species, habitat * 6]) < 0.05,
             "repelled",
             ifelse(
-              ttdf[j, (i * 6) - 1] == -1 &
-                (ttdf[j, i * 6]) >= 0.05,
+              ttdf[species, (habitat * 6) - 1] == -1 &
+                (ttdf[species, habitat * 6]) >= 0.05,
               "rep_nonsignificant",
               "neutral"
             )
@@ -46,11 +41,11 @@ summary.tt_lst <- function(object, ...) {
     }
   }
   
-  tt_interp <- data.frame(cbind(Species = row.names(ttdf), tt_interp))
-  tt_interp[] <- lapply(tt_interp, as.character)
+  out <- data.frame(cbind(Species = row.names(ttdf), out))
+  out[] <- lapply(out, as.character)
   
-  tt_interp_names <- paste0("Habitat_", seq_len(habs))
-  names(tt_interp) <- c("Species", tt_interp_names)
+  out_names <- paste0("Habitat_", seq_len(habitats_n))
+  names(out) <- c("Species", out_names)
   
-  tt_interp
+  out
 }
