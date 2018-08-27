@@ -30,11 +30,9 @@ knitr::opts_chunk$set(
 
 This article shows how to determine habitat-species associations with the function [`tt_test()`](https://forestgeo.github.io/fgeo.habitat/reference/tt_test), developed by Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms. 
 
-To suggest changes to the source code please file a pull request on the GitHub repository of the relevant package. You can search all functions and packages [here](https://forestgeo.github.io/fgeo/articles/fgeo.html#functions). Each function's help file links to its source code.
-
 ## Setup
 
-First, install and load ("open") the relevant packages. (If this code chunks isn't clear enough, see [this article](https://fgeo.netlify.com/2018/02/05/2018-02-05-installing-packages-from-github/) for details on how to install packages from GitHub.)
+First, install and load ("open") the relevant packages.
 
 ```R
 # install.packages("remotes")
@@ -131,58 +129,42 @@ ggplot(pick, aes(x = gx, y = gy)) +
 ```{r}
 all_sp <- unique(pick$sp)
 out <- tt_test(census, all_sp, habitat)
-head(out)
+out
 ```
 
-You can gather all results into a single dataframe -- which lets you use a wide range of tools for data manipulation and visualization.
+To help you interpret the results, you can use `summary()`.
+
+```{r}
+summary(out)
+```
+
+You may want to combine the output into a single matrix, by row-binding each element of the results-list.
+
+```{r}
+Reduce(rbind, out)
+```
+
+You also can gather all results into a single dataframe -- which lets you use a wide range of tools for data manipulation and visualization.
 
 ```{r}
 tt_df <- to_df(out)
-head(tt_df)
-
-tail(tt_df)
+tt_df
 ```
 
-## Data science workflows
+You can benefit from storing your results in a dataframe. Compared to a matrix, a dataframe fits better in common workflows for data manipulation and visualization. The dataframe is the most important data structure used in __dplyr__, __ggplot2__, and many other packages. Here are some examples of what you can do with our dataframe output. (The next few code chunks use [the pipe operator (`%>%`)](http://style.tidyverse.org/pipes.html) to avoid saving intermediary results and to make our code more expressive -- where each line is an imperative statement that communicates our intention.)
 
-This final section shows some examples of how you can benefit from storing your results in a dataframe. Compared to a matrix, a dataframe fits better in common workflows for data manipulation and visualization. The dataframe is the most important data structure used in __dplyr__, __ggplot2__, and many other packages. Here are some examples of what you can do with our dataframe output.
-
-(The next few code chunks use [the pipe operator (`%>%`)](http://style.tidyverse.org/pipes.html) to avoid saving intermediary results and to make our code more expressive -- where each line is an imperative statement that communicates our intention.)
-
-* Filtering interesting rows and arranging them as required.
+* Pick interesting rows and sort them in a meaningful way.
 
 ```{r}
-tt_df %>% 
-  filter(distribution == "aggregated")
-
-tt_df %>% 
-  filter(distribution == "neutral", probability > 0.5) %>% 
-  arrange(habitat, desc(probability))
+tt_df %>% filter(distribution == "aggregated")
 ```
 
-* Producing analytic summaries.
+* Summarize
 
 ```{r}
 tt_df %>% 
   group_by(sp, distribution) %>% 
-  summarise(total_stem_count = sum(stem_count))
-```
-
-* Producing visual summaries.
-
-(Unfortunately, __ggplot2__ was developed before the pipe was invented. In ggplot2, we compose functions not with `%>%` but with `+`.)
-
-```{r, out.width="100%", fig.widh=(6 * 0.9 / 0.7)}
-ggplot(tt_df, aes(sp, probability)) + 
-  geom_col(aes(fill = distribution), position = "dodge") +
-  geom_label(aes(label = stem_count)) +
-  facet_wrap(vars(habitat)) +
-  labs(
-    title = "Probability of species distribution by habitat",
-    y = "species", 
-    caption = "The number on each bar indicates the count of stems."
-  ) +
-  coord_flip()
+  summarize(total_stem_count = sum(stem_count))
 ```
 
 ## `torusonesp.all()` and one species
