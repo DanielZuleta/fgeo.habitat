@@ -51,6 +51,7 @@ summary.tt_lst <- function(object, ...) {
   }
   
   tt_interp <- data.frame(cbind(Species = row.names(ttdf), tt_interp))
+  tt_interp[] <- lapply(tt_interp, as.character)
   names(tt_interp) <- c("Species", tt_interp_names)
   tt_interp
 }
