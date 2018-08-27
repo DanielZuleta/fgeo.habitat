@@ -46,12 +46,11 @@ summary.tt_lst <- function(object, ...) {
     }
   }
   
-  for (h in 1:habs) {
-    tt_interp_names[h] <- paste("Habitat_", h, sep = "")
-  }
-  
   tt_interp <- data.frame(cbind(Species = row.names(ttdf), tt_interp))
   tt_interp[] <- lapply(tt_interp, as.character)
+  
+  tt_interp_names <- paste0("Habitat_", seq_len(habs))
   names(tt_interp) <- c("Species", tt_interp_names)
+  
   tt_interp
 }
