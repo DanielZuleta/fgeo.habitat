@@ -6,8 +6,6 @@
 \alias{to_df}
 \alias{fgeo_habitat}
 \alias{guess_plotdim}
-\alias{extract_gridsize}
-\alias{extract_plotdim}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -17,6 +15,6 @@ below to see their documentation.
 \describe{
   \item{fgeo.base}{\code{\link[fgeo.base]{guess_plotdim}}}
 
-  \item{fgeo.tool}{\code{\link[fgeo.tool]{to_df}}, \code{\link[fgeo.tool]{fgeo_habitat}}, \code{\link[fgeo.tool]{extract_gridsize}}, \code{\link[fgeo.tool]{extract_plotdim}}}
+  \item{fgeo.tool}{\code{\link[fgeo.tool]{to_df}}, \code{\link[fgeo.tool]{fgeo_habitat}}}
 }}
 

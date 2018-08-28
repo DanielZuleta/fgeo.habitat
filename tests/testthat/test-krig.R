@@ -37,8 +37,8 @@ test_that("fails if var is of length greater than 1", {
 
 
 test_that("keeps quiet if asked to", {
-  expect_message(krig(df, var = "m3al"))
-  expect_silent(krig(df, var = "m3al", quiet = TRUE))
+  expect_message(krig(df, var = "m3al"), "computing omnidirectional")
+  expect_message(krig(df, var = "m3al", quiet = TRUE), "Gessing.*plotdim")
 })
 
 test_that("passes regression test", {
@@ -88,7 +88,7 @@ test_that("check_GetKrigSoil() fails with wrong input", {
   )
   cero_row <- data.frame(gx = numeric(0), gy = numeric(0))
   expect_error(
-    krig(cero_row, var = "m3al"),
+    suppressWarnings(krig(cero_row, var = "m3al")), 
     "Ensure `df.soil` has one or more rows"
   )
   expect_error(

@@ -5,9 +5,8 @@
 \alias{GetKrigedSoil}
 \title{Krige soil data following the methodology of the John et al. (2007).}
 \usage{
-krig(soil, var, params = NULL, gridsize = 20,
-  plotdim = guess_plotdim(soil), breaks = krig_breaks(2, 320, 30),
-  use_ksline = TRUE, quiet = FALSE)
+krig(soil, var, params = NULL, gridsize = 20, plotdim = NULL,
+  breaks = krig_breaks(2, 320, 30), use_ksline = TRUE, quiet = FALSE)
 
 GetKrigedSoil(df.soil, var, gridSize = 20, krigeParams = NULL,
   xSize = 1000, ySize = 500, breaks = krig_breaks(2, 320, 30),
@@ -30,7 +29,8 @@ this size.}
 \item{plotdim, xSize, ySize}{Numeric vectors giving x and y dimensions of the
 plot:
 \itemize{
-\item \code{plotdim}: Must be of length 2 with the format \code{c(x, y)}.
+\item \code{plotdim}: If \code{NULL} (default) it will be guessed. Otherwise, it must be
+of length 2 with the format \code{c(x, y)}.
 \item \code{xSize}, \code{ySize}: Each must be of length 1.
 }}
 

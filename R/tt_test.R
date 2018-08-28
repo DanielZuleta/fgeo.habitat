@@ -89,8 +89,8 @@
 tt_test <- function(census, sp, habitat, plotdim = NULL, gridsize = NULL) {
   stopifnot(is.data.frame(habitat))
 
-  plotdim <- plotdim %||% extract_plotdim(habitat)
-  gridsize <- gridsize %||% extract_gridsize(habitat)
+  plotdim <- plotdim %||% fgeo.tool::extract_plotdim(habitat)
+  gridsize <- gridsize %||% fgeo.tool::extract_gridsize(habitat)
   inform_gridsize_plotdim(gridsize, plotdim)
 
   habitat <- sanitize_habitat_if_necessary(habitat)
