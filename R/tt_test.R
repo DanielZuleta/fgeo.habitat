@@ -253,7 +253,7 @@ sanitize_habitat_if_necessary <- function(habitat) {
 }
 
 inform_gridsize_plotdim <- function(gridsize, plotdim) {
-  hint <- "To change this value see argument of `tt_test()."
+  hint <- "To change this value see `?tt_test()`."
   inform(glue("Using `plotdim = c({commas(plotdim)})`. {hint}"))
   inform(glue("Using `gridsize = {gridsize}`. {hint}"))
 }
