@@ -1,4 +1,4 @@
-#' Interpret the output of `tt_test()`.
+#' Summary method for `tt_test()` results, for easier interpretation.
 #'
 #' @param object The output of [tt_test()], i.e. an S3 object of class tt_lst.
 #' @param ... Other arguments passed to methods.

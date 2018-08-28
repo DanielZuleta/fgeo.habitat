@@ -2,7 +2,7 @@
 % Please edit documentation in R/summary.tt_lst.R
 \name{summary.tt_lst}
 \alias{summary.tt_lst}
-\title{Interpret the output of \code{tt_test()}.}
+\title{Summary method for \code{tt_test()} results, for easier interpretation.}
 \usage{
 \method{summary}{tt_lst}(object, ...)
 }
@@ -15,7 +15,7 @@
 A dataframe.
 }
 \description{
-Interpret the output of \code{tt_test()}.
+Summary method for \code{tt_test()} results, for easier interpretation.
 }
 \seealso{
 \code{\link[=tt_test]{tt_test()}}.

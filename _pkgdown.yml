@@ -34,22 +34,21 @@ navbar:
 
 
 reference:
-  - title: "Krig"
-    contents:
-      - GetKrigedSoil
-      - starts_with("krig")
-
   - title: "Torus translation"
     contents:
       - tt_test
       - dist_in_torus
 
+  - title: "Krig soil data"
+    contents:
+      - GetKrigedSoil
+      - starts_with("krig")
+
+  - title: "Methods for common generics"
+    contents:
+    - starts_with("summary")
+    
   - title: "Datasets"
     contents:
       - starts_with("luquillo_")
       - starts_with("soil_")
-
-  - title: "Generics"
-    contents:
-    - starts_with("summary")
-
