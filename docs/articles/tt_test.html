@@ -92,7 +92,7 @@
             <h3 class="subtitle">Given a number of species and habitat types in a plot, is each species significantly aggregated within habitats?</h3>
                         <h4 class="author">Mauro Lepore</h4>
             
-            <h4 class="date">2018-08-27</h4>
+            <h4 class="date">2018-08-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/forestgeo/fgeo.habitat/blob/master/vignettes/tt_test.Rmd"><code>vignettes/tt_test.Rmd</code></a></small>
       <div class="hidden name"><code>tt_test.Rmd</code></div>
@@ -281,7 +281,7 @@
 <a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co">#&gt; PREMON      30       63     1535        2              0         0.0394</span></a>
 <a class="sourceLine" id="cb12-17" data-line-number="17"><span class="co">#&gt; SLOBER      12      859      731       10              0         0.5369</span></a></code></pre></div>
 <p>You also can gather all results into a single dataframe – which lets you use a wide range of tools for data manipulation and visualization.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">tt_df &lt;-<span class="st"> </span><span class="kw">to_df</span>(out)</a>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">tt_df &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df">to_df</a></span>(out)</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">tt_df</a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">#&gt; # A tibble: 12 x 8</span></a>
 <a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">#&gt;    habitat sp     distribution stem_count Eq.Hab Gr.Hab Ls.Hab Obs.Quantile</span></a>

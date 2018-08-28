@@ -4,23 +4,24 @@
 #' Daniel Zuleta, Matteo Detto, and Kyle Harms.
 #' 
 #' You should only try to determine the habitat association for sufficiently
-#' abundant species - in a 50-ha plot, a minimum abundance of 50 trees/species
-#' has been used.
-#'
-#' This test should use individual trees not the (potentially multiple) stems of
-#' individual trees. This test only makes sense at the population level. We are
-#' interested in knowing whether or not individuals of a species are aggregated
-#' on a habitat. Multiple stems of an individual do not represent population
-#' level processes but individual level processes.
+#' abundant species. In a 50-ha plot, a minimum abundance of 50 trees/species
+#' has been used. Also, you should use data of individual trees (i.e. a tree
+#' table, and not a stem table with potentially multiple stems per tree. This
+#' test only makes sense at the population level. We are interested in knowing
+#' whether or not individuals of a species are aggregated on a habitat. Multiple
+#' stems of an individual do not represent population level processes but
+#' individual level processes.
 #'
 #' @param census A dataframe; a ForestGEO _tree_ table (see details).
 #' @param sp Character sting giving any number of species-names.
 #' @param habitat Object giving the habitat designation for each
-#'   plot partition defined by `gridsize`. See [fgeo.tool::`fgeo_habitat()`].
-#' @param plotdim Plot dimensions.
-#' @param gridsize Grid size.
+#'   plot partition defined by `gridsize`. See [`fgeo_habitat()`].
+#' @param plotdim,gridsize Plot dimensions and gridsize. If `NULL` (default)
+#'   they will be guessed, and a message will inform you of the chosen values. 
+#'   If the guess is wrong, you should provide the correct values manually (and
+#'   check that your habitat data is correct).
 #'
-#' @seealso [fgeo.tool::to_df()], [fgeo.tool::`fgeo_habitat()`].
+#' @seealso [summary.tt_lst()], [to_df()], [fgeo_habitat()].
 #'
 #' @author Sabrina Russo, Daniel Zuleta, Matteo Detto, and Kyle Harms.
 #'
@@ -29,7 +30,9 @@
 #' Chitra-Tarak provided feedback. Daniel Zuleta provided guidance.
 #'
 #' @return A list of matrices. You can summarize the output with [summary()] and
-#'   convert it to a dataframe with [fgeo.tool::to_df()]. See examples.
+#'   convert it to a dataframe with [to_df()]. You can also view the
+#'   result with `View(your-result)`, and reduce it from a list of matrices to a
+#'   single matix with `Reduce(rbind, your-result)`. See examples.
 #'
 #' @section Interpretation of Output:
 #' * `N.Hab.1`: Count of stems of the focal species in habitat 1.
@@ -56,38 +59,33 @@
 #'
 #' @examples
 #' library(dplyr)
-#' library(fgeo.tool)
-#' library(fgeo.map)
-#'
+#' 
 #' # Pick alive trees, of 10 mm or more
-#' census <- luquillo_top3_sp
-#' census <- filter(census, status == "A", dbh >= 10)
-#'
+#' census <- filter(luquillo_tree6_random, status == "A", dbh >= 10)
+#' 
 #' # Pick sufficiently abundant species
 #' pick <- filter(add_count(census, sp), n > 50)
 #' species <- unique(pick$sp)
-#'
+#' 
 #' # Use your habitat data or create if from elevation data
 #' habitat <- fgeo_habitat(luquillo_elevation, gridsize = 20, n = 4)
-#' plot(habitat)
-#'
+#' 
 #' # A list or matrices
 #' tt_lst <- tt_test(census, species, habitat)
 #' tt_lst
 #' 
 #' # A simple summary to help you interpret the results
 #' summary(tt_lst)
-#'
+#' 
 #' # A combined matrix
 #' Reduce(rbind, tt_lst)
-#'
+#' 
 #' # A dataframe
-#' to_df(tt_lst)
-tt_test <- function(census,
-                    sp,
-                    habitat,
-                    plotdim = NULL,
-                    gridsize = NULL) {
+#' dfm <- to_df(tt_lst)
+#' 
+#' # Using dplyr to summarize results by species and distribution
+#' summarize(group_by(dfm, sp, distribution), n = sum(stem_count))
+tt_test <- function(census, sp, habitat, plotdim = NULL, gridsize = NULL) {
   stopifnot(is.data.frame(habitat))
 
   plotdim <- plotdim %||% extract_plotdim(habitat)

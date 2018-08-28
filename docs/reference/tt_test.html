@@ -150,33 +150,34 @@ Daniel Zuleta, Matteo Detto, and Kyle Harms.</p>
     <tr>
       <th>habitat</th>
       <td><p>Object giving the habitat designation for each
-plot partition defined by <code>gridsize</code>. See fgeo.tool::fgeo_habitat().</p></td>
+plot partition defined by <code>gridsize</code>. See <code><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/construct_habitats'>fgeo_habitat()</a></code>.</p></td>
     </tr>
     <tr>
-      <th>plotdim</th>
-      <td><p>Plot dimensions.</p></td>
-    </tr>
-    <tr>
-      <th>gridsize</th>
-      <td><p>Grid size.</p></td>
+      <th>plotdim, gridsize</th>
+      <td><p>Plot dimensions and gridsize. If <code>NULL</code> (default)
+they will be guessed, and a message will inform you of the chosen values.
+If the guess is wrong, you should provide the correct values manually (and
+check that your habitat data is correct).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A list of matrices. You can summarize the output with <code>summary()</code> and
-convert it to a dataframe with <code><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df'>fgeo.tool::to_df()</a></code>. See examples.</p>
+convert it to a dataframe with <code><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df'>to_df()</a></code>. You can also view the
+result with <code>View(your-result)</code>, and reduce it from a list of matrices to a
+single matix with <code>Reduce(rbind, your-result)</code>. See examples.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>You should only try to determine the habitat association for sufficiently
-abundant species - in a 50-ha plot, a minimum abundance of 50 trees/species
-has been used.</p>
-<p>This test should use individual trees not the (potentially multiple) stems of
-individual trees. This test only makes sense at the population level. We are
-interested in knowing whether or not individuals of a species are aggregated
-on a habitat. Multiple stems of an individual do not represent population
-level processes but individual level processes.</p>
+abundant species. In a 50-ha plot, a minimum abundance of 50 trees/species
+has been used. Also, you should use data of individual trees (i.e. a tree
+table, and not a stem table with potentially multiple stems per tree. This
+test only makes sense at the population level. We are interested in knowing
+whether or not individuals of a species are aggregated on a habitat. Multiple
+stems of an individual do not represent population level processes but
+individual level processes.</p>
     
     <h2 class="hasAnchor" id="acknowledgments"><a class="anchor" href="#acknowledgments"></a>Acknowledgments</h2>
 
@@ -211,7 +212,7 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df'>fgeo.tool::to_df()</a></code>, fgeo.tool::fgeo_habitat().</p></div>
+    <div class='dont-index'><p><code><a href='summary.tt_lst.html'>summary.tt_lst()</a></code>, <code><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df'>to_df()</a></code>, <code><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/construct_habitats'>fgeo_habitat()</a></code>.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -220,90 +221,84 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from 'package:base':</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'><span class='fu'>library</span>(<span class='no'>fgeo.tool</span>)
-<span class='fu'>library</span>(<span class='no'>fgeo.map</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: S3 method 'plot.tt_df' was declared in NAMESPACE but not found</span></div><div class='input'>
+#&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'>
 <span class='co'># Pick alive trees, of 10 mm or more</span>
-<span class='no'>census</span> <span class='kw'>&lt;-</span> <span class='no'>luquillo_top3_sp</span>
-<span class='no'>census</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/reexports'>filter</a></span>(<span class='no'>census</span>, <span class='no'>status</span> <span class='kw'>==</span> <span class='st'>"A"</span>, <span class='no'>dbh</span> <span class='kw'>&gt;=</span> <span class='fl'>10</span>)
+<span class='no'>census</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>luquillo_tree6_random</span>, <span class='no'>status</span> <span class='kw'>==</span> <span class='st'>"A"</span>, <span class='no'>dbh</span> <span class='kw'>&gt;=</span> <span class='fl'>10</span>)
 
 <span class='co'># Pick sufficiently abundant species</span>
-<span class='no'>pick</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/reexports'>filter</a></span>(<span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/reexports'>add_count</a></span>(<span class='no'>census</span>, <span class='no'>sp</span>), <span class='no'>n</span> <span class='kw'>&gt;</span> <span class='fl'>50</span>)
+<span class='no'>pick</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='fu'><a href='http://dplyr.tidyverse.org/reference/tally.html'>add_count</a></span>(<span class='no'>census</span>, <span class='no'>sp</span>), <span class='no'>n</span> <span class='kw'>&gt;</span> <span class='fl'>50</span>)
 <span class='no'>species</span> <span class='kw'>&lt;-</span> <span class='fu'>unique</span>(<span class='no'>pick</span>$<span class='no'>sp</span>)
 
 <span class='co'># Use your habitat data or create if from elevation data</span>
 <span class='no'>habitat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/construct_habitats'>fgeo_habitat</a></span>(<span class='no'>luquillo_elevation</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>)
-<span class='fu'>plot</span>(<span class='no'>habitat</span>)</div><div class='img'><img src='tt_test-1.png' alt='' width='700' height='433' /></div><div class='input'>
+
 <span class='co'># A list or matrices</span>
 <span class='no'>tt_lst</span> <span class='kw'>&lt;-</span> <span class='fu'>tt_test</span>(<span class='no'>census</span>, <span class='no'>species</span>, <span class='no'>habitat</span>)</div><div class='output co'>#&gt; <span class='message'>Using `plotdim = c(320, 500)`. To change this value see argument of `tt_test().</span></div><div class='output co'>#&gt; <span class='message'>Using `gridsize = 20`. To change this value see argument of `tt_test().</span></div><div class='input'><span class='no'>tt_lst</span></div><div class='output co'>#&gt; [[1]]
 #&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1 N.Hab.2
-#&gt; CASARB      23      360     1239        1              0          0.225      24
+#&gt; CASARB      23      586     1012        2              0        0.36625      24
 #&gt;        Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2 N.Hab.3
-#&gt; CASARB     1544       49        7              0          0.965       6
+#&gt; CASARB     1537       62        1              0       0.960625       6
 #&gt;        Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3 N.Hab.4
-#&gt; CASARB      152     1441        7              0          0.095      13
+#&gt; CASARB      118     1481        1              0        0.07375      13
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-#&gt; CASARB     1246      352        2              0        0.77875
+#&gt; CASARB      999      599        2              0       0.624375
 #&gt; 
 #&gt; [[2]]
 #&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1 N.Hab.2
-#&gt; PREMON     109     1407      192        1              0       0.879375      53
+#&gt; PREMON     109     1589        9        2              1       0.993125      53
 #&gt;        Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2 N.Hab.3
-#&gt; PREMON      392     1204        4              0          0.245      42
+#&gt; PREMON      601      997        2              0       0.375625      42
 #&gt;        Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3 N.Hab.4
-#&gt; PREMON     1005      589        6              0       0.628125      30
+#&gt; PREMON      392     1199        9              0          0.245      30
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-#&gt; PREMON      139     1457        4              0       0.086875
+#&gt; PREMON       63     1535        2              0       0.039375
 #&gt; 
 #&gt; [[3]]
 #&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1 N.Hab.2
-#&gt; SLOBER      27      677      919        4              0       0.423125      11
+#&gt; SLOBER      27      946      653        1              0        0.59125      11
 #&gt;        Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2 N.Hab.3
-#&gt; SLOBER      368     1213       19              0           0.23      16
+#&gt; SLOBER      422     1175        3              0        0.26375      16
 #&gt;        Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3 N.Hab.4
-#&gt; SLOBER     1254      322       24              0        0.78375      12
+#&gt; SLOBER     1116      481        3              0         0.6975      12
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-#&gt; SLOBER     1086      507        7              0        0.67875
+#&gt; SLOBER      859      731       10              0       0.536875
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "tt_lst" "list"  </div><div class='input'>
 <span class='co'># A simple summary to help you interpret the results</span>
-<span class='fu'>summary</span>(<span class='no'>tt_lst</span>)</div><div class='output co'>#&gt;   Species Habitat_1 Habitat_2 Habitat_3 Habitat_4
-#&gt; 1  CASARB   neutral   neutral   neutral   neutral
-#&gt; 2  PREMON   neutral   neutral   neutral   neutral
-#&gt; 3  SLOBER   neutral   neutral   neutral   neutral</div><div class='input'>
+<span class='fu'>summary</span>(<span class='no'>tt_lst</span>)</div><div class='output co'>#&gt;   Species  Habitat_1 Habitat_2 Habitat_3 Habitat_4
+#&gt; 1  CASARB    neutral   neutral   neutral   neutral
+#&gt; 2  PREMON aggregated   neutral   neutral   neutral
+#&gt; 3  SLOBER    neutral   neutral   neutral   neutral</div><div class='input'>
 <span class='co'># A combined matrix</span>
 <span class='fu'>Reduce</span>(<span class='no'>rbind</span>, <span class='no'>tt_lst</span>)</div><div class='output co'>#&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1 N.Hab.2
-#&gt; CASARB      23      360     1239        1              0       0.225000      24
-#&gt; PREMON     109     1407      192        1              0       0.879375      53
-#&gt; SLOBER      27      677      919        4              0       0.423125      11
+#&gt; CASARB      23      586     1012        2              0       0.366250      24
+#&gt; PREMON     109     1589        9        2              1       0.993125      53
+#&gt; SLOBER      27      946      653        1              0       0.591250      11
 #&gt;        Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2 N.Hab.3
-#&gt; CASARB     1544       49        7              0          0.965       6
-#&gt; PREMON      392     1204        4              0          0.245      42
-#&gt; SLOBER      368     1213       19              0          0.230      16
+#&gt; CASARB     1537       62        1              0       0.960625       6
+#&gt; PREMON      601      997        2              0       0.375625      42
+#&gt; SLOBER      422     1175        3              0       0.263750      16
 #&gt;        Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3 N.Hab.4
-#&gt; CASARB      152     1441        7              0       0.095000      13
-#&gt; PREMON     1005      589        6              0       0.628125      30
-#&gt; SLOBER     1254      322       24              0       0.783750      12
+#&gt; CASARB      118     1481        1              0        0.07375      13
+#&gt; PREMON      392     1199        9              0        0.24500      30
+#&gt; SLOBER     1116      481        3              0        0.69750      12
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-#&gt; CASARB     1246      352        2              0       0.778750
-#&gt; PREMON      139     1457        4              0       0.086875
-#&gt; SLOBER     1086      507        7              0       0.678750</div><div class='input'>
+#&gt; CASARB      999      599        2              0       0.624375
+#&gt; PREMON       63     1535        2              0       0.039375
+#&gt; SLOBER      859      731       10              0       0.536875</div><div class='input'>
 <span class='co'># A dataframe</span>
-<span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df'>to_df</a></span>(<span class='no'>tt_lst</span>)</div><div class='output co'>#&gt; # A tibble: 12 x 8
-#&gt;    habitat sp     distribution stem_count Eq.Hab Gr.Hab Ls.Hab Obs.Quantile
-#&gt;  * &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;
-#&gt;  1 1       CASARB neutral              23      1    360   1239       0.225 
-#&gt;  2 1       PREMON neutral             109      1   1407    192       0.879 
-#&gt;  3 1       SLOBER neutral              27      4    677    919       0.423 
-#&gt;  4 2       CASARB neutral              24      7   1544     49       0.965 
-#&gt;  5 2       PREMON neutral              53      4    392   1204       0.245 
-#&gt;  6 2       SLOBER neutral              11     19    368   1213       0.23  
-#&gt;  7 3       CASARB neutral               6      7    152   1441       0.095 
-#&gt;  8 3       PREMON neutral              42      6   1005    589       0.628 
-#&gt;  9 3       SLOBER neutral              16     24   1254    322       0.784 
-#&gt; 10 4       CASARB neutral              13      2   1246    352       0.779 
-#&gt; 11 4       PREMON neutral              30      4    139   1457       0.0869
-#&gt; 12 4       SLOBER neutral              12      7   1086    507       0.679 </div></pre>
+<span class='no'>dfm</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df'>to_df</a></span>(<span class='no'>tt_lst</span>)
+
+<span class='co'># Using dplyr to summarize results by species and distribution</span>
+<span class='fu'><a href='http://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='fu'><a href='http://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>dfm</span>, <span class='no'>sp</span>, <span class='no'>distribution</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'>sum</span>(<span class='no'>stem_count</span>))</div><div class='output co'>#&gt; # A tibble: 4 x 3
+#&gt; # Groups:   sp [?]
+#&gt;   sp     distribution     n
+#&gt;   &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt;
+#&gt; 1 CASARB neutral         66
+#&gt; 2 PREMON aggregated     109
+#&gt; 3 PREMON neutral        125
+#&gt; 4 SLOBER neutral         66</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -117,7 +117,7 @@
 <a class="sourceLine" id="cb2-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co"># Krige soil data</span></a>
 <a class="sourceLine" id="cb2-10" data-line-number="10">result &lt;-<span class="st"> </span><span class="kw"><a href="reference/krig.html">krig</a></span>(soil_fake, <span class="dt">var =</span> <span class="kw">c</span>(<span class="st">"c"</span>, <span class="st">"p"</span>), <span class="dt">quiet =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="kw">head</span>(<span class="kw">to_df</span>(result))</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="kw">head</span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df">to_df</a></span>(result))</a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   var   x  y        z</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; 1   c  10 10 2.134696</span></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; 2   c  30 10 2.119651</span></a>
@@ -126,7 +126,7 @@
 <a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; 5   c  90 10 2.074427</span></a>
 <a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; 6   c 110 10 2.059322</span></a>
 <a class="sourceLine" id="cb2-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="kw">tail</span>(<span class="kw">to_df</span>(result))</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="kw">tail</span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df">to_df</a></span>(result))</a>
 <a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt;      var   x   y        z</span></a>
 <a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; 2295   p 890 450 5.835048</span></a>
 <a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 2296   p 910 450 5.826698</span></a>

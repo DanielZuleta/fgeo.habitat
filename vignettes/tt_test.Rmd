@@ -43,7 +43,6 @@ remotes::install_github("forestgeo/fgeo.habitat")
 library(dplyr)
 library(ggplot2)
 library(fgeo.habitat)
-library(fgeo.tool)
 ```
 
 ```{r}
