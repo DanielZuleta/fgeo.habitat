@@ -122,9 +122,9 @@
 <a href="#compare-parameters" class="anchor"></a>Compare parameters</h3>
 <p>Krige with automated parameters.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">auto &lt;-<span class="st"> </span><span class="kw"><a href="../reference/krig.html">krig</a></span>(soil, <span class="dt">var =</span> <span class="st">"m3al"</span>)<span class="op">$</span>m3al</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; var: m3alUsing: gridsize = 20</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; Gessing: plotdim = c(1000, 500)</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; Gessing: plotdim = c(1000, 500)</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; var: m3alUsing: gridsize = 20</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; variog: computing omnidirectional variogram</span></a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; variofit: covariance model used is exponential </span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; variofit: weights used: npairs </span></a>
@@ -172,7 +172,8 @@
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">params &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="dt">model =</span> <span class="st">"circular"</span>, <span class="dt">range =</span> <span class="dv">100</span>, <span class="dt">nugget =</span> <span class="dv">1000</span>, <span class="dt">sill =</span> <span class="dv">46000</span>, <span class="dt">kappa =</span> <span class="fl">0.5</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">)</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">custom &lt;-<span class="st"> </span><span class="kw"><a href="../reference/krig.html">krig</a></span>(soil, <span class="dt">var =</span> <span class="st">"m3al"</span>, <span class="dt">params =</span> params, <span class="dt">quiet =</span> <span class="ot">TRUE</span>)<span class="op">$</span>m3al</a></code></pre></div>
+<a class="sourceLine" id="cb7-4" data-line-number="4">custom &lt;-<span class="st"> </span><span class="kw"><a href="../reference/krig.html">krig</a></span>(soil, <span class="dt">var =</span> <span class="st">"m3al"</span>, <span class="dt">params =</span> params, <span class="dt">quiet =</span> <span class="ot">TRUE</span>)<span class="op">$</span>m3al</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; Gessing: plotdim = c(1000, 500)</span></a></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">str</span>(custom<span class="op">$</span>df, <span class="dt">give.attr =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; 'data.frame':    1250 obs. of  3 variables:</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;  $ x: num  10 30 50 70 90 110 130 150 170 190 ...</span></a>
@@ -231,15 +232,16 @@
 <a class="sourceLine" id="cb11-17" data-line-number="17"><span class="co">#&gt; # ... with 20 more rows</span></a></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># krig() can take multiple soil variables.</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2">out_lst &lt;-<span class="st"> </span><span class="kw"><a href="../reference/krig.html">krig</a></span>(soil_fake, soil_vars, <span class="dt">quiet =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co"># Overview results of one var</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="kw">summary</span>(out_lst<span class="op">$</span>c)</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co">#&gt;         Length Class      Mode   </span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt; df       3     data.frame list   </span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; df.poly  3     data.frame list   </span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; lambda   1     -none-     numeric</span></a>
-<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="co">#&gt; vg      20     variogram  list   </span></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co">#&gt; vm      17     variomodel list</span></a></code></pre></div>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#&gt; Gessing: plotdim = c(1000, 460)</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co"># Overview results of one var</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw">summary</span>(out_lst<span class="op">$</span>c)</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt;         Length Class      Mode   </span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; df       3     data.frame list   </span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; df.poly  3     data.frame list   </span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="co">#&gt; lambda   1     -none-     numeric</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co">#&gt; vg      20     variogram  list   </span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="co">#&gt; vm      17     variomodel list</span></a></code></pre></div>
 <p>Transform krig results to a dataframe for easier manipulation and visualization.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># This short form would also work: to_df(out_lst)</span></a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">out_df &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df">to_df</a></span>(out_lst, <span class="dt">name =</span> <span class="st">"soil_var"</span>, <span class="dt">item =</span> <span class="st">"df"</span>)</a>
