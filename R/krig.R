@@ -44,7 +44,7 @@
 #'   * `vg`: A list giving the variogram parameters used for the kriging.
 #'   * `vm`: Minimum loss value returned from [geoR::variofit()].
 #' @seealso [geoR::variofit()], [geoR::variog()], [geoR::as.geodata()],
-#'   [geoR::ksline()], [geoR::krige.conv()], [geoR::krige.control()].
+#'   [geoR::ksline()], [geoR::krige.conv()], `geoR::krige.control()`.
 #'
 #' @author Graham Zemunik (grah.zem@@gmail.com).
 #'
@@ -85,7 +85,7 @@ krig <- function(soil,
                  quiet = FALSE) {
   force(var)
   fgeo.base::check_crucial_names(soil, c("gx", "gy"))
-  plotdim <- plotdim %||% guess_plotdim(soil)
+  plotdim <- plotdim %||% fgeo.base::guess_plotdim(soil)
   
   out <- lapply(
     var,
@@ -419,7 +419,7 @@ krig_one <- function(soil,
                      quiet = FALSE) {
   krig_msg <- function() {
     
-    plotdim <- plotdim %||% guess_plotdim(soil)
+    plotdim <- plotdim %||% fgeo.base::guess_plotdim(soil)
     message("\nvar: ", var, "Using: gridsize = ", gridsize)
     
     krig_with_message <- enable_quiet(GetKrigedSoil)
@@ -472,7 +472,6 @@ check_krig <- function(df.soil,
       call. = FALSE
     )
   }
-  fgeo.base::check_crucial_names(df.soil, c("gx", "gy"))
   stopifnot(is.character(var))
   if (length(var) > 1) {
     stop("`var` must be of length 1.\nDo you need `krig()`?")

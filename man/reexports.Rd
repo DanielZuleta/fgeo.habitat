@@ -4,8 +4,6 @@
 \name{reexports}
 \alias{reexports}
 \alias{to_df}
-\alias{fgeo_habitat}
-\alias{guess_plotdim}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -13,8 +11,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{fgeo.base}{\code{\link[fgeo.base]{guess_plotdim}}}
-
-  \item{fgeo.tool}{\code{\link[fgeo.tool]{to_df}}, \code{\link[fgeo.tool]{fgeo_habitat}}}
+  \item{fgeo.tool}{\code{\link[fgeo.tool]{to_df}}}
 }}
 

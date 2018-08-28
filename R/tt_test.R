@@ -69,7 +69,7 @@
 #' species <- unique(pick$sp)
 #' 
 #' # Use your habitat data or create if from elevation data
-#' habitat <- fgeo_habitat(luquillo_elevation, gridsize = 20, n = 4)
+#' habitat <- fgeo.tool::fgeo_habitat(luquillo_elevation, gridsize = 20, n = 4)
 #' 
 #' # A list or matrices
 #' tt_lst <- tt_test(census, species, habitat)

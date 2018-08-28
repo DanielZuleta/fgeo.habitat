@@ -1,5 +1,6 @@
 library(fgeo.habitat)
 library(dplyr)
+library(fgeo.base)
 
 # Small dataset that still preserves plot dimensions via guess_plotdim()
 df0 <- fgeo.habitat::soil_random

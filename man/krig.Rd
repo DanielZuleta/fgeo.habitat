@@ -106,7 +106,7 @@ tail(result)
 }
 \seealso{
 \code{\link[geoR:variofit]{geoR::variofit()}}, \code{\link[geoR:variog]{geoR::variog()}}, \code{\link[geoR:as.geodata]{geoR::as.geodata()}},
-\code{\link[geoR:ksline]{geoR::ksline()}}, \code{\link[geoR:krige.conv]{geoR::krige.conv()}}, \code{\link[geoR:krige.control]{geoR::krige.control()}}.
+\code{\link[geoR:ksline]{geoR::ksline()}}, \code{\link[geoR:krige.conv]{geoR::krige.conv()}}, \code{geoR::krige.control()}.
 
 \code{\link[fgeo.tool:to_df.krig_lst]{fgeo.tool::to_df.krig_lst()}}.
 }
