@@ -1,5 +1,7 @@
 context("summary.tt_test()")
 
+library(fgeo.data)
+
 describe("summary.tt_test()", {
   census <- luquillo_top3_sp
 

@@ -72,6 +72,7 @@ but to calculate the probability for aggregated, it is 1- the value given.
 
 \examples{
 library(dplyr)
+library(fgeo.data)
 
 # Pick alive trees, of 10 mm or more
 census <- filter(luquillo_tree6_random, status == "A", dbh >= 10)

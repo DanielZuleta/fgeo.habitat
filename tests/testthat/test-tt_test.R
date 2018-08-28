@@ -3,6 +3,7 @@ context("tt_test.R")
 # Ensure consistent values accross runs
 set.seed(123)
 library(dplyr)
+library(fgeo.data)
 
 # Small dataset from Luquillo
 cns_luq <- luquillo_top3_sp

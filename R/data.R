@@ -1,27 +1,3 @@
-#' Datasets from __fgeo.data__.
-#'
-#' @seealso `fgeo.data::luquillo_habitat`, `fgeo.data::luquillo_elevation`,
-#'   `fgeo.data::luquillo_tree6_random`, `fgeo.data::luquillo_stem6_random`.
-#'
-#' @examples
-#' str(luquillo_habitat, give.attr = FALSE)
-#' str(luquillo_elevation, give.attr = FALSE)
-#' str(luquillo_tree6_random, give.attr = FALSE)
-#' str(luquillo_stem6_random, give.attr = FALSE)
-#' @name luquillo
-NULL
-
-#' @rdname luquillo
-"luquillo_habitat"
-#' @rdname luquillo
-"luquillo_elevation"
-#' @rdname luquillo
-"luquillo_tree6_random"
-#' @rdname luquillo
-"luquillo_stem6_random"
-
-
-
 #' A tiny dataset from Luquillo of the three most abundant species.
 #'
 #' @examples

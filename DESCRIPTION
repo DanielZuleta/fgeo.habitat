@@ -1,10 +1,14 @@
 Package: fgeo.habitat
 Title: Analyze Soils and Tree-Habitat Data
 Version: 0.0.0.9006
-Authors@R: c(
-    person("Mauro", "Lepore", , "leporem@si.edu", role = c("aut", "ctr", "cre")),
-    person("CTFS-ForestGEO", , , "ForestGEO@si.edu", role = c("cph", "fnd"))
-    )
+Authors@R: 
+    c(person(given = "Mauro",
+             family = "Lepore",
+             role = c("aut", "ctr", "cre"),
+             email = "leporem@si.edu"),
+      person(given = "CTFS-ForestGEO",
+             role = c("cph", "fnd"),
+             email = "ForestGEO@si.edu"))
 Description: Analyze soils and tree-habitat data.
 License: GPL-3
 URL: https://github.com/forestgeo/fgeo.habitat
@@ -13,12 +17,13 @@ Depends:
     R (>= 3.3.0)
 Imports: 
     fgeo.base,
+    fgeo.data,
     fgeo.tool,
     geoR,
+    glue,
     MASS,
     rlang,
-    stats,
-    glue
+    stats
 Suggests: 
     covr,
     dplyr,
@@ -30,9 +35,11 @@ Suggests:
     stringr,
     testthat,
     tidyr
-VignetteBuilder: knitr
+VignetteBuilder: 
+    knitr
 Remotes: 
     forestgeo/fgeo.base,
+    forestgeo/fgeo.data,
     forestgeo/fgeo.map,
     forestgeo/fgeo.tool
 Encoding: UTF-8

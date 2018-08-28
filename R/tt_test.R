@@ -59,6 +59,7 @@
 #'
 #' @examples
 #' library(dplyr)
+#' library(fgeo.data)
 #' 
 #' # Pick alive trees, of 10 mm or more
 #' census <- filter(luquillo_tree6_random, status == "A", dbh >= 10)
