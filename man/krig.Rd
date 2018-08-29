@@ -17,15 +17,14 @@ dataset #' containing soil data to krige.}
 \item{params}{If you want to pass specified kriging parameters; see
 \code{\link[=krig_auto_params]{krig_auto_params()}} for each parameter.}
 
-\item{gridsize, gridSize}{Points are kriged to the center points of a grid of
+\item{gridsize}{Points are kriged to the center points of a grid of
 this size.}
 
 \item{plotdim}{Numeric vector giving x and y dimensions of the plot. If
 \code{NULL} (default) it will be guessed. Otherwise, it must be of length 2 with
 the format \code{c(x, y)}.}
 
-\item{breaks}{Breaks/intervals used to calculate the semivariogram, which
-only happens if \code{krigeParams = NULL} (default).}
+\item{breaks}{Breaks/intervals used to calculate the semivariogram.}
 
 \item{use_ksline}{Use the \code{\link[geoR:ksline]{geoR::ksline()}} function? Use \code{TRUE} to calculate
 a "best" semivariogram based on default parameters via

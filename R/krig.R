@@ -18,15 +18,14 @@
 #'   columns `gx`, `gy`.
 #' @param var A character vector giving the name of each column in the soil
 #'   dataset #' containing soil data to krige.
-#' @param gridsize,gridSize Points are kriged to the center points of a grid of
+#' @param gridsize Points are kriged to the center points of a grid of
 #'   this size.
 #' @param params If you want to pass specified kriging parameters; see
 #'   [krig_auto_params()] for each parameter.
 #' @param plotdim Numeric vector giving x and y dimensions of the plot. If
 #'   `NULL` (default) it will be guessed. Otherwise, it must be of length 2 with
 #'   the format `c(x, y)`.
-#' @param breaks Breaks/intervals used to calculate the semivariogram, which
-#'   only happens if `krigeParams = NULL` (default).
+#' @param breaks Breaks/intervals used to calculate the semivariogram.
 #' @param use_ksline Use the [geoR::ksline()] function? Use `TRUE` to calculate
 #'   a "best" semivariogram based on default parameters via
 #'   `geoR::variogram()`]. Use `FALSE` to base calculation on parameters passed
