@@ -92,7 +92,7 @@
             <h3 class="subtitle">Given a number of species and habitat types in a plot, is each species significantly aggregated within habitats?</h3>
                         <h4 class="author">Mauro Lepore</h4>
             
-            <h4 class="date">2018-08-28</h4>
+            <h4 class="date">2018-08-29</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/forestgeo/fgeo.habitat/blob/master/vignettes/tt_test.Rmd"><code>vignettes/tt_test.Rmd</code></a></small>
       <div class="hidden name"><code>tt_test.Rmd</code></div>
@@ -156,7 +156,7 @@
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; Classes 'fgeo_habitat', 'tbl_df', 'tbl' and 'data.frame':    400 obs. of  3 variables:</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  $ gx      : num  0 0 0 0 0 0 0 0 0 0 ...</span></a>
 <a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  $ gy      : num  0 20 40 60 80 100 120 140 160 180 ...</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  $ habitats: int  1 1 1 1 2 2 2 2 2 2 ...</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  $ habitats: int  1 1 1 1 1 1 1 1 1 1 ...</span></a></code></pre></div>
 <p>To load your own data, you may run something like this:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">load</span>(<span class="st">"PATH/CENSUS_DATA.rdata"</span>)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">census &lt;-<span class="st"> </span>CENSUS_DATA</a>
@@ -216,106 +216,105 @@
 <a href="#tt_test-and-any-number-of-species" class="anchor"></a><code><a href="../reference/tt_test.html">tt_test()</a></code> and any number of species</h2>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">all_sp &lt;-<span class="st"> </span><span class="kw">unique</span>(pick<span class="op">$</span>sp)</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">out &lt;-<span class="st"> </span><span class="kw"><a href="../reference/tt_test.html">tt_test</a></span>(census, all_sp, habitat)</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt; Using `plotdim = c(320, 500)`. To change this value see argument of `tt_test().</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#&gt; Using `gridsize = 20`. To change this value see argument of `tt_test().</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt; Using `plotdim = c(320, 500)`. To change this value see `?tt_test()`.</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#&gt; Using `gridsize = 20`. To change this value see `?tt_test()`.</span></a>
 <a class="sourceLine" id="cb10-5" data-line-number="5">out</a>
 <a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">#&gt; [[1]]</span></a>
 <a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co">#&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co">#&gt; CASARB      23      586     1012        2              0          0.366</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co">#&gt; CASARB      29     1418      179        3              0          0.886</span></a>
 <a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co">#&gt;        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2</span></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co">#&gt; CASARB      24     1537       62        1              0          0.961</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co">#&gt; CASARB      20      416     1182        2              0           0.26</span></a>
 <a class="sourceLine" id="cb10-11" data-line-number="11"><span class="co">#&gt;        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3</span></a>
-<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="co">#&gt; CASARB       6      118     1481        1              0         0.0737</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="co">#&gt; CASARB      12      804      790        6              0          0.502</span></a>
 <a class="sourceLine" id="cb10-13" data-line-number="13"><span class="co">#&gt;        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4</span></a>
-<a class="sourceLine" id="cb10-14" data-line-number="14"><span class="co">#&gt; CASARB      13      999      599        2              0          0.624</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14"><span class="co">#&gt; CASARB       5      554     1040        6              0          0.346</span></a>
 <a class="sourceLine" id="cb10-15" data-line-number="15"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb10-16" data-line-number="16"><span class="co">#&gt; [[2]]</span></a>
 <a class="sourceLine" id="cb10-17" data-line-number="17"><span class="co">#&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1</span></a>
-<a class="sourceLine" id="cb10-18" data-line-number="18"><span class="co">#&gt; PREMON     109     1589        9        2              1          0.993</span></a>
+<a class="sourceLine" id="cb10-18" data-line-number="18"><span class="co">#&gt; PREMON      91     1483      116        1              0          0.927</span></a>
 <a class="sourceLine" id="cb10-19" data-line-number="19"><span class="co">#&gt;        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2</span></a>
-<a class="sourceLine" id="cb10-20" data-line-number="20"><span class="co">#&gt; PREMON      53      601      997        2              0          0.376</span></a>
+<a class="sourceLine" id="cb10-20" data-line-number="20"><span class="co">#&gt; PREMON      89     1142      455        3              0          0.714</span></a>
 <a class="sourceLine" id="cb10-21" data-line-number="21"><span class="co">#&gt;        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3</span></a>
-<a class="sourceLine" id="cb10-22" data-line-number="22"><span class="co">#&gt; PREMON      42      392     1199        9              0          0.245</span></a>
+<a class="sourceLine" id="cb10-22" data-line-number="22"><span class="co">#&gt; PREMON      40      409     1189        2              0          0.256</span></a>
 <a class="sourceLine" id="cb10-23" data-line-number="23"><span class="co">#&gt;        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4</span></a>
-<a class="sourceLine" id="cb10-24" data-line-number="24"><span class="co">#&gt; PREMON      30       63     1535        2              0         0.0394</span></a>
+<a class="sourceLine" id="cb10-24" data-line-number="24"><span class="co">#&gt; PREMON      14       76     1523        1              0         0.0475</span></a>
 <a class="sourceLine" id="cb10-25" data-line-number="25"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb10-26" data-line-number="26"><span class="co">#&gt; [[3]]</span></a>
 <a class="sourceLine" id="cb10-27" data-line-number="27"><span class="co">#&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1</span></a>
-<a class="sourceLine" id="cb10-28" data-line-number="28"><span class="co">#&gt; SLOBER      27      946      653        1              0          0.591</span></a>
+<a class="sourceLine" id="cb10-28" data-line-number="28"><span class="co">#&gt; SLOBER      18      387     1212        1              0          0.242</span></a>
 <a class="sourceLine" id="cb10-29" data-line-number="29"><span class="co">#&gt;        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2</span></a>
-<a class="sourceLine" id="cb10-30" data-line-number="30"><span class="co">#&gt; SLOBER      11      422     1175        3              0          0.264</span></a>
+<a class="sourceLine" id="cb10-30" data-line-number="30"><span class="co">#&gt; SLOBER      24      810      788        2              0          0.506</span></a>
 <a class="sourceLine" id="cb10-31" data-line-number="31"><span class="co">#&gt;        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3</span></a>
-<a class="sourceLine" id="cb10-32" data-line-number="32"><span class="co">#&gt; SLOBER      16     1116      481        3              0          0.698</span></a>
+<a class="sourceLine" id="cb10-32" data-line-number="32"><span class="co">#&gt; SLOBER      17     1182      414        4              0          0.739</span></a>
 <a class="sourceLine" id="cb10-33" data-line-number="33"><span class="co">#&gt;        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4</span></a>
-<a class="sourceLine" id="cb10-34" data-line-number="34"><span class="co">#&gt; SLOBER      12      859      731       10              0          0.537</span></a>
+<a class="sourceLine" id="cb10-34" data-line-number="34"><span class="co">#&gt; SLOBER       7      912      680        8              0           0.57</span></a>
 <a class="sourceLine" id="cb10-35" data-line-number="35"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb10-36" data-line-number="36"><span class="co">#&gt; attr(,"class")</span></a>
 <a class="sourceLine" id="cb10-37" data-line-number="37"><span class="co">#&gt; [1] "tt_lst" "list"</span></a></code></pre></div>
 <p>To help you interpret the results, you can use <code>summary()</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">summary</span>(out)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#&gt;   Species  Habitat_1 Habitat_2 Habitat_3 Habitat_4</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; 1  CASARB    neutral   neutral   neutral   neutral</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt; 2  PREMON aggregated   neutral   neutral   neutral</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; 3  SLOBER    neutral   neutral   neutral   neutral</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#&gt;   Species Habitat_1 Habitat_2 Habitat_3 Habitat_4</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; 1  CASARB   neutral   neutral   neutral   neutral</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt; 2  PREMON   neutral   neutral   neutral   neutral</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; 3  SLOBER   neutral   neutral   neutral   neutral</span></a></code></pre></div>
 <p>You may want to combine the output into a single matrix, by row-binding each element of the results-list.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">Reduce</span>(rbind, out)</a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co">#&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#&gt; CASARB      23      586     1012        2              0          0.366</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt; PREMON     109     1589        9        2              1          0.993</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt; SLOBER      27      946      653        1              0          0.591</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#&gt; CASARB      29     1418      179        3              0          0.886</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt; PREMON      91     1483      116        1              0          0.927</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt; SLOBER      18      387     1212        1              0          0.242</span></a>
 <a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co">#&gt;        N.Hab.2 Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2</span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt; CASARB      24     1537       62        1              0          0.961</span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; PREMON      53      601      997        2              0          0.376</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; SLOBER      11      422     1175        3              0          0.264</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt; CASARB      20      416     1182        2              0          0.260</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; PREMON      89     1142      455        3              0          0.714</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; SLOBER      24      810      788        2              0          0.506</span></a>
 <a class="sourceLine" id="cb12-10" data-line-number="10"><span class="co">#&gt;        N.Hab.3 Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3</span></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co">#&gt; CASARB       6      118     1481        1              0         0.0737</span></a>
-<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="co">#&gt; PREMON      42      392     1199        9              0         0.2450</span></a>
-<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co">#&gt; SLOBER      16     1116      481        3              0         0.6975</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co">#&gt; CASARB      12      804      790        6              0          0.502</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="co">#&gt; PREMON      40      409     1189        2              0          0.256</span></a>
+<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co">#&gt; SLOBER      17     1182      414        4              0          0.739</span></a>
 <a class="sourceLine" id="cb12-14" data-line-number="14"><span class="co">#&gt;        N.Hab.4 Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4</span></a>
-<a class="sourceLine" id="cb12-15" data-line-number="15"><span class="co">#&gt; CASARB      13      999      599        2              0         0.6244</span></a>
-<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co">#&gt; PREMON      30       63     1535        2              0         0.0394</span></a>
-<a class="sourceLine" id="cb12-17" data-line-number="17"><span class="co">#&gt; SLOBER      12      859      731       10              0         0.5369</span></a></code></pre></div>
+<a class="sourceLine" id="cb12-15" data-line-number="15"><span class="co">#&gt; CASARB       5      554     1040        6              0         0.3463</span></a>
+<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co">#&gt; PREMON      14       76     1523        1              0         0.0475</span></a>
+<a class="sourceLine" id="cb12-17" data-line-number="17"><span class="co">#&gt; SLOBER       7      912      680        8              0         0.5700</span></a></code></pre></div>
 <p>You also can gather all results into a single dataframe – which lets you use a wide range of tools for data manipulation and visualization.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">tt_df &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df">to_df</a></span>(out)</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">tt_df</a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">#&gt; # A tibble: 12 x 8</span></a>
 <a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">#&gt;    habitat sp     distribution stem_count Eq.Hab Gr.Hab Ls.Hab Obs.Quantile</span></a>
 <a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co">#&gt;  * &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co">#&gt;  1 1       CASARB neutral              23      2    586   1012       0.366 </span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="co">#&gt;  2 1       PREMON aggregated          109      2   1589      9       0.993 </span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="co">#&gt;  3 1       SLOBER neutral              27      1    946    653       0.591 </span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="co">#&gt;  4 2       CASARB neutral              24      1   1537     62       0.961 </span></a>
-<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="co">#&gt;  5 2       PREMON neutral              53      2    601    997       0.376 </span></a>
-<a class="sourceLine" id="cb13-11" data-line-number="11"><span class="co">#&gt;  6 2       SLOBER neutral              11      3    422   1175       0.264 </span></a>
-<a class="sourceLine" id="cb13-12" data-line-number="12"><span class="co">#&gt;  7 3       CASARB neutral               6      1    118   1481       0.0738</span></a>
-<a class="sourceLine" id="cb13-13" data-line-number="13"><span class="co">#&gt;  8 3       PREMON neutral              42      9    392   1199       0.245 </span></a>
-<a class="sourceLine" id="cb13-14" data-line-number="14"><span class="co">#&gt;  9 3       SLOBER neutral              16      3   1116    481       0.698 </span></a>
-<a class="sourceLine" id="cb13-15" data-line-number="15"><span class="co">#&gt; 10 4       CASARB neutral              13      2    999    599       0.624 </span></a>
-<a class="sourceLine" id="cb13-16" data-line-number="16"><span class="co">#&gt; 11 4       PREMON neutral              30      2     63   1535       0.0394</span></a>
-<a class="sourceLine" id="cb13-17" data-line-number="17"><span class="co">#&gt; 12 4       SLOBER neutral              12     10    859    731       0.537</span></a></code></pre></div>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co">#&gt;  1 1       CASARB neutral              29      3   1418    179       0.886 </span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="co">#&gt;  2 1       PREMON neutral              91      1   1483    116       0.927 </span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="co">#&gt;  3 1       SLOBER neutral              18      1    387   1212       0.242 </span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="co">#&gt;  4 2       CASARB neutral              20      2    416   1182       0.26  </span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="co">#&gt;  5 2       PREMON neutral              89      3   1142    455       0.714 </span></a>
+<a class="sourceLine" id="cb13-11" data-line-number="11"><span class="co">#&gt;  6 2       SLOBER neutral              24      2    810    788       0.506 </span></a>
+<a class="sourceLine" id="cb13-12" data-line-number="12"><span class="co">#&gt;  7 3       CASARB neutral              12      6    804    790       0.502 </span></a>
+<a class="sourceLine" id="cb13-13" data-line-number="13"><span class="co">#&gt;  8 3       PREMON neutral              40      2    409   1189       0.256 </span></a>
+<a class="sourceLine" id="cb13-14" data-line-number="14"><span class="co">#&gt;  9 3       SLOBER neutral              17      4   1182    414       0.739 </span></a>
+<a class="sourceLine" id="cb13-15" data-line-number="15"><span class="co">#&gt; 10 4       CASARB neutral               5      6    554   1040       0.346 </span></a>
+<a class="sourceLine" id="cb13-16" data-line-number="16"><span class="co">#&gt; 11 4       PREMON neutral              14      1     76   1523       0.0475</span></a>
+<a class="sourceLine" id="cb13-17" data-line-number="17"><span class="co">#&gt; 12 4       SLOBER neutral               7      8    912    680       0.570</span></a></code></pre></div>
 <p>You can benefit from storing your results in a dataframe. Compared to a matrix, a dataframe fits better in common workflows for data manipulation and visualization. The dataframe is the most important data structure used in <strong>dplyr</strong>, <strong>ggplot2</strong>, and many other packages. Here are some examples of what you can do with our dataframe output. (The next few code chunks use <a href="http://style.tidyverse.org/pipes.html">the pipe operator (<code>%&gt;%</code>)</a> to avoid saving intermediary results and to make our code more expressive – where each line is an imperative statement that communicates our intention.)</p>
 <ul>
 <li>Pick interesting rows and sort them in a meaningful way.</li>
 </ul>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">tt_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(distribution <span class="op">==</span><span class="st"> "aggregated"</span>)</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#&gt; # A tibble: 1 x 8</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt;   habitat sp     distribution stem_count Eq.Hab Gr.Hab Ls.Hab Obs.Quantile</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="co">#&gt; 1 1       PREMON aggregated          109      2   1589      9        0.993</span></a></code></pre></div>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#&gt; # A tibble: 0 x 8</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt; # ... with 8 variables: habitat &lt;chr&gt;, sp &lt;chr&gt;, distribution &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="co">#&gt; #   stem_count &lt;dbl&gt;, Eq.Hab &lt;dbl&gt;, Gr.Hab &lt;dbl&gt;, Ls.Hab &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="co">#&gt; #   Obs.Quantile &lt;dbl&gt;</span></a></code></pre></div>
 <ul>
 <li>Summarize</li>
 </ul>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">tt_df <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb15-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sp, distribution) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb15-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_stem_count =</span> <span class="kw">sum</span>(stem_count))</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">#&gt; # A tibble: 4 x 3</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">#&gt; # A tibble: 3 x 3</span></a>
 <a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co">#&gt; # Groups:   sp [?]</span></a>
 <a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co">#&gt;   sp     distribution total_stem_count</span></a>
 <a class="sourceLine" id="cb15-7" data-line-number="7"><span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;                   &lt;dbl&gt;</span></a>
 <a class="sourceLine" id="cb15-8" data-line-number="8"><span class="co">#&gt; 1 CASARB neutral                    66</span></a>
-<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="co">#&gt; 2 PREMON aggregated                109</span></a>
-<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co">#&gt; 3 PREMON neutral                   125</span></a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; 4 SLOBER neutral                    66</span></a></code></pre></div>
+<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="co">#&gt; 2 PREMON neutral                   234</span></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co">#&gt; 3 SLOBER neutral                    66</span></a></code></pre></div>
 </div>
   </div>
 

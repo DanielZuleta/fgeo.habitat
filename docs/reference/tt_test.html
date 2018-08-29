@@ -231,75 +231,74 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
 <span class='no'>species</span> <span class='kw'>&lt;-</span> <span class='fu'>unique</span>(<span class='no'>pick</span>$<span class='no'>sp</span>)
 
 <span class='co'># Use your habitat data or create if from elevation data</span>
-<span class='no'>habitat</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>fgeo.tool</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/construct_habitats'>fgeo_habitat</a></span>(<span class='no'>luquillo_elevation</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>)
+<span class='no'>habitat</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>fgeo.tool</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/fgeo_habitat'>fgeo_habitat</a></span>(<span class='no'>luquillo_elevation</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>)
 
 <span class='co'># A list or matrices</span>
 <span class='no'>tt_lst</span> <span class='kw'>&lt;-</span> <span class='fu'>tt_test</span>(<span class='no'>census</span>, <span class='no'>species</span>, <span class='no'>habitat</span>)</div><div class='output co'>#&gt; <span class='message'>Using `plotdim = c(320, 500)`. To change this value see `?tt_test()`.</span></div><div class='output co'>#&gt; <span class='message'>Using `gridsize = 20`. To change this value see `?tt_test()`.</span></div><div class='input'><span class='no'>tt_lst</span></div><div class='output co'>#&gt; [[1]]
 #&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1 N.Hab.2
-#&gt; CASARB      23      586     1012        2              0        0.36625      24
+#&gt; CASARB      29     1418      179        3              0        0.88625      20
 #&gt;        Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2 N.Hab.3
-#&gt; CASARB     1537       62        1              0       0.960625       6
+#&gt; CASARB      416     1182        2              0           0.26      12
 #&gt;        Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3 N.Hab.4
-#&gt; CASARB      118     1481        1              0        0.07375      13
+#&gt; CASARB      804      790        6              0         0.5025       5
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-#&gt; CASARB      999      599        2              0       0.624375
+#&gt; CASARB      554     1040        6              0        0.34625
 #&gt; 
 #&gt; [[2]]
 #&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1 N.Hab.2
-#&gt; PREMON     109     1589        9        2              1       0.993125      53
+#&gt; PREMON      91     1483      116        1              0       0.926875      89
 #&gt;        Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2 N.Hab.3
-#&gt; PREMON      601      997        2              0       0.375625      42
+#&gt; PREMON     1142      455        3              0        0.71375      40
 #&gt;        Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3 N.Hab.4
-#&gt; PREMON      392     1199        9              0          0.245      30
+#&gt; PREMON      409     1189        2              0       0.255625      14
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-#&gt; PREMON       63     1535        2              0       0.039375
+#&gt; PREMON       76     1523        1              0         0.0475
 #&gt; 
 #&gt; [[3]]
 #&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1 N.Hab.2
-#&gt; SLOBER      27      946      653        1              0        0.59125      11
+#&gt; SLOBER      18      387     1212        1              0       0.241875      24
 #&gt;        Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2 N.Hab.3
-#&gt; SLOBER      422     1175        3              0        0.26375      16
+#&gt; SLOBER      810      788        2              0        0.50625      17
 #&gt;        Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3 N.Hab.4
-#&gt; SLOBER     1116      481        3              0         0.6975      12
+#&gt; SLOBER     1182      414        4              0        0.73875       7
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-#&gt; SLOBER      859      731       10              0       0.536875
+#&gt; SLOBER      912      680        8              0           0.57
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "tt_lst" "list"  </div><div class='input'>
 <span class='co'># A simple summary to help you interpret the results</span>
-<span class='fu'>summary</span>(<span class='no'>tt_lst</span>)</div><div class='output co'>#&gt;   Species  Habitat_1 Habitat_2 Habitat_3 Habitat_4
-#&gt; 1  CASARB    neutral   neutral   neutral   neutral
-#&gt; 2  PREMON aggregated   neutral   neutral   neutral
-#&gt; 3  SLOBER    neutral   neutral   neutral   neutral</div><div class='input'>
+<span class='fu'>summary</span>(<span class='no'>tt_lst</span>)</div><div class='output co'>#&gt;   Species Habitat_1 Habitat_2 Habitat_3 Habitat_4
+#&gt; 1  CASARB   neutral   neutral   neutral   neutral
+#&gt; 2  PREMON   neutral   neutral   neutral   neutral
+#&gt; 3  SLOBER   neutral   neutral   neutral   neutral</div><div class='input'>
 <span class='co'># A combined matrix</span>
 <span class='fu'>Reduce</span>(<span class='no'>rbind</span>, <span class='no'>tt_lst</span>)</div><div class='output co'>#&gt;        N.Hab.1 Gr.Hab.1 Ls.Hab.1 Eq.Hab.1 Rep.Agg.Neut.1 Obs.Quantile.1 N.Hab.2
-#&gt; CASARB      23      586     1012        2              0       0.366250      24
-#&gt; PREMON     109     1589        9        2              1       0.993125      53
-#&gt; SLOBER      27      946      653        1              0       0.591250      11
+#&gt; CASARB      29     1418      179        3              0       0.886250      20
+#&gt; PREMON      91     1483      116        1              0       0.926875      89
+#&gt; SLOBER      18      387     1212        1              0       0.241875      24
 #&gt;        Gr.Hab.2 Ls.Hab.2 Eq.Hab.2 Rep.Agg.Neut.2 Obs.Quantile.2 N.Hab.3
-#&gt; CASARB     1537       62        1              0       0.960625       6
-#&gt; PREMON      601      997        2              0       0.375625      42
-#&gt; SLOBER      422     1175        3              0       0.263750      16
+#&gt; CASARB      416     1182        2              0        0.26000      12
+#&gt; PREMON     1142      455        3              0        0.71375      40
+#&gt; SLOBER      810      788        2              0        0.50625      17
 #&gt;        Gr.Hab.3 Ls.Hab.3 Eq.Hab.3 Rep.Agg.Neut.3 Obs.Quantile.3 N.Hab.4
-#&gt; CASARB      118     1481        1              0        0.07375      13
-#&gt; PREMON      392     1199        9              0        0.24500      30
-#&gt; SLOBER     1116      481        3              0        0.69750      12
+#&gt; CASARB      804      790        6              0       0.502500       5
+#&gt; PREMON      409     1189        2              0       0.255625      14
+#&gt; SLOBER     1182      414        4              0       0.738750       7
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
-#&gt; CASARB      999      599        2              0       0.624375
-#&gt; PREMON       63     1535        2              0       0.039375
-#&gt; SLOBER      859      731       10              0       0.536875</div><div class='input'>
+#&gt; CASARB      554     1040        6              0        0.34625
+#&gt; PREMON       76     1523        1              0        0.04750
+#&gt; SLOBER      912      680        8              0        0.57000</div><div class='input'>
 <span class='co'># A dataframe</span>
 <span class='no'>dfm</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df'>to_df</a></span>(<span class='no'>tt_lst</span>)
 
 <span class='co'># Using dplyr to summarize results by species and distribution</span>
-<span class='fu'><a href='http://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='fu'><a href='http://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>dfm</span>, <span class='no'>sp</span>, <span class='no'>distribution</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'>sum</span>(<span class='no'>stem_count</span>))</div><div class='output co'>#&gt; # A tibble: 4 x 3
+<span class='fu'><a href='http://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='fu'><a href='http://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>dfm</span>, <span class='no'>sp</span>, <span class='no'>distribution</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'>sum</span>(<span class='no'>stem_count</span>))</div><div class='output co'>#&gt; # A tibble: 3 x 3
 #&gt; # Groups:   sp [?]
 #&gt;   sp     distribution     n
 #&gt;   &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt;
 #&gt; 1 CASARB neutral         66
-#&gt; 2 PREMON aggregated     109
-#&gt; 3 PREMON neutral        125
-#&gt; 4 SLOBER neutral         66</div></pre>
+#&gt; 2 PREMON neutral        234
+#&gt; 3 SLOBER neutral         66</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
