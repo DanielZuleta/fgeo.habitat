@@ -2,43 +2,33 @@
 % Please edit documentation in R/krig.R
 \name{krig}
 \alias{krig}
-\alias{GetKrigedSoil}
 \title{Krige soil data following the methodology of the John et al. (2007).}
 \usage{
 krig(soil, var, params = NULL, gridsize = 20, plotdim = NULL,
   breaks = krig_breaks(2, 320, 30), use_ksline = TRUE, quiet = FALSE)
-
-GetKrigedSoil(df.soil, var, gridSize = 20, krigeParams = NULL,
-  xSize = 1000, ySize = 500, breaks = krig_breaks(2, 320, 30),
-  useKsLine = TRUE)
 }
 \arguments{
-\item{soil, df.soil}{The data frame with the points, coords specified in the
+\item{soil}{The data frame with the points, coords specified in the
 columns \code{gx}, \code{gy}.}
 
-\item{var}{A character vector giving the name in the soil dataset of the
-variable(s) containing soil data to krige. \code{var} must be of length 1 for
-\code{GetKrigedSoil()} but can be of length greater than one for \code{krig()}.}
+\item{var}{A character vector giving the name of each column in the soil
+dataset #' containing soil data to krige.}
 
-\item{params, krigeParams}{If you want to pass specified kriging parameters;
-see \code{\link[=krig_auto_params]{krig_auto_params()}} for each parameter.}
+\item{params}{If you want to pass specified kriging parameters; see
+\code{\link[=krig_auto_params]{krig_auto_params()}} for each parameter.}
 
 \item{gridsize, gridSize}{Points are kriged to the center points of a grid of
 this size.}
 
-\item{plotdim, xSize, ySize}{Numeric vectors giving x and y dimensions of the
-plot:
-\itemize{
-\item \code{plotdim}: If \code{NULL} (default) it will be guessed. Otherwise, it must be
-of length 2 with the format \code{c(x, y)}.
-\item \code{xSize}, \code{ySize}: Each must be of length 1.
-}}
+\item{plotdim}{Numeric vector giving x and y dimensions of the plot. If
+\code{NULL} (default) it will be guessed. Otherwise, it must be of length 2 with
+the format \code{c(x, y)}.}
 
 \item{breaks}{Breaks/intervals used to calculate the semivariogram, which
 only happens if \code{krigeParams = NULL} (default).}
 
-\item{use_ksline, useKsLine}{Use the \code{\link[geoR:ksline]{geoR::ksline()}} function? Use \code{TRUE} to
-calculate a "best" semivariogram based on default parameters via
+\item{use_ksline}{Use the \code{\link[geoR:ksline]{geoR::ksline()}} function? Use \code{TRUE} to calculate
+a "best" semivariogram based on default parameters via
 \code{geoR::variogram()}]. Use \code{FALSE} to base calculation on parameters passed
 to \code{params}.}
 
@@ -82,12 +72,8 @@ fitting is not overly biased by points beyond the effective maximum range.
 \examples{
 library(fgeo.tool)
 
-# Original funciton
 # Using automated parameters
-auto <- GetKrigedSoil(soil_fake, var = "c")
-summary(auto)
-
-# Wrapper produces the same output and add convenient features
+summary(krig(soil_fake, var = "c"))
 
 # Now using custom parameters (arbitrary but based on automated kriging params)
 params <- list(

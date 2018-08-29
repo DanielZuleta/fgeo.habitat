@@ -14,24 +14,21 @@
 #'
 #' @inheritSection krig_auto_params Breaks default
 #'
-#' @param soil,df.soil The data frame with the points, coords specified in the
+#' @param soil The data frame with the points, coords specified in the
 #'   columns `gx`, `gy`.
-#' @param var A character vector giving the name in the soil dataset of the
-#'   variable(s) containing soil data to krige. `var` must be of length 1 for
-#'   `GetKrigedSoil()` but can be of length greater than one for `krig()`.
+#' @param var A character vector giving the name of each column in the soil
+#'   dataset #' containing soil data to krige.
 #' @param gridsize,gridSize Points are kriged to the center points of a grid of
 #'   this size.
-#' @param params,krigeParams If you want to pass specified kriging parameters;
-#'   see [krig_auto_params()] for each parameter.
-#' @param plotdim,xSize,ySize Numeric vectors giving x and y dimensions of the
-#'   plot:
-#'   * `plotdim`: If `NULL` (default) it will be guessed. Otherwise, it must be
-#'   of length 2 with the format `c(x, y)`.
-#'   * `xSize`, `ySize`: Each must be of length 1.
+#' @param params If you want to pass specified kriging parameters; see
+#'   [krig_auto_params()] for each parameter.
+#' @param plotdim Numeric vector giving x and y dimensions of the plot. If
+#'   `NULL` (default) it will be guessed. Otherwise, it must be of length 2 with
+#'   the format `c(x, y)`.
 #' @param breaks Breaks/intervals used to calculate the semivariogram, which
 #'   only happens if `krigeParams = NULL` (default).
-#' @param use_ksline,useKsLine Use the [geoR::ksline()] function? Use `TRUE` to
-#'   calculate a "best" semivariogram based on default parameters via
+#' @param use_ksline Use the [geoR::ksline()] function? Use `TRUE` to calculate
+#'   a "best" semivariogram based on default parameters via
 #'   `geoR::variogram()`]. Use `FALSE` to base calculation on parameters passed
 #'   to `params`.
 #' @param quiet Use `TRUE` to suppresses messages.
@@ -54,12 +51,8 @@
 #' @examples
 #' library(fgeo.tool)
 #' 
-#' # Original funciton
 #' # Using automated parameters
-#' auto <- GetKrigedSoil(soil_fake, var = "c")
-#' summary(auto)
-#'
-#' # Wrapper produces the same output and add convenient features
+#' summary(krig(soil_fake, var = "c"))
 #'
 #' # Now using custom parameters (arbitrary but based on automated kriging params)
 #' params <- list(
@@ -97,8 +90,6 @@ krig <- function(soil,
   new_krig_lst(out)
 }
 
-#' @rdname krig
-#' @export
 GetKrigedSoil <- function(df.soil,
                           var,
                           gridSize = 20,

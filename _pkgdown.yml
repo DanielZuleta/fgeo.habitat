@@ -41,7 +41,6 @@ reference:
 
   - title: "Krig soil data"
     contents:
-      - GetKrigedSoil
       - starts_with("krig")
 
   - title: "Methods for common generics"

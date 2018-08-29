@@ -157,30 +157,25 @@ result is the same as <code>krig()[[1]]</code> when run for one soil variable.</
     </div>
 
     <pre class="usage"><span class='fu'>krig</span>(<span class='no'>soil</span>, <span class='no'>var</span>, <span class='kw'>params</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'><a href='krig_breaks.html'>krig_breaks</a></span>(<span class='fl'>2</span>, <span class='fl'>320</span>, <span class='fl'>30</span>), <span class='kw'>use_ksline</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>GetKrigedSoil</span>(<span class='no'>df.soil</span>, <span class='no'>var</span>, <span class='kw'>gridSize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>krigeParams</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>xSize</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>ySize</span> <span class='kw'>=</span> <span class='fl'>500</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'><a href='krig_breaks.html'>krig_breaks</a></span>(<span class='fl'>2</span>, <span class='fl'>320</span>, <span class='fl'>30</span>),
-  <span class='kw'>useKsLine</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+  <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'><a href='krig_breaks.html'>krig_breaks</a></span>(<span class='fl'>2</span>, <span class='fl'>320</span>, <span class='fl'>30</span>), <span class='kw'>use_ksline</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>soil, df.soil</th>
+      <th>soil</th>
       <td><p>The data frame with the points, coords specified in the
 columns <code>gx</code>, <code>gy</code>.</p></td>
     </tr>
     <tr>
       <th>var</th>
-      <td><p>A character vector giving the name in the soil dataset of the
-variable(s) containing soil data to krige. <code>var</code> must be of length 1 for
-<code>GetKrigedSoil()</code> but can be of length greater than one for <code>krig()</code>.</p></td>
+      <td><p>A character vector giving the name of each column in the soil
+dataset #' containing soil data to krige.</p></td>
     </tr>
     <tr>
-      <th>params, krigeParams</th>
-      <td><p>If you want to pass specified kriging parameters;
-see <code><a href='krig_auto_params.html'>krig_auto_params()</a></code> for each parameter.</p></td>
+      <th>params</th>
+      <td><p>If you want to pass specified kriging parameters; see
+<code><a href='krig_auto_params.html'>krig_auto_params()</a></code> for each parameter.</p></td>
     </tr>
     <tr>
       <th>gridsize, gridSize</th>
@@ -188,13 +183,10 @@ see <code><a href='krig_auto_params.html'>krig_auto_params()</a></code> for each
 this size.</p></td>
     </tr>
     <tr>
-      <th>plotdim, xSize, ySize</th>
-      <td><p>Numeric vectors giving x and y dimensions of the
-plot:</p><ul>
-<li><p><code>plotdim</code>: If <code>NULL</code> (default) it will be guessed. Otherwise, it must be
-of length 2 with the format <code>c(x, y)</code>.</p></li>
-<li><p><code>xSize</code>, <code>ySize</code>: Each must be of length 1.</p></li>
-</ul></td>
+      <th>plotdim</th>
+      <td><p>Numeric vector giving x and y dimensions of the plot. If
+<code>NULL</code> (default) it will be guessed. Otherwise, it must be of length 2 with
+the format <code>c(x, y)</code>.</p></td>
     </tr>
     <tr>
       <th>breaks</th>
@@ -202,9 +194,9 @@ of length 2 with the format <code>c(x, y)</code>.</p></li>
 only happens if <code>krigeParams = NULL</code> (default).</p></td>
     </tr>
     <tr>
-      <th>use_ksline, useKsLine</th>
-      <td><p>Use the <code><a href='http://www.rdocumentation.org/packages/geoR/topics/ksline'>geoR::ksline()</a></code> function? Use <code>TRUE</code> to
-calculate a "best" semivariogram based on default parameters via
+      <th>use_ksline</th>
+      <td><p>Use the <code><a href='http://www.rdocumentation.org/packages/geoR/topics/ksline'>geoR::ksline()</a></code> function? Use <code>TRUE</code> to calculate
+a "best" semivariogram based on default parameters via
 <code>geoR::variogram()</code>]. Use <code>FALSE</code> to base calculation on parameters passed
 to <code>params</code>.</p></td>
     </tr>
@@ -245,43 +237,96 @@ fitting is not overly biased by points beyond the effective maximum range.</p>
 #&gt; <span class='message'>Attaching package: 'fgeo.tool'</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from 'package:stats':</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    filter</span></div><div class='input'>
-<span class='co'># Original funciton</span>
 <span class='co'># Using automated parameters</span>
-<span class='no'>auto</span> <span class='kw'>&lt;-</span> <span class='fu'>GetKrigedSoil</span>(<span class='no'>soil_fake</span>, <span class='kw'>var</span> <span class='kw'>=</span> <span class='st'>"c"</span>)</div><div class='output co'>#&gt; variog: computing omnidirectional variogram
-#&gt; variofit: covariance model used is exponential 
-#&gt; variofit: weights used: npairs 
-#&gt; variofit: minimisation function used: optim 
-#&gt; variofit: covariance model used is circular 
-#&gt; variofit: weights used: npairs 
-#&gt; variofit: minimisation function used: optim 
-#&gt; variofit: covariance model used is cauchy 
-#&gt; variofit: weights used: npairs 
-#&gt; variofit: minimisation function used: optim 
-#&gt; variofit: covariance model used is gaussian 
-#&gt; variofit: weights used: npairs 
-#&gt; variofit: minimisation function used: optim 
-#&gt; ksline: kriging location:  1 out of 1250 
-#&gt; ksline: kriging location:  101 out of 1250 
-#&gt; ksline: kriging location:  201 out of 1250 
-#&gt; ksline: kriging location:  301 out of 1250 
-#&gt; ksline: kriging location:  401 out of 1250 
-#&gt; ksline: kriging location:  501 out of 1250 
-#&gt; ksline: kriging location:  601 out of 1250 
-#&gt; ksline: kriging location:  701 out of 1250 
-#&gt; ksline: kriging location:  801 out of 1250 
-#&gt; ksline: kriging location:  901 out of 1250 
-#&gt; ksline: kriging location:  1001 out of 1250 
-#&gt; ksline: kriging location:  1101 out of 1250 
-#&gt; ksline: kriging location:  1201 out of 1250 
-#&gt; ksline: kriging location:  1250 out of 1250 
-#&gt; Kriging performed using global neighbourhood </div><div class='input'><span class='fu'>summary</span>(<span class='no'>auto</span>)</div><div class='output co'>#&gt;         Length Class      Mode   
-#&gt; df       3     data.frame list   
-#&gt; df.poly  3     data.frame list   
-#&gt; lambda   1     -none-     numeric
-#&gt; vg      20     variogram  list   
-#&gt; vm      17     variomodel list   </div><div class='input'>
-<span class='co'># Wrapper produces the same output and add convenient features</span>
-
+<span class='fu'>summary</span>(<span class='fu'>krig</span>(<span class='no'>soil_fake</span>, <span class='kw'>var</span> <span class='kw'>=</span> <span class='st'>"c"</span>))</div><div class='output co'>#&gt; <span class='message'>Gessing: plotdim = c(1000, 460)</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>var: cUsing: gridsize = 20</span></div><div class='output co'>#&gt; <span class='message'>variog: computing omnidirectional variogram</span>
+#&gt; <span class='message'>variofit: covariance model used is exponential </span>
+#&gt; <span class='message'>variofit: weights used: npairs </span>
+#&gt; <span class='message'>variofit: minimisation function used: optim </span>
+#&gt; <span class='message'>variofit: covariance model used is circular </span>
+#&gt; <span class='message'>variofit: weights used: npairs </span>
+#&gt; <span class='message'>variofit: minimisation function used: optim </span>
+#&gt; <span class='message'>variofit: covariance model used is cauchy </span>
+#&gt; <span class='message'>variofit: weights used: npairs </span>
+#&gt; <span class='message'>variofit: minimisation function used: optim </span>
+#&gt; <span class='message'>variofit: covariance model used is gaussian </span>
+#&gt; <span class='message'>variofit: weights used: npairs </span>
+#&gt; <span class='message'>variofit: minimisation function used: optim </span>
+#&gt; <span class='message'>ksline: kriging location:  1 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  101 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  201 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  301 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  401 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  501 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  601 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  701 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  801 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  901 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  1001 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  1101 out of 1150 </span>
+#&gt; <span class='message'>ksline: kriging location:  1150 out of 1150 </span>
+#&gt; <span class='message'>Kriging performed using global neighbourhood </span></div><div class='output co'>#&gt; var: c 
+#&gt; df
+#&gt; 'data.frame':	1150 obs. of  3 variables:
+#&gt;  $ x: num  10 30 50 70 90 110 130 150 170 190 ...
+#&gt;  $ y: num  10 10 10 10 10 10 10 10 10 10 ...
+#&gt;  $ z: num  2.13 2.12 2.1 2.09 2.07 ...
+#&gt; 
+#&gt; df.poly
+#&gt; 'data.frame':	1150 obs. of  3 variables:
+#&gt;  $ gx: num  10 30 50 70 90 110 130 150 170 190 ...
+#&gt;  $ gy: num  10 10 10 10 10 10 10 10 10 10 ...
+#&gt;  $ z : num  2.13 2.12 2.1 2.09 2.07 ...
+#&gt; 
+#&gt; lambda
+#&gt; 'numeric'
+#&gt;  num 1
+#&gt; 
+#&gt; vg
+#&gt; 'variogram'
+#&gt; List of 20
+#&gt;  $ u               : num [1:9] 60.9 86.5 103 122.7 146.1 ...
+#&gt;  $ v               : num [1:9] 0.284 0.422 0.882 0.543 0.211 ...
+#&gt;  $ n               : num [1:9] 7 9 10 10 18 19 36 34 38
+#&gt;  $ sd              : num [1:9] 0.414 0.48 0.633 0.501 0.405 ...
+#&gt;  $ bins.lim        : num [1:31] 1.00e-12 2.00 2.38 2.84 3.38 ...
+#&gt;  $ ind.bin         : logi [1:30] FALSE FALSE FALSE FALSE FALSE FALSE ...
+#&gt;  $ var.mark        : num 0.317
+#&gt;  $ beta.ols        : num 1.36e-09
+#&gt;  $ output.type     : chr "bin"
+#&gt;  $ max.dist        : num 320
+#&gt;  $ estimator.type  : chr "classical"
+#&gt;  $ n.data          : int 30
+#&gt;  $ lambda          : num 1
+#&gt;  $ trend           : chr "cte"
+#&gt;  $ pairs.min       : num 5
+#&gt;  $ nugget.tolerance: num 1e-12
+#&gt;  $ direction       : chr "omnidirectional"
+#&gt;  $ tolerance       : chr "none"
+#&gt;  $ uvec            : num [1:30] 1 2.19 2.61 3.11 3.7 ...
+#&gt;  $ call            : language variog(geodata = geodata, breaks = breaks, trend = trend, pairs.min = 5)
+#&gt; 
+#&gt; vm
+#&gt; 'variomodel', variofit'
+#&gt; List of 17
+#&gt;  $ nugget               : num 0.352
+#&gt;  $ cov.pars             : num [1:2] 0 160
+#&gt;  $ cov.model            : chr "exponential"
+#&gt;  $ kappa                : num 0.5
+#&gt;  $ value                : num 4.64
+#&gt;  $ trend                : chr "cte"
+#&gt;  $ beta.ols             : num 1.36e-09
+#&gt;  $ practicalRange       : num 480
+#&gt;  $ max.dist             : num 320
+#&gt;  $ minimisation.function: chr "optim"
+#&gt;  $ weights              : chr "npairs"
+#&gt;  $ method               : chr "WLS"
+#&gt;  $ fix.nugget           : logi FALSE
+#&gt;  $ fix.kappa            : logi TRUE
+#&gt;  $ lambda               : num 1
+#&gt;  $ message              : chr "optim convergence code: 0"
+#&gt;  $ call                 : language variofit(vario = vg, ini.cov.pars = c(initialVal, startRange), cov.model = varModels[i],      nugget = initialVal)
+#&gt; </div><div class='input'>
 <span class='co'># Now using custom parameters (arbitrary but based on automated kriging params)</span>
 <span class='no'>params</span> <span class='kw'>&lt;-</span> <span class='fu'>list</span>(
   <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>"circular"</span>, <span class='kw'>range</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>nugget</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>sill</span> <span class='kw'>=</span> <span class='fl'>46000</span>, <span class='kw'>kappa</span> <span class='kw'>=</span> <span class='fl'>0.5</span>
