@@ -17,8 +17,8 @@ status](http://www.r-pkg.org/badges/version/fgeo.habitat)](https://cran.r-projec
 step](https://forestgeo.github.io/fgeo/index.html#installation)
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("forestgeo/fgeo.habitat")
+# install.packages("devtools")
+devtools::install_github("forestgeo/fgeo.habitat")
 ```
 
 For details on how to install packages from GitHub, see [this
@@ -37,6 +37,7 @@ library(fgeo.habitat)
 
 # Krige soil data
 result <- krig(soil_fake, var = c("c", "p"), quiet = TRUE)
+#> Gessing: plotdim = c(1000, 460)
 head(to_df(result))
 #>   var   x  y        z
 #> 1   c  10 10 2.134696
