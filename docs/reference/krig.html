@@ -32,18 +32,15 @@
 
 <meta property="og:title" content="Krige soil data following the methodology of the John et al. (2007). — krig" />
 
-<meta property="og:description" content="Functions to krige soil data:
-GetKrigedSoil() is the original function but it is softly deprecated. Its
-result is the same as krig()[[1]] when run for one soil variable.
-krig() some additional convenient features:
-An interface consistent with other functions of ForestGEO.
-A a method for summary()(see examples).
+<meta property="og:description" content="Use krig() to krige soil data following the methodology of the John et al.
+(2007). Features:
 Tries to guess plotdim.
 Informs the guessed plotdim and the gridsize provided.
-Allows to  suppress messages.
-Iterating over multiple soil variables.
+Allows to suppress messages.
+Is vectorized over the argument var, to easily iterate over multiple soil
+variables.
+Has a method for summary()(see examples).
 Has a method for to_df() (see examples).
-
 " />
 <meta name="twitter:card" content="summary" />
 
@@ -140,18 +137,15 @@ Has a method for to_df() (see examples).
 
     <div class="ref-description">
     
-    <p>Functions to krige soil data:</p><ul>
-<li><p><code>GetKrigedSoil()</code> is the original function but it is softly deprecated. Its
-result is the same as <code>krig()[[1]]</code> when run for one soil variable.</p></li>
-<li><p><code>krig()</code> some additional convenient features:</p><ul>
-<li><p>An interface consistent with other functions of ForestGEO.</p></li>
-<li><p>A a method for <code>summary()</code>(see examples).</p></li>
+    <p>Use <code>krig()</code> to krige soil data following the methodology of the John et al.
+(2007). Features:</p><ul>
 <li><p>Tries to guess <code>plotdim</code>.</p></li>
 <li><p>Informs the guessed <code>plotdim</code> and the <code>gridsize</code> provided.</p></li>
-<li><p>Allows to  suppress messages.</p></li>
-<li><p>Iterating over multiple soil variables.</p></li>
+<li><p>Allows to suppress messages.</p></li>
+<li><p>Is vectorized over the argument <code>var</code>, to easily iterate over multiple soil
+variables.</p></li>
+<li><p>Has a method for <code>summary()</code>(see examples).</p></li>
 <li><p>Has a method for <code><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df'>to_df()</a></code> (see examples).</p></li>
-</ul></li>
 </ul>
     
     </div>

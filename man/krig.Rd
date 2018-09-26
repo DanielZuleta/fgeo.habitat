@@ -45,20 +45,16 @@ data.
 }
 }
 \description{
-Functions to krige soil data:
+Use \code{krig()} to krige soil data following the methodology of the John et al.
+(2007). Features:
 \itemize{
-\item \code{GetKrigedSoil()} is the original function but it is softly deprecated. Its
-result is the same as \code{krig()[[1]]} when run for one soil variable.
-\item \code{krig()} some additional convenient features:
-\itemize{
-\item An interface consistent with other functions of ForestGEO.
-\item A a method for \code{summary()}(see examples).
 \item Tries to guess \code{plotdim}.
 \item Informs the guessed \code{plotdim} and the \code{gridsize} provided.
-\item Allows to  suppress messages.
-\item Iterating over multiple soil variables.
+\item Allows to suppress messages.
+\item Is vectorized over the argument \code{var}, to easily iterate over multiple soil
+variables.
+\item Has a method for \code{summary()}(see examples).
 \item Has a method for \code{to_df()} (see examples).
-}
 }
 }
 \section{Breaks default}{

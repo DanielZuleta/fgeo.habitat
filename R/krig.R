@@ -1,16 +1,14 @@
 #' Krige soil data following the methodology of the John et al. (2007).
 #'
-#' Functions to krige soil data:
-#' * `GetKrigedSoil()` is the original function but it is softly deprecated. Its
-#' result is the same as `krig()[[1]]` when run for one soil variable.
-#' * `krig()` some additional convenient features:
-#'     * An interface consistent with other functions of ForestGEO.
-#'     * A a method for `summary()`(see examples).
-#'     * Tries to guess `plotdim`.
-#'     * Informs the guessed `plotdim` and the `gridsize` provided.
-#'     * Allows to  suppress messages.
-#'     * Iterating over multiple soil variables.
-#'     * Has a method for `to_df()` (see examples).
+#' Use `krig()` to krige soil data following the methodology of the John et al.
+#' (2007). Features:
+#' * Tries to guess `plotdim`.
+#' * Informs the guessed `plotdim` and the `gridsize` provided.
+#' * Allows to suppress messages.
+#' * Is vectorized over the argument `var`, to easily iterate over multiple soil
+#' variables.
+#' * Has a method for `summary()`(see examples).
+#' * Has a method for `to_df()` (see examples).
 #'
 #' @inheritSection krig_auto_params Breaks default
 #'
