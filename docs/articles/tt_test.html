@@ -92,7 +92,7 @@
             <h3 class="subtitle">Given a number of species and habitat types in a plot, is each species significantly aggregated within habitats?</h3>
                         <h4 class="author">Mauro Lepore</h4>
             
-            <h4 class="date">2018-09-26</h4>
+            <h4 class="date">2018-10-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/forestgeo/fgeo.habitat/blob/master/vignettes/tt_test.Rmd"><code>vignettes/tt_test.Rmd</code></a></small>
       <div class="hidden name"><code>tt_test.Rmd</code></div>
@@ -130,7 +130,7 @@
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">census &lt;-<span class="st"> </span>luquillo_tree6_random</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">str</span>(census)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':    1004 obs. of  19 variables:</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':    1000 obs. of  19 variables:</span></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;  $ treeID   : int  104 119 180 602 631 647 1086 1144 1168 1380 ...</span></a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  $ stemID   : int  143 158 225 736 775 793 1339 1410 1438 1702 ...</span></a>
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  $ tag      : chr  "10009" "100104" "100171" "100649" ...</span></a>
@@ -144,12 +144,12 @@
 <a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;  $ dbh      : num  195 44.9 46.1 33.1 139 248 176 75 613 NA ...</span></a>
 <a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;  $ pom      : chr  "1.45" "1.25" "1.35" "1.3" ...</span></a>
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt;  $ hom      : num  1.45 1.26 1.34 1.3 1.25 1.35 1.42 1.3 1.25 NA ...</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt;  $ ExactDate: num  16911 17017 17017 17011 16912 ...</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt;  $ ExactDate: Date, format: "2016-04-20" "2016-08-04" ...</span></a>
 <a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt;  $ DFstatus : chr  "alive" "alive" "alive" "alive" ...</span></a>
 <a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;  $ codes    : chr  "MAIN;A" "MAIN;A" "SPROUT;A" "MAIN;A" ...</span></a>
 <a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt;  $ nostems  : num  1 1 2 1 1 1 1 1 1 1 ...</span></a>
 <a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt;  $ status   : chr  "A" "A" "A" "A" ...</span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt;  $ date     : num  NA NA NA NA NA NA NA NA NA NA ...</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt;  $ date     : num  20564 20670 20670 20664 20565 ...</span></a></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Creating habitat data from elevation data</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">habitat &lt;-<span class="st"> </span>fgeo.tool<span class="op">::</span><span class="kw">fgeo_habitat</span>(luquillo_elevation, <span class="dt">gridsize =</span> <span class="dv">20</span>, <span class="dt">n =</span> <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">str</span>(habitat)</a>

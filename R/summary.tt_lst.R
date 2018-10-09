@@ -1,9 +1,14 @@
-#' Summary method for `tt_test()` results, for easier interpretation.
-#'
+#' Summary objects of class "tt_lst".
+#' 
+#' This method helps you to interpret the results of `tt_test()` (which
+#' outputs objects of class "tt_lst").
+#' 
 #' @param object The output of [tt_test()], i.e. an S3 object of class tt_lst.
 #' @param ... Other arguments passed to methods.
 #'
 #' @seealso [tt_test()].
+#' 
+#' @family methods for common generics
 #'
 #' @author Daniel Zuleta.
 #'

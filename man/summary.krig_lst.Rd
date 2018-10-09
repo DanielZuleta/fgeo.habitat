@@ -2,7 +2,7 @@
 % Please edit documentation in R/summary.krig_lst.R
 \name{summary.krig_lst}
 \alias{summary.krig_lst}
-\title{Summary results of \code{krig()}.}
+\title{Summary objects of class "krig_lst".}
 \usage{
 \method{summary}{krig_lst}(object, ...)
 }
@@ -18,10 +18,16 @@
 Prints a cleaner version of \code{str()} and returns its input invisibly.
 }
 \description{
-A cleaner version of \code{str()} for the result of `krig().
+This method helps you to visualize the output of \code{krig()} (which outputs
+objects of class "krig_lst"). It is similar to \code{\link[utils:str]{utils::str()}} but a little
+cleaner. version of \code{str()}.
 }
 \examples{
 result <- krig(soil_fake, c("c", "p"), quiet = TRUE)
 summary(result)
 str(result)
 }
+\seealso{
+Other methods for common generics: \code{\link{summary.tt_lst}}
+}
+\concept{methods for common generics}

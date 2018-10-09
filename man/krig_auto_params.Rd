@@ -34,7 +34,7 @@ for more details:
 vector with estimated values of the covariance parameters sigma^2 and phi,
 respectively.
 \item kappa: Fixed value of the smoothness parameter.
-\item model: Name of the correlation function (see\code{cov.model}).
+\item model: Name of the correlation function (see\code{ cov.model}).
 \item minVM: The minimum fit error.
 \item vg: The variogram.
 }

@@ -57,6 +57,12 @@ variables.
 \item Has a method for \code{to_df()} (see examples).
 }
 }
+\section{Deprecated}{
+
+\code{krig()} evolves from \code{GetKrigedSoil()}.  \code{GetKrigedSoil()} has been
+deprecated, although it remains in the package as an internal function.
+}
+
 \section{Breaks default}{
 
 The default breaks argument is set to have more points where the exponential

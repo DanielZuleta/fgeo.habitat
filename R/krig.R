@@ -9,6 +9,10 @@
 #' variables.
 #' * Has a method for `summary()`(see examples).
 #' * Has a method for `to_df()` (see examples).
+#' 
+#' @section Deprecated:
+#' `krig()` evolves from `GetKrigedSoil()`.  `GetKrigedSoil()` has been
+#' deprecated, although it remains in the package as an internal function.
 #'
 #' @inheritSection krig_auto_params Breaks default
 #'
