@@ -68,7 +68,7 @@
 #' pick <- filter(add_count(census, sp), n > 50)
 #' species <- unique(pick$sp)
 #' 
-#' # Use your habitat data or create if from elevation data
+#' # Use your habitat data or create it from elevation data
 #' habitat <- fgeo.tool::fgeo_habitat(luquillo_elevation, gridsize = 20, n = 4)
 #' 
 #' # A list or matrices

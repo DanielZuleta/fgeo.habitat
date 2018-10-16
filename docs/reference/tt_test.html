@@ -230,7 +230,7 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
 <span class='no'>pick</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='fu'><a href='http://dplyr.tidyverse.org/reference/tally.html'>add_count</a></span>(<span class='no'>census</span>, <span class='no'>sp</span>), <span class='no'>n</span> <span class='kw'>&gt;</span> <span class='fl'>50</span>)
 <span class='no'>species</span> <span class='kw'>&lt;-</span> <span class='fu'>unique</span>(<span class='no'>pick</span>$<span class='no'>sp</span>)
 
-<span class='co'># Use your habitat data or create if from elevation data</span>
+<span class='co'># Use your habitat data or create it from elevation data</span>
 <span class='no'>habitat</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>fgeo.tool</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/fgeo_habitat'>fgeo_habitat</a></span>(<span class='no'>luquillo_elevation</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>)
 
 <span class='co'># A list or matrices</span>
@@ -263,9 +263,7 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
 #&gt; SLOBER     1182      414        4              0        0.73875       7
 #&gt;        Gr.Hab.4 Ls.Hab.4 Eq.Hab.4 Rep.Agg.Neut.4 Obs.Quantile.4
 #&gt; SLOBER      912      680        8              0           0.57
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "tt_lst" "list"  </div><div class='input'>
+#&gt; </div><div class='input'>
 <span class='co'># A simple summary to help you interpret the results</span>
 <span class='fu'>summary</span>(<span class='no'>tt_lst</span>)</div><div class='output co'>#&gt;   Species Habitat_1 Habitat_2 Habitat_3 Habitat_4
 #&gt; 1  CASARB   neutral   neutral   neutral   neutral

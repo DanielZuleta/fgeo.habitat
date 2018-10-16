@@ -33,15 +33,64 @@ For details on how to install packages from GitHub, see [this article](https://g
 
 ## Example
 
-```{r}
-library(fgeo.tool)
+```{r, warning=FALSE, message=FALSE}
 library(fgeo.habitat)
+library(fgeo.data)
+library(fgeo.tool)
+library(dplyr)
+```
 
-# Krige soil data
-result <- krig(soil_fake, var = c("c", "p"), quiet = TRUE)
-head(to_df(result))
+### Species-habitat associations
 
-tail(to_df(result))
+```{r}
+# Pick alive trees, of 10 mm or more
+census <- filter(luquillo_tree6_random, status == "A", dbh >= 10)
+
+# Pick sufficiently abundant species
+pick <- filter(add_count(census, sp), n > 50)
+species <- unique(pick$sp)
+
+# Use your habitat data or create it from elevation data
+habitat <- fgeo.tool::fgeo_habitat(luquillo_elevation, gridsize = 20, n = 4)
+
+# A list or matrices
+tt_lst <- tt_test(census, species, habitat)
+tt_lst
+
+# A simple summary to help you interpret the results
+summary(tt_lst)
+
+# A combined matrix
+Reduce(rbind, tt_lst)
+
+# A dataframe
+dfm <- to_df(tt_lst)
+
+# Using dplyr to summarize results by species and distribution
+summarize(group_by(dfm, sp, distribution), n = sum(stem_count))
+```
+
+### Krige soil data
+
+Using custom parameters and multiple soil variable.
+
+```{r}
+params <- list(
+  model = "circular", range = 100, nugget = 1000, sill = 46000, kappa = 0.5
+)
+
+vars <- c("c", "p")
+custom <- krig(soil_fake, vars, params = params, quiet = TRUE)
+
+# Showing only the first item of the resulting output
+head(to_df(custom))
+```
+
+Using automated parameters.
+
+```{r}
+result <- krig(soil_fake, var = "c", quiet = TRUE)
+summary(result)
 ```
 
 [Get started with __fgeo__](https://forestgeo.github.io/fgeo/articles/fgeo.html)
