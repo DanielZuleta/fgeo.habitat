@@ -312,3 +312,11 @@ new_tt_lst <- function(.x) {
   stopifnot(is.list(.x))
   structure(.x, class = c("tt_lst", class(.x)))
 }
+
+#' @keywords internal
+#' @export
+#' @noRd
+print.tt_lst <- function(x, ...) {
+  print(unclass(x))
+  invisible(x)
+}

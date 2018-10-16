@@ -18,6 +18,13 @@ test_that("outputs the expected list", {
   expect_equal(sp_top1_luq, rownames(out[[1]]))
 })
 
+test_that("prints as an unclassed list (i.e. doesn't show attr ...)", {
+  output <- capture_output(print(tt_test(cns_luq, sp_top1_luq, hab_luq)))
+  expect_false(grepl("tt_lst", output))
+})
+
+
+
 pdim_luq <- c(320, 500)
 gsize_luq <- 20
 

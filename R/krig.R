@@ -491,3 +491,11 @@ new_krig_lst <- function(.x) {
   stopifnot(is.list(.x))
   structure(.x, class = c("krig_lst", class(.x)))
 }
+
+#' @keywords internal
+#' @export
+#' @noRd
+print.krig_lst <- function(x, ...) {
+  print(unclass(x))
+  invisible(x)
+}

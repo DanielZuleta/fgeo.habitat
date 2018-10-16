@@ -27,6 +27,13 @@ test_that("outputs object of expected structure at the surface of the list", {
   expect_equal(class(out_lst), classes)
 })
 
+test_that("prints as an unclassed list (i.e. doesn't show attr ...)", {
+  output <- capture_output(print(krig(soil_fake, vars, quiet = TRUE)))
+  expect_false(grepl("krig_lst", output))
+})
+
+
+
 result <- krig(df, var = "m3al", quiet = TRUE)[[1]]
 
 test_that("fails if var is of length greater than 1", {
