@@ -37,7 +37,14 @@ abund_index <- function(censdata, plotdim, gridsize) {
 
 
 
-# From ctfs ---------------------------------------------------------------
+
+# Move to fgeo.ctfs -------------------------------------------------------
+
+# Also move:
+# testthat/ref-abundanceperquad
+
+
+# To export ---------------------------------------------------------------
 
 #' A simpler, faster version of abundanceperquad(), for abundance exclusively.
 #'
@@ -73,6 +80,10 @@ abundanceperquad2 <- function(censdata,
   }
   return(result)
 }
+
+
+
+# internal ----------------------------------------------------------------
 
 #' A faster version of abundance() targeted to only counts (not ba or agb)
 #' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
@@ -118,19 +129,6 @@ abundance2 <- function(censdata,
 #' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
 #' @keywords internal
 #' @noRd
-basum <- function(dbh, mindbh = 10, dbhunit = "mm") {
-  if (!is.null(mindbh)) {
-    dbh <- dbh[dbh >= mindbh]
-  }
-  if (length(dbh) == 0) {
-    return(0)
-  }
-  return(sum(ba(dbh, dbhunit = dbhunit), na.rm = TRUE))
-}
-
-#' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
-#' @keywords internal
-#' @noRd
 gxgy.to.index <- function(gx, gy, gridsize = 20, plotdim = c(1000, 500)) {
   badgxgy <- (gx < 0 | gy < 0 | gx >= plotdim[1] | gy >= plotdim[2] |
     is.na(gx) | is.na(gy))
@@ -158,21 +156,9 @@ fill.dimension <- function(dataarray, class1, class2, fill = 0) {
 #' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
 #' @keywords internal
 #' @noRd
-ba <- function(dbh, dbhunit = "mm") {
-  if (dbhunit == "mm") {
-    return(pi * (dbh / 2000)^2)
-  }
-  if (dbhunit == "cm") {
-    return(pi * (dbh / 200)^2)
-  }
-}
-
-#' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
-#' @keywords internal
-#' @noRd
 rowcol.to.index <- function(rowno, colno, gridsize = 20, plotdim = c(1000, 500)) {
   badrc <- (rowno <= 0 | colno <= 0 | rowno > plotdim[2] / gridsize |
-    colno > plotdim[1] / gridsize)
+      colno > plotdim[1] / gridsize)
   rowno <- rowno - 1
   colno <- colno - 1
   maxrow <- floor(plotdim[2] / gridsize)
@@ -182,3 +168,34 @@ rowcol.to.index <- function(rowno, colno, gridsize = 20, plotdim = c(1000, 500))
   }
   return(index)
 }
+
+
+
+
+# Remove? -----------------------------------------------------------------
+
+#' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
+#' @keywords internal
+#' @noRd
+basum <- function(dbh, mindbh = 10, dbhunit = "mm") {
+  if (!is.null(mindbh)) {
+    dbh <- dbh[dbh >= mindbh]
+  }
+  if (length(dbh) == 0) {
+    return(0)
+  }
+  return(sum(ba(dbh, dbhunit = dbhunit), na.rm = TRUE))
+}
+
+#' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
+#' @keywords internal
+#' @noRd
+ba <- function(dbh, dbhunit = "mm") {
+  if (dbhunit == "mm") {
+    return(pi * (dbh / 2000)^2)
+  }
+  if (dbhunit == "cm") {
+    return(pi * (dbh / 200)^2)
+  }
+}
+
