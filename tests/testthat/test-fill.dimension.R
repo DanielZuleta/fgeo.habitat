@@ -1,4 +1,4 @@
-context("test-abund_index")
+context("test-fill.dimension")
 
 test_that("fill.dimension() doesn't change with refactoring", {
   skip_if_not_installed("ctfs")
