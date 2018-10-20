@@ -190,8 +190,8 @@ GetKrigedSoil <- function(df.soil,
   
   # Return all useful data
   list(
-    df = df.pred,
-    df.poly = polyfit$df.interpolated,
+    df = fgeo.tool::as_tibble(df.pred),
+    df.poly = fgeo.tool::as_tibble(polyfit$df.interpolated),
     lambda = bc$lambda,
     vg = params$vg,
     vm = params$minVM

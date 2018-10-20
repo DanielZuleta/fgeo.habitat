@@ -22,9 +22,13 @@ vars <- c("c", "p")
 out_lst <- krig(soil_fake, vars, quiet = TRUE)
 
 test_that("outputs object of expected structure at the surface of the list", {
-  expect_equal(names(out_lst), vars)
-  classes <- c("krig_lst", "list")
-  expect_equal(class(out_lst), classes)
+  expect_named(out_lst, vars)
+  expect_is(out_lst, "krig_lst")
+  expect_is(out_lst, "list")
+  expect_is(out_lst[[1]][[1]], "data.frame")
+  expect_is(out_lst[[1]][[1]], "tbl")
+  expect_is(out_lst[[1]][[2]], "data.frame")
+  expect_is(out_lst[[1]][[2]], "tbl")
 })
 
 test_that("prints as an unclassed list (i.e. doesn't show attr ...)", {
@@ -51,6 +55,9 @@ test_that("keeps quiet if asked to", {
 
 test_that("passes regression test", {
   result_head <- lapply(result, head, 50)
+  # Print all of the original output for a more comprehensive comparison
+  result_head[[1]] <- as.data.frame(result_head[[1]])
+  result_head[[2]] <- as.data.frame(result_head[[2]])
   expect_known_output(result_head, "ref-krig", print = TRUE, update = TRUE)
 })
 
