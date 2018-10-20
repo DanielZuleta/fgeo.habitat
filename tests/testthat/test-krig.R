@@ -47,7 +47,6 @@ test_that("fails if var is of length greater than 1", {
   )
 })
 
-
 test_that("keeps quiet if asked to", {
   expect_message(krig(df, var = "m3al"), "computing omnidirectional")
   expect_message(krig(df, var = "m3al", quiet = TRUE), "Gessing.*plotdim")

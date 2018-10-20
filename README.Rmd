@@ -83,7 +83,7 @@ vars <- c("c", "p")
 custom <- krig(soil_fake, vars, params = params, quiet = TRUE)
 
 # Showing only the first item of the resulting output
-head(to_df(custom))
+to_df(custom)
 ```
 
 Using automated parameters.

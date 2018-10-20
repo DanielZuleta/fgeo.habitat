@@ -86,10 +86,9 @@ vars <- c("c", "p")
 custom <- krig(soil_fake, vars, params = params, quiet = TRUE)
 summary(custom)
 
-result <- to_df(custom, item = "df")
-head(result)
+to_df(custom, name = "soil_var")
 
-tail(result)
+tail(to_df(custom, item = "df.poly"))
 }
 \seealso{
 \code{\link[geoR:variofit]{geoR::variofit()}}, \code{\link[geoR:variog]{geoR::variog()}}, \code{\link[geoR:as.geodata]{geoR::as.geodata()}},

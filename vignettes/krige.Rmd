@@ -44,11 +44,12 @@ str(soil)
 Krige with automated parameters.
 
 ```{r}
-auto <- krig(soil, var = "m3al")$m3al
+auto <- krig(soil, var = "m3al", quiet = TRUE)
+summary(auto)
 ```
 
 ```{r}
-summary(auto)
+to_df(auto)
 ```
 
 Try also:
@@ -57,11 +58,7 @@ Try also:
 View(auto)
 ```
 
-<img src="https://i.imgur.com/fTDjckj.png" align="center" height=150 />
-
-```{r}
-str(auto$df, give.attr = FALSE)
-```
+<img src="https://i.imgur.com/mhOYx6S.png" align="center" height=150 />
 
 With custom parameters (arbitrary but based on automated kriging parameters).
 
@@ -69,24 +66,20 @@ With custom parameters (arbitrary but based on automated kriging parameters).
 params <- list(
   model = "circular", range = 100, nugget = 1000, sill = 46000, kappa = 0.5
 )
-custom <- krig(soil, var = "m3al", params = params, quiet = TRUE)$m3al
-```
-
-```{r}
-str(custom$df, give.attr = FALSE)
+custom <- krig(soil, var = "m3al", params = params, quiet = TRUE)
 ```
 
 Compare.
 
 ```{r, fig.align="default", out.width="45%", fig.widh=(6 * 0.5 / 0.7)}
 title_auto <- "Automated parameters"
-ggplot(auto$df, aes(x = x, y = y, fill = z)) +
+ggplot(to_df(auto), aes(x = x, y = y, fill = z)) +
   geom_tile() + 
   coord_equal() +
   labs(title = title_auto)
 
 title_custom <- "Custom parameters"
-ggplot(custom$df, aes(x = x, y = y, fill = z)) +
+ggplot(to_df(custom), aes(x = x, y = y, fill = z)) +
   geom_tile() + 
   coord_equal() +
   labs(title = title_custom)
@@ -103,24 +96,22 @@ Scale soil data to make their values fall within the same range. This is not cru
 
 ```{r}
 soil_vars <- c("mg", "c", "p")
-soil_fake[soil_vars] <- map_df(soil_fake[soil_vars], scale)
-soil_fake
+soil_scaled <- modify_at(soil_fake, .at = soil_vars, scale)
 ```
 
 ```{r}
 # krig() can take multiple soil variables.
-out_lst <- krig(soil_fake, soil_vars, quiet = TRUE)
+out_lst <- krig(soil_scaled, soil_vars, quiet = TRUE)
 
 # Overview results of one var
-summary(out_lst$c)
+summary(out_lst)
 ```
 
 Transform krig results to a dataframe for easier manipulation and visualization.
 
 ```{r}
-# This short form would also work: to_df(out_lst)
-out_df <- to_df(out_lst, name = "soil_var", item = "df")
-head(out_df)
+out_df <- to_df(out_lst, name = "soil_var")
+out_df
 
 tail(out_df)
 ```

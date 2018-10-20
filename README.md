@@ -33,7 +33,7 @@ library(fgeo.tool)
 library(dplyr)
 ```
 
-### Species-habitat associations.
+### Species-habitat associations
 
 ``` r
 # Pick alive trees, of 10 mm or more
@@ -135,14 +135,21 @@ custom <- krig(soil_fake, vars, params = params, quiet = TRUE)
 #> Gessing: plotdim = c(1000, 460)
 
 # Showing only the first item of the resulting output
-head(to_df(custom))
-#>   var   x  y        z
-#> 1   c  10 10 2.290586
-#> 2   c  30 10 2.306093
-#> 3   c  50 10 2.221311
-#> 4   c  70 10 2.037240
-#> 5   c  90 10 1.793122
-#> 6   c 110 10 1.544911
+to_df(custom)
+#> # A tibble: 2,300 x 4
+#>    var       x     y     z
+#>    <chr> <dbl> <dbl> <dbl>
+#>  1 c        10    10  2.29
+#>  2 c        30    10  2.31
+#>  3 c        50    10  2.22
+#>  4 c        70    10  2.04
+#>  5 c        90    10  1.79
+#>  6 c       110    10  1.54
+#>  7 c       130    10  1.55
+#>  8 c       150    10  1.64
+#>  9 c       170    10  1.77
+#> 10 c       190    10  1.89
+#> # ... with 2,290 more rows
 ```
 
 Using automated parameters.
@@ -153,13 +160,13 @@ result <- krig(soil_fake, var = "c", quiet = TRUE)
 summary(result)
 #> var: c 
 #> df
-#> 'data.frame':    1150 obs. of  3 variables:
+#> Classes 'tbl_df', 'tbl' and 'data.frame':    1150 obs. of  3 variables:
 #>  $ x: num  10 30 50 70 90 110 130 150 170 190 ...
 #>  $ y: num  10 10 10 10 10 10 10 10 10 10 ...
 #>  $ z: num  2.13 2.12 2.1 2.09 2.07 ...
 #> 
 #> df.poly
-#> 'data.frame':    1150 obs. of  3 variables:
+#> Classes 'tbl_df', 'tbl' and 'data.frame':    1150 obs. of  3 variables:
 #>  $ gx: num  10 30 50 70 90 110 130 150 170 190 ...
 #>  $ gy: num  10 10 10 10 10 10 10 10 10 10 ...
 #>  $ z : num  2.13 2.12 2.1 2.09 2.07 ...

@@ -65,10 +65,9 @@
 #' custom <- krig(soil_fake, vars, params = params, quiet = TRUE)
 #' summary(custom)
 #'
-#' result <- to_df(custom, item = "df")
-#' head(result)
-#'
-#' tail(result)
+#' to_df(custom, name = "soil_var")
+#' 
+#' tail(to_df(custom, item = "df.poly"))
 krig <- function(soil,
                  var,
                  params = NULL,
