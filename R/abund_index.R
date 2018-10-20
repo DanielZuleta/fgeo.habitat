@@ -42,6 +42,10 @@ abund_index <- function(censdata, plotdim, gridsize) {
 
 # Also move:
 # testthat/ref-abundanceperquad
+# fill.dimension moves with
+#   * testthat/dataaray.rds
+#   * testthat/class2.rds
+#   * testthat/test-abund_index?
 
 
 # To export ---------------------------------------------------------------
