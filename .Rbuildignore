@@ -1,3 +1,4 @@
+^appveyor\.yml$
 ^inst/issues/33$
 ^.*\.Rproj$
 ^\.Rproj\.user$
