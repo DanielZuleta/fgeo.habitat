@@ -37,16 +37,20 @@ abund_index <- function(censdata, plotdim, gridsize) {
 
 
 
+# Plan
+# move functions and search for duplicates of each function.
+# move tests and references.
+# search and replace fgeo.habitat::
+# from fgeo.ctfs remember to @export
+# from fgeo.habitat: use_dev_package("fgeo.cfts")
+# from fgeo.habitat: reexport if necessary or use fgeo.ctfs::function()
 
 # Move to fgeo.ctfs -------------------------------------------------------
 
-# Also move:
-# testthat/ref-abundanceperquad
-# fill.dimension moves with
+# fill.dimension() moves with
 #   * testthat/dataaray.rds
 #   * testthat/class2.rds
-#   * testthat/test-abund_index?
-
+#   * testthat/test-fill.dimension
 
 # To export ---------------------------------------------------------------
 
@@ -87,7 +91,7 @@ abundanceperquad2 <- function(censdata,
 
 
 
-# internal ----------------------------------------------------------------
+# Internal ----------------------------------------------------------------
 
 #' A faster version of abundance() targeted to only counts (not ba or agb)
 #' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
@@ -177,29 +181,29 @@ rowcol.to.index <- function(rowno, colno, gridsize = 20, plotdim = c(1000, 500))
 
 
 # Remove? -----------------------------------------------------------------
-
-#' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
-#' @keywords internal
-#' @noRd
-basum <- function(dbh, mindbh = 10, dbhunit = "mm") {
-  if (!is.null(mindbh)) {
-    dbh <- dbh[dbh >= mindbh]
-  }
-  if (length(dbh) == 0) {
-    return(0)
-  }
-  return(sum(ba(dbh, dbhunit = dbhunit), na.rm = TRUE))
-}
-
-#' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
-#' @keywords internal
-#' @noRd
-ba <- function(dbh, dbhunit = "mm") {
-  if (dbhunit == "mm") {
-    return(pi * (dbh / 2000)^2)
-  }
-  if (dbhunit == "cm") {
-    return(pi * (dbh / 200)^2)
-  }
-}
-
+#' 
+#' #' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
+#' #' @keywords internal
+#' #' @noRd
+#' basum <- function(dbh, mindbh = 10, dbhunit = "mm") {
+#'   if (!is.null(mindbh)) {
+#'     dbh <- dbh[dbh >= mindbh]
+#'   }
+#'   if (length(dbh) == 0) {
+#'     return(0)
+#'   }
+#'   return(sum(ba(dbh, dbhunit = dbhunit), na.rm = TRUE))
+#' }
+#' 
+#' #' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
+#' #' @keywords internal
+#' #' @noRd
+#' ba <- function(dbh, dbhunit = "mm") {
+#'   if (dbhunit == "mm") {
+#'     return(pi * (dbh / 2000)^2)
+#'   }
+#'   if (dbhunit == "cm") {
+#'     return(pi * (dbh / 200)^2)
+#'   }
+#' }
+#' 
