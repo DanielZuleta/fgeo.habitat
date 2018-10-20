@@ -177,33 +177,3 @@ rowcol.to.index <- function(rowno, colno, gridsize = 20, plotdim = c(1000, 500))
   return(index)
 }
 
-
-
-
-# Remove? -----------------------------------------------------------------
-#' 
-#' #' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
-#' #' @keywords internal
-#' #' @noRd
-#' basum <- function(dbh, mindbh = 10, dbhunit = "mm") {
-#'   if (!is.null(mindbh)) {
-#'     dbh <- dbh[dbh >= mindbh]
-#'   }
-#'   if (length(dbh) == 0) {
-#'     return(0)
-#'   }
-#'   return(sum(ba(dbh, dbhunit = dbhunit), na.rm = TRUE))
-#' }
-#' 
-#' #' @family functions from http://ctfs.si.edu/Public/CTFSRPackage/
-#' #' @keywords internal
-#' #' @noRd
-#' ba <- function(dbh, dbhunit = "mm") {
-#'   if (dbhunit == "mm") {
-#'     return(pi * (dbh / 2000)^2)
-#'   }
-#'   if (dbhunit == "cm") {
-#'     return(pi * (dbh / 200)^2)
-#'   }
-#' }
-#' 
