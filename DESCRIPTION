@@ -24,8 +24,7 @@ Imports:
     glue,
     MASS,
     rlang,
-    stats,
-    stringi (< 1.1.7)
+    stats
 Suggests: 
     covr,
     dplyr,
@@ -39,7 +38,7 @@ Suggests:
     tidyr
 VignetteBuilder: 
     knitr
-Remotes:  
+Remotes: 
     forestgeo/fgeo.base,
     forestgeo/fgeo.ctfs,
     forestgeo/fgeo.data,
