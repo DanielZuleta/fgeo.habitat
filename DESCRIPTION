@@ -17,6 +17,7 @@ Depends:
     R (>= 3.2)
 Imports: 
     fgeo.base,
+    fgeo.ctfs,
     fgeo.data,
     fgeo.tool,
     geoR,
@@ -24,7 +25,7 @@ Imports:
     MASS,
     rlang,
     stats,
-    fgeo.ctfs (>= 0.0.0.9001)
+    stringi (< 1.1.7)
 Suggests: 
     covr,
     dplyr,
@@ -40,10 +41,10 @@ VignetteBuilder:
     knitr
 Remotes:  
     forestgeo/fgeo.base,
+    forestgeo/fgeo.ctfs,
     forestgeo/fgeo.data,
     forestgeo/fgeo.map,
-    forestgeo/fgeo.tool,
-    forestgeo/fgeo.ctfs
+    forestgeo/fgeo.tool
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
