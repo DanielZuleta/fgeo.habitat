@@ -23,7 +23,8 @@ Imports:
     glue,
     MASS,
     rlang,
-    stats
+    stats,
+    fgeo.ctfs (>= 0.0.0.9001)
 Suggests: 
     covr,
     dplyr,
@@ -37,11 +38,12 @@ Suggests:
     tidyr
 VignetteBuilder: 
     knitr
-Remotes: 
+Remotes:  
     forestgeo/fgeo.base,
     forestgeo/fgeo.data,
     forestgeo/fgeo.map,
-    forestgeo/fgeo.tool
+    forestgeo/fgeo.tool,
+    forestgeo/fgeo.ctfs
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
