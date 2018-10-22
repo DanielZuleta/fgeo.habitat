@@ -77,3 +77,13 @@ test_that("warns if habitat data isn't of class fgeo_habitat", {
   msg <- "isn't of class 'fgeo_habitat'"
   expect_warning(tt_test(cns_luq, sp_top1_luq, hab_luq2), msg)
 })
+
+test_that("with habitat data with names gx,gy|x,y output is identical", {
+  hab_luq3 <- hab_luq
+  class(hab_luq3) <- setdiff(class(hab_luq3), "fgeo_habitat")
+  hab_luq3 <- setNames(hab_luq3, c("x", "y", "habitats"))
+  
+  out_gxgy <- tt_test(cns_luq, sp_top1_luq, hab_luq)
+  out_xy <- suppressWarnings(tt_test(cns_luq, sp_top1_luq, hab_luq3))
+  identical(out_xy, out_gxgy)
+})
