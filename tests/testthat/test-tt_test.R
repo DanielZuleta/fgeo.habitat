@@ -109,6 +109,9 @@ out <- fgeo.habitat:::torusonesp.all(
 
 actual <- out[colnames(out) %in% "Rep.Agg.Neut.2"]
 test_that("torusonesp.all() with spp KNEMLA returns as expected (#30, Russo)", {
+  # Only runs for those with access to private/ data
+  skip_if(dir.exists(test_path("private")))
+  
   expect_equal(actual, 1)
   expect_error(expect_equal(actual, 0), "not equal to 0")
 }) 
