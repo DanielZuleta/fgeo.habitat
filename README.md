@@ -7,7 +7,7 @@
 [![Travis build
 status](https://travis-ci.org/forestgeo/fgeo.habitat.svg?branch=master)](https://travis-ci.org/forestgeo/fgeo.habitat)
 [![Coverage
-status](https://coveralls.io/repos/github/forestgeo/fgeo.habitat/badge.svg)](https://coveralls.io/r/forestgeo/fgeo.habitat?branch=master)
+status](https://codecov.io/gh/forestgeo/fgeo.habitat/branch/master/graph/badge.svg)](https://codecov.io/github/forestgeo/fgeo.habitat?branch=master)
 [![CRAN
 status](http://www.r-pkg.org/badges/version/fgeo.habitat)](https://cran.r-project.org/package=fgeo.habitat)
 
