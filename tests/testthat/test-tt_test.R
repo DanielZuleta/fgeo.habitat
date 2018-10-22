@@ -92,27 +92,30 @@ test_that("with habitat data with names gx,gy|x,y output is identical", {
 
 # Issue 30, Sabrina Russo ----------------------------------------------------
 
-hab.index20 <- get(load(test_path("russo_30/hab.index20.Rdata")))
-allabund20 <- get(load(test_path("russo_30/allabund20.Rdata")))
-
-out <- fgeo.habitat:::torusonesp.all(
-  species = "KNEMLA",
-  hab.index20 = hab.index20,
-  allabund20 = allabund20,
-  plotdim = c(1000, 500),
-  gridsize = 20
-)
-
 # Original explanation of the error:
 # The observed quantile for habitat 2 (Obs.Quantile.2) is 0.0094, so that's <
 # 0.025, so it should get a "1" instead of "0" in the "Rep.Agg.Neut.2" column.
 
-actual <- out[colnames(out) %in% "Rep.Agg.Neut.2"]
-test_that("torusonesp.all() with spp KNEMLA returns as expected (#30, Russo)", {
-  # Only runs for those with access to private/ data
-  skip_if(dir.exists(test_path("private")))
-  
-  expect_equal(actual, 1)
-  expect_error(expect_equal(actual, 0), "not equal to 0")
-}) 
+can_access_private_data <- dir.exists(test_path("private"))
 
+if (can_access_private_data) {
+  hab.index20 <- get(load(test_path("private/russo_30/hab.index20.Rdata")))
+  allabund20 <- get(load(test_path("private/russo_30/allabund20.Rdata")))
+  
+  out <- fgeo.habitat:::torusonesp.all(
+    species = "KNEMLA",
+    hab.index20 = hab.index20,
+    allabund20 = allabund20,
+    plotdim = c(1000, 500),
+    gridsize = 20
+  )
+  
+  actual <- out[colnames(out) %in% "Rep.Agg.Neut.2"]
+  test_that("torusonesp.all() with spp KNEMLA returns as expected (#30, Russo)", {
+    # Only runs for those with access to private/ data
+    skip_if(!can_access_private_data)
+    
+    expect_equal(actual, 1)
+    expect_error(expect_equal(actual, 0), "not equal to 0")
+  }) 
+}
