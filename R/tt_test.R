@@ -88,6 +88,12 @@
 #' summarize(group_by(dfm, sp, distribution), n = sum(stem_count))
 tt_test <- function(census, sp, habitat, plotdim = NULL, gridsize = NULL) {
   stopifnot(is.data.frame(habitat))
+  if (!inherits(habitat, "fgeo_habitat")) {
+    warn(glue("
+      `habitat` isn't of class 'fgeo_habitat'. This commonly causes errors. 
+      See ?fgeo.tool::fgeo_habitat().
+    "))
+  }
 
   plotdim <- plotdim %||% fgeo.tool::extract_plotdim(habitat)
   gridsize <- gridsize %||% fgeo.tool::extract_gridsize(habitat)

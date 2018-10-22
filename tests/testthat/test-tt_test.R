@@ -70,3 +70,10 @@ test_that("fails with informative message", {
     "Uncommon `gridsize`"
   )
 })
+
+test_that("warns if habitat data isn't of class fgeo_habitat", {
+  hab_luq2 <- hab_luq
+  class(hab_luq2) <- setdiff(class(hab_luq2), "fgeo_habitat")
+  msg <- "isn't of class 'fgeo_habitat'"
+  expect_warning(tt_test(cns_luq, sp_top1_luq, hab_luq2), msg)
+})
