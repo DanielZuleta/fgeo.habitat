@@ -37,6 +37,7 @@ reference:
   - title: "Torus translation"
     contents:
       - tt_test
+      - dist_in_torus
 
   - title: "Krig soil data"
     contents:
