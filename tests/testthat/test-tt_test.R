@@ -120,3 +120,21 @@ if (can_access_private_data) {
     expect_error(expect_equal(actual, 0), "not equal to 0")
   }) 
 }
+
+
+
+# @RutujaCT #44 ------------------------------------------------------------
+
+library(fgeo.habitat)
+
+test_that("tt_test() with rutuja's data warns that `habitat` is problematic", {
+  can_access_private_data <- dir.exists(test_path("private"))
+  # Only runs for those with access to private/ data
+  skip_if_not(can_access_private_data)
+  
+  rutu <- get(load(test_path("private/RutujaCT_44/tt_test_data.Rdata")))
+  msg <- "`habitat` isn't of class 'fgeo_habitat'"
+  expect_error(
+    expect_warning(tt_test(rutu$pick, rutu$few_sp, rutu$habitat2), msg)
+  )
+})
