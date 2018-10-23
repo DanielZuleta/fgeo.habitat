@@ -1,6 +1,6 @@
 ---
 title: "Habitat-species associations"
-subtitle: "Given a number of species and habitat types in a plot, is each species significantly aggregated within habitats?"
+subtitle: "Given a number of species and habitat types in a plot, are each species significantly aggregated within habitats?"
 author: "Mauro Lepore"
 date: "`r Sys.Date()`"
 output: 
@@ -53,7 +53,7 @@ set.seed(1014)
 
 ## Load census and habitat data
 
-we will use example datasets that come with __fgeo.habitat__.
+We will use example datasets that come with __fgeo.habitat__.
 
 ```{r}
 census <- luquillo_tree6_random
@@ -100,7 +100,7 @@ unique(select(pick, sp, n))
 
 ## Overview
 
-Before testing, we can overview the relationship between species an habitats with a plot.
+Before testing, we can overview the relationship between species and habitats with a plot.
 
 ```{r}
 # Tweaks
@@ -138,13 +138,13 @@ To help you interpret the results, you can use `summary()`.
 summary(out)
 ```
 
-You may want to combine the output into a single matrix, by row-binding each element of the results-list.
+You may want to combine the output into a single matrix by row-binding each element of the results-list.
 
 ```{r}
 Reduce(rbind, out)
 ```
 
-You also can gather all results into a single dataframe -- which lets you use a wide range of tools for data manipulation and visualization.
+You also can gather all results into a single dataframe -- this lets you use a wide range of tools for data manipulation and visualization.
 
 ```{r}
 tt_df <- to_df(out)
