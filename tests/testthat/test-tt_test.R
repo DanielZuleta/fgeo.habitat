@@ -94,7 +94,8 @@ test_that("with habitat data with names gx,gy|x,y output is identical", {
 
 # Original explanation of the error:
 # The observed quantile for habitat 2 (Obs.Quantile.2) is 0.0094, so that's <
-# 0.025, so it should get a "1" instead of "0" in the "Rep.Agg.Neut.2" column.
+# 0.025, so it should get a "-1" {minus one} instead of "0" in the
+# "Rep.Agg.Neut.2" column.
 
 can_access_private_data <- dir.exists(test_path("private"))
 
@@ -111,11 +112,11 @@ if (can_access_private_data) {
   )
   
   actual <- out[colnames(out) %in% "Rep.Agg.Neut.2"]
-  test_that("torusonesp.all() with spp KNEMLA returns as expected (#30, Russo)", {
+  test_that("torusonesp.all() w/ spp KNEMLA returns as expected (#30, Russo)", {
     # Only runs for those with access to private/ data
     skip_if(!can_access_private_data)
     
-    expect_equal(actual, 1)
+    expect_equal(actual, -1)
     expect_error(expect_equal(actual, 0), "not equal to 0")
   }) 
 }
