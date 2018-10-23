@@ -226,10 +226,10 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
 #&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'><span class='fu'>library</span>(<span class='no'>fgeo.data</span>)
 
 <span class='co'># Pick alive trees, of 10 mm or more</span>
-<span class='no'>census</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>luquillo_tree6_random</span>, <span class='no'>status</span> <span class='kw'>==</span> <span class='st'>"A"</span>, <span class='no'>dbh</span> <span class='kw'>&gt;=</span> <span class='fl'>10</span>)
+<span class='no'>census</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/dplyr/topics/filter'>filter</a></span>(<span class='no'>luquillo_tree6_random</span>, <span class='no'>status</span> <span class='kw'>==</span> <span class='st'>"A"</span>, <span class='no'>dbh</span> <span class='kw'>&gt;=</span> <span class='fl'>10</span>)
 
 <span class='co'># Pick sufficiently abundant species</span>
-<span class='no'>pick</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='fu'><a href='http://dplyr.tidyverse.org/reference/tally.html'>add_count</a></span>(<span class='no'>census</span>, <span class='no'>sp</span>), <span class='no'>n</span> <span class='kw'>&gt;</span> <span class='fl'>50</span>)
+<span class='no'>pick</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/dplyr/topics/filter'>filter</a></span>(<span class='fu'><a href='http://www.rdocumentation.org/packages/dplyr/topics/tally'>add_count</a></span>(<span class='no'>census</span>, <span class='no'>sp</span>), <span class='no'>n</span> <span class='kw'>&gt;</span> <span class='fl'>50</span>)
 <span class='no'>species</span> <span class='kw'>&lt;-</span> <span class='fu'>unique</span>(<span class='no'>pick</span>$<span class='no'>sp</span>)
 
 <span class='co'># Use your habitat data or create it from elevation data</span>
@@ -292,7 +292,7 @@ but to calculate the probability for aggregated, it is 1- the value given.</p></
 <span class='no'>dfm</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/fgeo.tool/topics/to_df'>to_df</a></span>(<span class='no'>tt_lst</span>)
 
 <span class='co'># Using dplyr to summarize results by species and distribution</span>
-<span class='fu'><a href='http://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='fu'><a href='http://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>dfm</span>, <span class='no'>sp</span>, <span class='no'>distribution</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'>sum</span>(<span class='no'>stem_count</span>))</div><div class='output co'>#&gt; # A tibble: 3 x 3
+<span class='fu'><a href='http://www.rdocumentation.org/packages/dplyr/topics/summarise'>summarize</a></span>(<span class='fu'><a href='http://www.rdocumentation.org/packages/dplyr/topics/group_by'>group_by</a></span>(<span class='no'>dfm</span>, <span class='no'>sp</span>, <span class='no'>distribution</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'>sum</span>(<span class='no'>stem_count</span>))</div><div class='output co'>#&gt; # A tibble: 3 x 3
 #&gt; # Groups:   sp [?]
 #&gt;   sp     distribution     n
 #&gt;   &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt;

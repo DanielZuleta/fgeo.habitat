@@ -1,3 +1,5 @@
+^Meta$
+^doc$
 ^appveyor\.yml$
 ^inst/issues/33$
 ^.*\.Rproj$
