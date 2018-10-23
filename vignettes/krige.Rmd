@@ -92,7 +92,7 @@ soil <- soil_fake
 soil
 ```
 
-Scale soil data to make their values fall within the same range. This is not crucial but will ease visual comparison.
+Scale soil data to make their values fall within the same range. This is not crucial, but it will ease visual comparison.
 
 ```{r}
 soil_vars <- c("mg", "c", "p")
