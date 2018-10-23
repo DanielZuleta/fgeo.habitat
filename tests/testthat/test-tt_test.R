@@ -55,10 +55,12 @@ test_that("fails with informative message", {
     tt_test(cns_luq, c("SLOBER", "odd"), hab_luq),
     "odd"
   )
+  
   expect_error(
     tt_test(census = 1, c("SLOBER", "PREMON"), hab_luq),
     "is not TRUE"
   )
+  
   expect_error(tt_test(cns_luq, c("SLOBER", "PREMON"), 1), "is not TRUE")
   expect_error(tt_test(cns_luq, c("SLOBER"), hab_luq, 1), "is not TRUE")
   expect_error(
@@ -69,6 +71,14 @@ test_that("fails with informative message", {
     tt_test(cns_luq, c("SLOBER"), hab_luq, pdim_luq, 12),
     "Uncommon `gridsize`"
   )
+})
+
+test_that("warns if census it not a tree table (#33)", {
+  msg <- "Is `census` a tree table (not a stem table)? See `?tt_test()`."
+  expect_silent(suppressMessages(tt_test(cns_luq, sp_top1_luq, hab_luq)))
+  
+  stem <- fgeo.data::luquillo_stem5_random
+  expect_warning(suppressMessages(tt_test(stem, sp_top1_luq, hab_luq)))
 })
 
 test_that("warns if habitat data isn't of class fgeo_habitat", {

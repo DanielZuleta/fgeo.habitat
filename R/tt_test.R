@@ -279,7 +279,10 @@ check_tt_test <- function(census, sp, habitat, plotdim, gridsize) {
     is.numeric(gridsize),
     length(gridsize) == 1
   )
-
+  
+  msg <- "Is `census` a tree table (not a stem table)? See `?tt_test()`."
+  if (!has_tree_names(census)) warn(msg)
+  
   common_gridsize <- gridsize %in% c(5, 10, 20)
   if (!common_gridsize) {
     rlang::warn(paste("Uncommon `gridsize`:", gridsize, "\nIs this expected?"))
