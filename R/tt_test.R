@@ -280,8 +280,10 @@ check_tt_test <- function(census, sp, habitat, plotdim, gridsize) {
     length(gridsize) == 1
   )
   
+  has_tree_names <- 
+    !fgeo.base::has_table_names(fgeo.data::luquillo_tree6_1ha)(census)
   msg <- "Is `census` a tree table (not a stem table)? See `?tt_test()`."
-  if (!has_tree_names(census)) warn(msg)
+  if (has_tree_names) warn(msg)
   
   common_gridsize <- gridsize %in% c(5, 10, 20)
   if (!common_gridsize) {
