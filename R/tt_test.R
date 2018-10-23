@@ -99,7 +99,7 @@ tt_test <- function(census, sp, habitat, plotdim = NULL, gridsize = NULL) {
   gridsize <- gridsize %||% fgeo.tool::extract_gridsize(habitat)
   inform_gridsize_plotdim(gridsize, plotdim)
 
-  habitat <- sanitize_habitat_if_necessary(habitat)
+  habitat <- sanitize_habitat_names_if_necessary(habitat)
   check_tt_test(census, sp, habitat, plotdim, gridsize)
 
   abundance <- abund_index(census, plotdim, gridsize)
@@ -251,7 +251,7 @@ torusonesp.all <- function(species, hab.index20, allabund20, plotdim, gridsize) 
   return(GrLsEq)
 }
 
-sanitize_habitat_if_necessary <- function(habitat) {
+sanitize_habitat_names_if_necessary <- function(habitat) {
   tryCatch(
     fgeo.base::check_crucial_names(habitat, c("x", "y")),
     error = function(e) rename_to_xy(habitat)
