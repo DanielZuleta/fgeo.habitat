@@ -1,6 +1,6 @@
 ---
 title: "Habitat-species associations"
-subtitle: "Given a number of species and habitat types in a plot, are each species significantly aggregated within habitats?"
+subtitle: "Given a number of tree species and habitat types in a plot, are species significantly aggregated within habitats?"
 author: "Mauro Lepore"
 date: "`r Sys.Date()`"
 output: 

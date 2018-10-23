@@ -242,7 +242,7 @@
 <a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt;  9   283   288  0.45  0.45  6.7 </span></a>
 <a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt; 10   294   181  0.7   2.45  7.1 </span></a>
 <a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">#&gt; # ... with 20 more rows</span></a></code></pre></div>
-<p>Scale soil data to make their values fall within the same range. This is not crucial but will ease visual comparison.</p>
+<p>Scale soil data to make their values fall within the same range. This is not crucial, but it will ease visual comparison.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">soil_vars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"mg"</span>, <span class="st">"c"</span>, <span class="st">"p"</span>)</a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">soil_scaled &lt;-<span class="st"> </span><span class="kw">modify_at</span>(soil_fake, <span class="dt">.at =</span> soil_vars, scale)</a></code></pre></div>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># krig() can take multiple soil variables.</span></a>
