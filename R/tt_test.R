@@ -56,10 +56,10 @@
 #' Note that to calculate the probability for repelled, it is the value given,
 #' but to calculate the probability for aggregated, it is 1 - the value given.
 #' 
-#' Values of the Obs.Quantile < 0.025 means that the species is repelled from
-#' that habitat, while values of the Obs.Quantile > 0.975 means that the
+#' Values of the `Obs.Quantile` < 0.025 means that the species is repelled from
+#' that habitat, while values of the `Obs.Quantile` > 0.975 means that the
 #' species is aggregated on that habitat.
-#'
+#' 
 #' @export
 #'
 #' @examples
