@@ -203,12 +203,15 @@ The sum of the <code>Gr.Hab.x</code>, <code>Ls.Hab.x</code>, and <code>Eq.Hab.x<
 equals the number of 20 x20 quads in the plot.
 The <code>Rep.Agg.Neut</code> columns for each habitat indicate whether the species is
 significantly repelled (-1), aggregated (1), or neutrally distributed (0) on
-the habitat in question.
-The probabilities associated with the test for whether these patterns are
+the habitat in question.</p></li>
+</ul>
+    <p>The probabilities associated with the test for whether these patterns are
 statistically significant are in the <code>Obs.Quantile</code> columns for each habitat.
 Note that to calculate the probability for repelled, it is the value given,
-but to calculate the probability for aggregated, it is 1- the value given.</p></li>
-</ul>
+but to calculate the probability for aggregated, it is 1 - the value given.</p>
+<p>Values of the Obs.Quantile &lt; 0.025 means that the species is repelled from
+that habitat, while values of the Obs.Quantile &gt; 0.975 means that the
+species is aggregated on that habitat.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

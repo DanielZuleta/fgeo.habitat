@@ -63,11 +63,16 @@ equals the number of 20 x20 quads in the plot.
 The \code{Rep.Agg.Neut} columns for each habitat indicate whether the species is
 significantly repelled (-1), aggregated (1), or neutrally distributed (0) on
 the habitat in question.
+}
+
 The probabilities associated with the test for whether these patterns are
 statistically significant are in the \code{Obs.Quantile} columns for each habitat.
 Note that to calculate the probability for repelled, it is the value given,
-but to calculate the probability for aggregated, it is 1- the value given.
-}
+but to calculate the probability for aggregated, it is 1 - the value given.
+
+Values of the Obs.Quantile < 0.025 means that the species is repelled from
+that habitat, while values of the Obs.Quantile > 0.975 means that the
+species is aggregated on that habitat.
 }
 
 \examples{

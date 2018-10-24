@@ -106,6 +106,10 @@ test_that("with habitat data with names gx,gy|x,y output is identical", {
 # The observed quantile for habitat 2 (Obs.Quantile.2) is 0.0094, so that's <
 # 0.025, so it should get a "-1" {minus one} instead of "0" in the
 # "Rep.Agg.Neut.2" column.
+# Values of the Obs.Quantile< 0.025 means that the species is repelled from
+# that habitat, while values of the Obs.Quantile> *0.975* means that the
+# species is aggregated on that habitat.
+# See https://github.com/forestgeo/fgeo.habitat/issues/30#issuecomment-432466491
 
 can_access_private_data <- dir.exists(test_path("private"))
 
